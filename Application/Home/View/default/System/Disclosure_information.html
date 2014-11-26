@@ -1,0 +1,18 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="/include/taglib.jsp"%>
+    <ul class="xxpl xxpl_tz">
+<%-- <s:if test="%{#request.list !=null && #request.list.size()>0}">--%>
+      <s:iterator value="#request.list" id="bean"  status="s">
+      <s:if test="#bean.visiable== 1 && #bean.auditStatus==3">
+<%-- <li class="" style="width:208px;height:300px;">--%>
+		<li class="<s:if test='#s.count == 1'>selected</s:if>">
+		<a href="${bean.imgPath}" target="_blank">
+              <shove:img  src="${bean.imgPath}" title="${bean.name}" defaulImg=" "></shove:img>
+        </a>
+        </li>
+      </s:if>
+      <s:else>
+      </s:else>
+      </s:iterator>
+<%-- </s:if>--%>
+</ul>

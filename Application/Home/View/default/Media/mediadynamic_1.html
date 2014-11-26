@@ -1,0 +1,18 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/include/taglib.jsp"%>
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+     <div class="lbox">
+     <h2>媒体动态</h2> 
+     <div class="dongtai" style="padding-bottom:30px">
+        <ul>
+          	<s:iterator value="#request.mediaList" var="bean">
+               <li><a href="frontMedialinkId.htm?id=${bean.id }" title="${bean.title }" ><shove:sub value="title" size="19" /></a></li>
+           	</s:iterator>
+        </ul>
+      </div>
+      </div>
+     <!--中间右侧 结束-->
+

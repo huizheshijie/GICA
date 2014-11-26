@@ -1,0 +1,418 @@
+[ 2014-11-26T09:17:32+08:00 ] 192.168.0.129 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `gica_hooks` [ RunTime:0.0040s ]
+SQL: SELECT `name`,`addons` FROM `gica_hooks`  [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `gica_addons` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('ReturnTop')  [ RunTime:0.0110s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('Attachment','SocialComment')  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('EditorForAdmin')  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('SiteStat','SystemInfo','DevTeam')  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `gica_addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.052003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.052003s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T09:49:12+08:00 ] 192.168.0.119 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T09:54:18+08:00 ] 192.168.0.129 /index.php?s=/Home/Borrow/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T09:54:19+08:00 ] 192.168.0.129 /index.php?s=/Home/Borrow/papersinfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T09:54:21+08:00 ] 192.168.0.129 /index.php?s=/Home/Borrow/circulation.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:14+08:00 ] 192.168.0.129 /index.php?s=/Home/Borrow/circulation.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:16+08:00 ] 192.168.0.129 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:12:17+08:00 ] 192.168.0.129 /index.php?s=/Home/Finance/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:19+08:00 ] 192.168.0.129 /index.php?s=/Home/Borrow/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:27+08:00 ] 192.168.0.129 /index.php?s=/Home/User/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:28+08:00 ] 192.168.0.129 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:12:28+08:00 ] 192.168.0.129 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:38:48+08:00 ] 192.168.0.128 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:38:59+08:00 ] 192.168.0.128 /index.php?s=/Home/Finance/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:39:17+08:00 ] 192.168.0.128 /index.php?s=/Home/Borrow/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:39:21+08:00 ] 192.168.0.128 /index.php?s=/Home/Borrow/papersinfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:39:36+08:00 ] 192.168.0.128 /index.php?s=/Home/Borrow/circulation.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:00+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:01+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.013001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:13+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:16+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:17+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:20+08:00 ] 192.168.0.128 /index.php?s=/Home/User/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:20+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:38+08:00 ] 192.168.0.128 /index.php?s=/Home/User/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:40+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:40+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:52+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:40:55+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:40:55+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:41:03+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:41:06+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:41:06+08:00 ] 192.168.0.128 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:41:17+08:00 ] 192.168.0.128 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0030s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:41:50+08:00 ] 192.168.0.128 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+
+[ 2014-11-26T10:42:47+08:00 ] 192.168.0.128 /index.php?s=/Home/Borrow/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0010s ]
+
+[ 2014-11-26T10:47:08+08:00 ] 192.168.0.128 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `gica_config` [ RunTime:0.0020s ]
+SQL: SELECT `type`,`name`,`value` FROM `gica_config` WHERE `status` = 1  [ RunTime:0.0000s ]
+

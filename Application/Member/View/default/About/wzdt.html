@@ -1,0 +1,82 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link href="css/cjwt.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+  </head>
+  
+  <body>
+  		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		
+		<div class="main_kan_new" style="min-height:0;">
+  <div id="wrapper">
+    <div class="title-sub">
+      <h2 id="htop">网站地图</h2>
+      <b class="line"></b> </div>
+    <div class="content_post">
+         
+    <div class="wzdt_font">
+        <h4>我要理财</h4>
+        <a href="finance.htm?m=1" target="_blank">全部借款列表</a><i>|</i>
+        <a href="finance.htm?m=4" target="_blank">机构担保</a><i>|</i>
+        <a href="newhelp.htm" target="_blank">理财帮助</a>
+    </div>
+    
+    <div class="wzdt_font wzdt_font1">
+        <h4>我要融资</h4>
+        <a href="borrowapply.htm" target="_blank">借款申请</a><i>|</i>
+        <a href="borrowhelp.htm" target="_blank">借款帮助</a><i>|</i>
+        <a href="finance.htm?m=5" target="_blank">成功案例</a>
+    </div>
+    
+    <div class="wzdt_font">
+        <h4>融资谷帮助</h4>
+        <a href="home.do" target="_blank">我的融资谷</a><i>|</i>
+        <a href="usquestion.htm" target="_blank">帮助中心</a><i>|</i>
+        <a href="forumquestionall.htm" target="_blank">融资谷回答</a><i>|</i>
+       	<a href="safety.htm" target="_blank">安全保障</a>
+        
+    </div>
+    
+    <div class="wzdt_font wzdt_font1">
+        <h4>关于融资谷</h4>
+        <a href="gywm.htm" target="_blank">关于我们</a><i>|</i>
+        <a href="zxns.htm" target="_blank">加入我们</a><i>|</i>
+        <a href="initNews.htm" target="_blank">融资谷动态</a>
+    </div>
+    
+    <div class="wzdt_font">
+        <h4>其他</h4>
+        <a href="getMessageBytypeId.htm?typeId=5" target="_blank">网站协议</a><i>|</i>
+        <a href="frontMedialinkId.htm?id=1" target="_blank">媒体报道</a><i>|</i>
+        <a href="forgetpassword.htm" target="_blank">找回密码</a><i>|</i>
+        <a href="mailto:kefu@ubanks.cn" target="_blank">客服邮箱</a><i>|</i>
+        <a href="linkship.htm" target="_blank">友情链接</a>
+    </div>
+    
+      
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+		
+		
+		
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%--底部footer 结束--%>
+  </body>
+</html>

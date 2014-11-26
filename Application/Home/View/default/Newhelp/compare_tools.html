@@ -1,0 +1,501 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>比例统计</title>
+		<style type="text/css">
+</style>
+		<script type="text/javascript" src="jquerbar/jquery-1.8.2.min.js">
+</script>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/cjwt.css" type="text/css"></link>
+		<script>
+//左侧Javascript代码
+$(function() {
+		$('#container').highcharts( {
+			chart : {
+				type : 'column'
+			},
+			title : {
+				text : ''
+			},
+
+			xAxis : {
+				categories : [ '融资谷理财', '银行活期', '货币基金' ]
+			},
+			yAxis : {
+				min : 0,
+				title : {
+					text : '单位/(元)'
+				}
+			},
+
+		legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '{point.y:.1f}'
+        },
+			series : [ {
+				name : '收益金額',
+				data : [ 0, 0, 0 ],
+				dataLabels: {
+                enabled: true,
+                color: 'black',
+                align: 'center',
+                x: 4,
+                y: 12,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: '',
+                    textShadow: '0 0 4px black'
+                }
+            }
+
+			} ]
+		});
+	});
+</script>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<%--banner--%>
+		<%-- banner end--%>
+		<%--收益计算器--%>
+		<div class="main_kan_new" style="min-height: 0;">
+			<div id="wrapper">
+				<div class="title-sub">
+					<h2 id="htop">
+						收益对比
+					</h2>
+					<b class="line"></b>
+				</div>
+				<div class="content_post">
+					<div class="bid-opt">
+						<ul class="items">
+							<li class="txt">
+								投入金额：
+							</li>
+							<li>
+								<input type="text" class="input" value="" id="money">
+								<label>
+									元
+								</label>
+							</li>
+							<li class="tsxx">
+								<span id="span" class="tip error" style="display: none;"><i
+									class="icons reg-error"></i>该数值须为不小于200元的整数</span>
+							</li>
+						</ul>
+						<div class="clearfix" style="display: block">
+
+
+							<ul class="items">
+								<li class="txt">
+									投入时长：
+								</li>
+								<li>
+									<select id="repayType">
+										<option value="10">
+											10
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="30">
+											30
+										</option>
+										<option value="60">
+											60
+										</option>
+										<option value="90">
+											90
+										</option>
+										<option value="120">
+											120
+										</option>
+									</select>
+									<label>
+										天
+									</label>
+									<span class="tip" style="display: none;">增加您的资金利用率</span>
+								</li>
+							</ul>
+
+
+							<ul style="height: 40px" class="items">
+								<li class="txt">
+									投入方式：
+								</li>
+								<li id="reCastBox" class="checkbox-list">
+									<ul>
+										<li>
+											<input name="" type="checkbox" checked="checked" value="1"
+												id="futou" />
+											复投
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="items" style="margin-bottom: 10px;">
+								<li class="txt">
+									对比产品：
+								</li>
+								<li>
+									<ul class="checkbox-list">
+										<li>
+											<input name="" type="checkbox" checked="checked" value="2"
+												id="rzgli" />
+											融资谷理财
+										</li>
+										<li>
+											<input name="" type="checkbox" checked="checked" value="3"
+												id="bankh" />
+											银行活期
+										</li>
+										<%-- <li>
+											<input name="" type="checkbox" checked="checked" value="4" />
+											银行定期
+										</li> --%>
+										<li>
+											<input name="" type="checkbox" checked="checked" value="5"
+												id="rice" />
+											货币基金
+										</li>
+										<%-- <li>
+											<input name="" type="checkbox" checked="checked" value="6"
+												id="licai" />
+											银行理财
+										</li> --%>
+									</ul>
+								</li>
+
+							</ul>
+						</div>
+						<div class="btn-submit">
+							<a href="javascript:void(0);" class="gbtn" id="calBt">计算</a>
+							<a href="comparetools.do" class="gbtn gbtn-gray">重置</a>
+						</div>
+					</div>
+					<div class="jsq_right">
+						<div class="jsqyb_con1">
+							<h2>
+								对比结果
+							</h2>
+							<p class="dqsy">
+								（单位）元
+							</p>
+							<div class="sydbt" id="placeholder">
+								<div id="container" style="width: 320px; height: 200px"></div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<script>
+function cateGories(licaiMoney, bankMoney, huobiMoney) {
+	var licai = licaiMoney + '';
+	var bank = bankMoney + '';
+	var huobi = huobiMoney + '';
+	var reg=/^[1-9]+[0-9]*]*$/ ;//判断数字是否为整数
+	var licairich = 0.0;
+	var bankrich = 0.0;
+	var huobirich =0.0;
+	if(reg.test(licai)){
+		licairich=licaiMoney;
+	}else{
+	    licai = licai.substring(0, licai.indexOf('.') + 3);
+	    licairich=parseFloat(licai);
+	}
+	if(reg.test(bank)){
+		bankrich=bankMoney;
+	}else{
+	bank = bank.substring(0, bank.indexOf('.') + 3);
+	   bankrich=parseFloat(bank);
+	}
+	if(reg.test(bank)){
+		bankrich=huobiMoney;
+	}else{
+		huobi = huobi.substring(0, huobi.indexOf('.') + 3);
+		huobirich=parseFloat(huobi);
+	}
+$('#container').highcharts( {
+			chart : {
+				type : 'column'
+			},
+			title : {
+				text : ''
+			},
+
+			xAxis : {
+				categories : [ '融资谷理财', '银行活期', '货币基金' ]
+			},
+			yAxis : {
+				min : 0,
+				title : {
+					text : '单位/(元)'
+				},
+				labels : {  
+	                formatter : function() {//设置纵坐标值的样式  
+	                 return this.value;  
+	                }  
+	              }   
+	           
+			},
+
+			legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '{point.y:.1f}',
+        },
+			series : [ {
+				name : '收益金額',
+				data : [ licairich, bankrich, huobirich ],
+				dataLabels: {
+                enabled: true,
+                color: 'black',
+                align: 'center',
+                x: 4,
+                y: 5,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: '',
+                    textShadow: '0 0 8px black'
+                }
+            }
+
+			} ]
+		});
+	}
+</script>
+		<script>
+var licaiMoney = 0.0;//融资谷理财
+var bankMoney = 0.0;//银行活期
+var huobiMoney = 0.0;//货币基金
+//var bankliCai = 0.0;//银行理财
+$("#calBt").click(function() {
+	var money = $('#money').val();
+	var repayType = $('#repayType').val();
+	//alert(1000 * Math.pow(1 + (0.186 / 12), 4) - 1000);
+		//alert(repayType);
+		if (money == null || money < 200) {
+			$('#span').show();
+			return false;
+		}
+		licaiMoney = rizgLiCai(repayType, money);
+		bankMoney = bankH(repayType, money);
+		huobiMoney = riceCal(repayType, money);
+
+		//bankliCai = bankLiCai(repayType, money);
+		//alert(licaiMoney);
+		//alert(bankMoney);
+		//alert(huobiMoney);
+		cateGories(licaiMoney, bankMoney, huobiMoney);
+	});
+</script>
+		<%-- 融资谷理财开始    start --%>
+		<script>
+var licaiMoney = 0.0;
+function rizgLiCai(repayType, money) {
+	//单选融资谷理财--------------融资谷理财
+	if ($('#rzgli').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			licaiMoney = money * (0.13 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			licaiMoney = money * (0.14 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			licaiMoney = money * (0.15 / 360) * repayType;
+			//alert(licaiMoney);
+		}
+		//按月计算
+		if (repayType == 30) {
+			licaiMoney = money * (0.18 / 12) * 1;
+		}
+		if (repayType == 60) {
+			licaiMoney = money * (0.186 / 12) * 2;
+		}
+		if (repayType == 90) {
+			licaiMoney = money * (0.192 / 12) * 3;
+		}
+		if (repayType == 120) {
+			licaiMoney = money * (0.198 / 12) * 4;
+		}
+	}
+
+	//选择复投方式以及融资股理财
+	if ($('#rzgli').attr('checked') == 'checked'
+			&& $('#futou').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			licaiMoney = money * (0.13 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			licaiMoney = money * (0.14 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			licaiMoney = money * (0.15 / 360) * repayType;
+			//alert(licaiMoney);
+		}
+		//按月计算大于1个月有复投方式
+		if (repayType == 30) {
+			licaiMoney = money * (0.18 / 12) * 1;
+		}
+
+		if (repayType == 60) {
+			licaiMoney = money * Math.pow(1 + (0.186 / 12), 2) - money;
+		}
+		if (repayType == 90) {
+			licaiMoney = money * Math.pow(1 + (0.192 / 12), 3) - money;
+		}
+		if (repayType == 120) {
+			licaiMoney = money * Math.pow(1 + (0.198 / 12), 4) - money;
+		}
+	}
+	return licaiMoney;
+}
+</script>
+		<%-- 银行活期开始   start --%>
+		<script>
+var bankMoney = 0.0;
+function bankH(repayType, money) {
+	//复投不投算法一样
+	//单选银行活期-----------------银行活期
+	if ($('#bankh').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		//按月计算
+		if (repayType == 30) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 60) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 90) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 120) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+	}
+
+	//选择复投方式以及银行活期
+	if ($('#bankh').attr('checked') == 'checked'
+			&& $('#futou').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			bankMoney = money * (0.0035 / 360) * repayType;
+		}
+		//按月计算大于1个月有复投方式
+		if (repayType == 30) {
+			bankMoney = money * (0.0035 / 12) * 1;
+		}
+
+		if (repayType == 60) {
+			bankMoney = money * Math.pow(1 + (0.0035 / 12), 2) - money;
+		}
+		if (repayType == 90) {
+			bankMoney = money * Math.pow(1 + (0.0035 / 12), 3) - money;
+		}
+		if (repayType == 120) {
+			bankMoney = money * Math.pow(1 + (0.0035 / 12), 4) - money;
+		}
+	}
+	return bankMoney;
+}
+</script>
+		<%--货币基金开始  start  --%>
+		<script>
+var rice = 0.0;
+function riceCal(repayType, money) {
+	if ($('#rice').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		//按月计算
+		if (repayType == 30) {
+			rice = money * (0.0448 / 12) * 1;
+		}
+		if (repayType == 60) {
+			rice = money * (0.0448 / 12) * 2;
+		}
+		if (repayType == 90) {
+			rice = money * (0.0448 / 12) * 3;
+		}
+		if (repayType == 120) {
+			rice = money * (0.0448 / 12) * 4;
+		}
+	}
+
+	//选择复投方式以及货币基金
+	if ($('#rice').attr('checked') == 'checked'
+			&& $('#futou').attr('checked') == 'checked') {
+		//按天计算
+		if (repayType == 10) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		if (repayType == 15) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		if (repayType == 20) {
+			rice = money * (0.0448 / 360) * repayType;
+		}
+		//按月计算
+		if (repayType == 30) {
+			rice = money * (0.0448 / 12) * 1;
+		}
+		if (repayType == 60) {
+			rice = money * Math.pow(1 + (0.0448 / 12), 2) - money;
+		}
+		if (repayType == 90) {
+			rice = money * Math.pow(1 + (0.0448 / 12), 3) - money;
+		}
+		if (repayType == 120) {
+			rice = money * Math.pow(1 + (0.0448 / 12), 4) - money;
+		}
+	}
+	return rice;
+}
+</script>
+		<%--bottom--%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%-- bottom end--%>
+	</body>
+	<script type="text/javascript" src="jquerbar/highcharts.js">
+</script>
+	<script type="text/javascript" src="jquerbar/exporting.js">
+</script>
+</html>

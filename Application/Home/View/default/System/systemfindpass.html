@@ -1,0 +1,64 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>融资谷网贷</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox/Gray/jbox.css" />
+		<link rel="stylesheet" type="text/css" href="css/fancybox.css" />
+
+
+		<jsp:include page="/include/head.jsp"></jsp:include>
+	</head>
+
+	<body>
+		<jsp:include page="/include/top.jsp"></jsp:include>
+
+
+		<div class="nymain">
+			<div class="bigbox">
+				<div class="til">
+					登陆密码找回
+				</div>
+				<div class="sqdk"
+					style="padding-top: 55px; padding-bottom: 80px; padding-left: 300px; background: none;">
+
+					<div class="logintab" id="ok">
+<%--						<table width="100%" border="0" cellspacing="0" cellpadding="0">--%>
+<%--							<tr>--%>
+								<div align="right"  style="width:100px;float:left;">
+										<a href="forgetpassword.htm"><img src="images/emailpass.png" alt="" /><br />邮箱验证找回密码 </a>
+								</div>
+<%--							</tr>--%>
+<%--							<tr>--%>
+								<div align="left" style="width:100px;float:right;">
+									<a href="findpassbyphone.htm"><img src="images/phonepass.png" alt="" /><br />手机验证找回密码 </a>
+								</div>
+<%--							</tr>--%>
+<%--						</table>--%>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<script type="text/javascript" src="script/nav-zh.js"></script>
+		<script type="text/javascript" src="css/popom.js"></script>
+
+		<script>
+	$(function() {
+		//样式选中
+		$("#zh_hover").attr('class', 'nav_first');
+		$("#zh_hover div").removeClass('none');
+	});
+</script>
+
+
+
+	</body>
+</html>

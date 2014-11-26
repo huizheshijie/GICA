@@ -1,0 +1,141 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+		<style type="text/css">
+ul,li {
+	margin: 0;
+	padding: 0
+}
+
+#scrollDiv {
+	height: 182px;
+	overflow: hidden
+}
+
+.load {
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+</style>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<div class="nymain">
+			<div class="kfbox">
+				<div class="leftbox">
+					<h3>
+						关于我们
+					</h3>
+					<div class="boxmain">
+						<ul>
+							<li>
+								<a href="gywm.htm">公司介绍</a>
+							</li>
+
+							<li>
+								<a href="bghj.htm">办公环境</a>
+							</li>
+
+							<%--
+							<li>
+								<a href="zfsm.htm">资费说明</a>
+							</li>
+							--%>
+							<li>
+								<a href="hzhb.htm">合作伙伴</a>
+							</li>
+							<li>
+								<a href="zxns.htm">招贤纳士</a>
+							</li>
+							<li class="last">
+								<a href="lxwm.htm">联系我们</a>
+							</li>
+							<li class="last">
+								<a href="mtbd.htm" style="color: #166cb2;">媒体报道</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="showcontent" class="rightbox">
+					
+						<s:if test="pageBean.page==null || pageBean.page.size==0">
+							<tr align="center">
+								<td colspan="10">
+									暂无数据
+								</td>
+							</tr>
+						</s:if>
+						<s:else>
+							<s:iterator value="pageBean.page" var="bean">
+							<ul class="a_mtbd_list">
+								<li>
+									<div class="left">
+										<a href="frontMediaaa.htm?id=${bean.id}">
+										<img src="${bean.imgPaths}" width="180" height="80" />
+										</a>
+									</div>
+									<div class="right">
+										<div class="title">
+											<span>
+												<s:date name="#bean.publishTimes"
+													format="yyyy-MM-dd HH:mm:ss" />
+											</span>
+											<h4>
+												<a href="frontMediaaa.htm?id=${bean.id}"
+													style="color: #166cb2; width: 50px; overflow: hidden;">
+													<shove:sub value="titles" size="23" suffix="..." />
+												</a>
+											</h4>
+										</div>
+										<p>
+											<a href="frontMediaaa.htm?id=${bean.id}" title="报道正文">
+											${bean.contents }
+<%--												<shove:sub value="contents" size="1000"/>--%>
+											</a>
+										</p>
+									</div>
+
+								</li>
+								</ul>
+							</s:iterator>
+						</s:else>
+					
+					<div class="fenye">
+						<div class="fenyemain">
+							<shove:page url="mtbd.htm" curPage="${pageBean.pageNum}"
+								showPageCount="8" pageSize="${pageBean.pageSize }"
+								theme="number" totalCount="${pageBean.totalNum}">
+							</shove:page>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%--底部footer 结束--%>
+		<script type="text/javascript">
+	$("#jumpPage").click(function() {
+		var curPage = $("#curPageText").val();
+		//alert(curPage);
+			if (isNaN(curPage)) {
+				alert("输入格式不正确!");
+				return;
+			}
+			//$("#form").submit();
+			window.location.href = "mtbd.htm?curPage=" + curPage + "";
+		});
+</script>
+	</body>
+</html>

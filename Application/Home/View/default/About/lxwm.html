@@ -1,0 +1,211 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+        <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+		<style type="text/css">
+ul, li {
+	margin: 0;
+	padding: 0
+}
+#scrollDiv {
+	height: 182px;
+	overflow: hidden
+}
+.load {
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+.iw_poi_title {
+	color: #CC5522;
+	font-size: 14px;
+	font-weight: bold;
+	overflow: hidden;
+	padding-right: 13px;
+	white-space: nowrap
+}
+.iw_poi_content {
+	font: 12px arial, sans-serif;
+	overflow: visible;
+	padding-top: 4px;
+	white-space: -moz-pre-wrap;
+	word-wrap: break-word
+}
+</style>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<div class="nymain" >
+			<div class="kfbox">
+				<div class="leftbox">
+					<h3>
+						关于我们
+					</h3>
+					<div class="boxmain">
+						<ul>
+							<li>
+								<a href="gywm.htm" >公司介绍</a>
+							</li>
+							
+							<li>
+								<a href="bghj.htm">办公环境</a>
+							</li>
+							
+							<%--
+							<li>
+								<a href="zfsm.htm">资费说明</a>
+							</li>
+							--%>
+							<li>
+								<a href="hzhb.htm" >合作伙伴</a>
+							</li>
+							<li>
+								<a href="zxns.htm">招贤纳士</a>
+							</li>
+							<li class="last">
+								<a href="lxwm.htm" style="color: #166cb2;">联系我们</a>
+							</li>
+							<li class="last">
+								<a href="mtbd.htm">媒体报道</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				 <div id="showcontent" class="rightbox" >
+      <h4>联系我们</h4>
+      <div class="lxwm_con">
+        <h4> 如果您在使用融资谷（<a href="http://www.ubanks.cn">www.ubanks.cn</a>）的过程中有任何疑问、意见或建议，请您通过以下联系方融资谷式与工作人员取得联系。 </h4>
+        <div class="lx_zxkf">
+          <p><span >客服电话：</span>4000-911-806</p>
+          <p><span >在线客服-QQ：</span><a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzkzODAyNjA2MV8xNjQ3MTlfNDAwMDkxMTgwNl8yXw">4000911806</a></p>
+          <p><span >官方投资群：</span>264159783</p>
+          <p><span>服务时间：</span>09:30-17:30</p>
+          <p><span>客服邮箱：</span><a target="_blank" href="mailto:kefu@ubanks.cn">kefu@ubanks.cn</a> </p>
+          <p><span>投诉邮箱：</span><a target="_blank" href="mailto:kefu@ubanks.cn">kefu@ubanks.cn</a> </p>
+        </div>
+        
+         <div class="lx_gsdz">
+          <h4>公司地址： </h4>
+          <%--<p>深圳前海融资谷电子商务有限公司</p>
+          <p>深圳市福田区车公庙财富广场A座10楼</p>
+          <p><a href="#">查看地图</a></p>
+          <p>邮编：518040</p> --%>
+          <div style="width:680px;height:450px;border:#ccc solid 1px;margin-bottom:20px;" id="dituContent"></div>
+        </div> 
+        
+      </div>
+    </div>
+		</div>
+		</div>
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%--底部footer 结束--%>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(114.032664,22.544507);//定义一个中心点坐标
+        map.centerAndZoom(point,17);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+	map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+    
+    //标注点数组
+    var markerArr = [{title:"深圳前海融资谷电子商务有限公司",content:"深圳市福田区车公庙财富广场A座10楼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：4000-911-806",point:"114.0327|22.543806",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+			var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+			var iw = createInfoWindow(i);
+			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+			marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+			
+			(function(){
+				var index = i;
+				var _iw = createInfoWindow(i);
+				var _marker = marker;
+				_marker.addEventListener("click",function(){
+				    this.openInfoWindow(_iw);
+			    });
+			    _iw.addEventListener("open",function(){
+				    _marker.getLabel().hide();
+			    })
+			    _iw.addEventListener("close",function(){
+				    _marker.getLabel().show();
+			    })
+				label.addEventListener("click",function(){
+				    _marker.openInfoWindow(_iw);
+			    })
+				if(!!json.isOpen){
+					label.hide();
+					_marker.openInfoWindow(_iw);
+				}
+			})()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+    
+    initMap();//创建和初始化地图
+</script>
+	</body>
+</html>

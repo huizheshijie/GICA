@@ -1,0 +1,37 @@
+/* ------------------------------
+css for www.rzg888.com Local television
+design by xiehuipeng & 972875496@qq.com
+date 2014-05-07
+---------------------------- */
+
+
+
+/* 首页 */
+.banner_box{width: 100%;height:391px;overflow:hidden;position:relative;}
+.reg_box{width:227px;height:224px;overflow:hidden;position:absolute;z-index:9;right:0;top:150px;padding:38px 26px 0 22px;}
+.reg_box .bj{width:275px;height:262px;overflow:hidden;background:#000;filter:alpha(opacity=20);-moz-opacity:0.2;opacity:0.2;position:absolute;z-index:10;right:0;top:0;}
+.reg_box h4{z-index:11;color:#fff;position:absolute;font-family:"微软雅黑";font-size:22px;font-weight:normal;}
+.reg_box .sy_font1{font-family:"微软雅黑";font-size:24px;color:#ff8a00;position:absolute;z-index:11;top:75px;}
+.reg_box .sy_font2{font-family:"微软雅黑";font-size:14px;color:#fff;position:absolute;z-index:11;top:107px;}
+.reg_box .sy_font2 b{font-size:18px;color:#ff8a00;font-weight:normal;}
+.reg_box .ljzc{width:223px;height:46px;background:#ff8a00;display:block;position:absolute;z-index:11;text-align:center;top:143px;color:#fff;font-family:"微软雅黑";font-size:24px;line-height:46px;}
+.reg_box .ljdl{position:absolute;z-index:11;text-align:right;top:202px;font-family:"微软雅黑";font-size:14px;color:#fff;width:223px;display:block;}
+
+.hblb li{float:left;width:1440;height:391px;text-align:left}
+.hblb li img{width:1440;height:391px;}
+.banner_num{width:120px;height:17px;overflow:hidden;position:absolute;bottom:10px;left:50%;z-index:5;}
+.banner_num li{width:17px;height:17px;background:url(../img/hb_an.png) no-repeat;float:left;margin:0 5px; cursor:pointer;}
+.banner_num li.on{background:url(../img/hb_an.png) no-repeat -30px  0 ;}
+
+/* con1 */
+.i_con1,.i_con2{width:1000px;overflow:hidden;margin:30px auto 0;height:246px;}
+.icon1_left{width:700px;overflow:hidden;float:left;}
+.i_tzlc{width:183px;float:left;overflow:hidden;height:216px;padding:15px 25px;}
+.i_tzlc .pic ,.i_tzlc .pic img{width:121px;height:121px;margin:0 auto;}
+.i_tzlc .font{font-family:"微软雅黑";font-size:14px;line-height:20px;margin-top:15px;} 
+
+.icon1_right{width:280px;float:right;height:246px;background:#f4f4f4;}
+.wzgg_title{height:20px;margin:20px 0 0 16px;}
+.icon1_right .font{font-family:"微软雅黑";font-size:14px;line-height:30px;width:240px;height:175px;overflow:hidden;margin:10px 0 0 20px;}
+.icon1_right .font li{background:url(../img/tb_h.jpg) no-repeat 0 12px;text-indent:15px;}
+

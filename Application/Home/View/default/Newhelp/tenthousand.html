@@ -1,0 +1,283 @@
+	<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>大家都是万元户_融资谷</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/scroll.js">
+	
+</script>
+		<script type="text/javascript">
+	$(document).ready(function() {
+		$('.list_lh li:even').addClass('lieven');
+	})
+	$(function() {
+		$("div.list_lh").myScroll( {
+			speed : 40, //数值越大，速度越慢
+			rowHeight : 68
+		//li的高度
+				});
+	});
+</script>
+
+	</head>
+	<body style="overflow-x: hidden;">
+
+		<%--header--%>
+		<jsp:include page="/include/top.jsp"></jsp:include>
+		<%-- header end--%>
+
+		<%--banner--%>
+		<div class="wyh_banner">
+			<img src="images/img/wyh_banner.jpg" width="1440" height="501" />
+		</div>
+		<%-- banner end--%>
+
+		<div class="wyh_box">
+			<div class="wyh_box1">
+				<div class="wyh_left">
+					<div class="wyhdyl_con">
+						<h4>
+							万元户的由来：
+						</h4>
+						<p>
+							万元户，顾名思义是指存款或者收入在10000元以上的家庭民户。万元户这个词是在20世纪70年代末产生的。那个年代万元户是个相当了得的人家。“万元户年代”的1万元可以买到很多的东西了。那时候米价0.14元，肉价0.95元，走亲戚送礼2元左右，压岁钱0.1-0.2元，1万元可以买很多东西了。并且那个年代存款有1000元的就比较少了。工人工资一般是每个月28元左右。家庭收入在10000元以上的，称之为万元户。
+						</p>
+					</div>
+
+					<div class="wyhdyl_con">
+						<h4>
+							敬融资谷的万元户：
+						</h4>
+						<p>
+							回想八十年代的万元户，那是何等的荣耀、何等的光鲜、何等的富裕啊！那时一个家庭勤劳致富，每年收入一万元的话，那是要戴大红花的，县里的主席台甚至市里的主席台都是有座位的。他们的名字在当地一点也不亚于现在的流行歌星和体育明星。社会各界人士见到他们都肃然起敬，羡慕的不得了。在此时，平台以当年的理念加以改良导入到我们的这次活动，提出让一部份投资者先获得更高的收益的思想，还有新增的万元英雄榜系统，大家一起重温万元户的荣耀吧！
+						</p>
+					</div>
+
+					<div class="fgzp_con">
+						<img src="images/img/wyh_fgzp.jpg" width="604" height="313" />
+					</div>
+
+
+				</div>
+				<div class="wyh_right">
+					<div class="swwyh_phb">
+						<div class="title">
+							首位万元户排行榜
+						</div>
+						<ul>
+							<li>
+								<p>
+									首位
+									<strong>100</strong>万元户
+								</p>
+								<span><img src="images/img/wyh_xwyd.jpg" width="67"
+										height="22" /> </span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>80</strong>万元户
+								</p>
+								<span><img src="images/img/wyh_xwyd.jpg" width="67"
+										height="22" /> </span></span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>50</strong>万元户
+								</p>
+								<span><img src="images/img/wyh_xwyd.jpg" width="67"
+										height="22" /> </span></span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>30</strong>万元户
+								</p>
+								<span>86***</span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>20</strong>万元户
+								</p>
+								<span>wu***</span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>10</strong>万元户
+								</p>
+								<span>周瑞***</span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>5</strong>万元户
+								</p>
+								<span>zh***</span></span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>3</strong>万元户
+								</p>
+								<span>ma***</span></span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>2</strong>万元户
+								</p>
+								<span>ya***</span></span>
+							</li>
+							<li>
+								<p>
+									首位
+									<strong>1</strong>万元户
+								</p>
+								<span>dt***</span></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+
+					<div class="swwyh_phb " style="margin-top: 30px;">
+						<div class="title">
+							万元英雄榜
+						</div>
+						<div class="list_lh">
+							<s:if
+								test="#request.millionUser==null || #request.millionUser.size()==0">
+								<ul>
+									<li>
+										<p>
+											暂时无万元英雄!
+										</p>
+									</li>
+								</ul>
+							</s:if>
+							<s:else>
+								<s:iterator value="#request.millionUser" var="mill">
+									<ul id="marqueebox">
+										<li>
+											<p>
+												<span>${mill.realAmount}</span>
+												<a>${mill.username }</a>
+											</p>
+										</li>
+									</ul>
+								</s:iterator>
+							</s:else>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<ul class="hdgz_box">
+				<li>
+					1、活动时间2014年7月11日-2014年8月11日;
+				</li>
+				<li>
+					2、活动期间起投资金额单笔10000元以上的客户，以充值投标后为准,活动奖励在三个工作日内发放到账户；
+				</li>
+				<li>
+					3、奖励以客户单笔投资金额为准，每投资10000元以上奖励以万元为单位的整数倍，（注：奖励投标金额为万元的整数倍，例如客户投资了20000元则奖励20000元，若投资29999元则奖励20000元。）;
+				</li>
+				<li>
+					4、奖励投标金额只可以用于一次投标使用，此奖励活动不与融资谷平台其他活动重复计算;
+				</li>
+				<li>
+					5、所获奖励投标产生的收益，需等额奖励投资金额参与投标两次才可提现。
+					（例：单笔投资55000元，可获得50000元奖励投标金额，投标结束后奖励投标金额由平台回收，所获收益留在个人账户上，需要等额奖励金额的本金再次投标50000元，所获奖励投标金额收益方可提现）;
+				</li>
+				<li>
+					6、需投资20天或20天以上借款项目方可参加此活动;
+				</li>
+				<li>
+					7、如果您在活动期间已获得奖励，但未达到提现条件，您再次充值等额奖励资金投标可选择再次获得奖励或奖励投标到期后直接提现（注：活动期间第一次投资30000元，在获得30000元奖励后，再次投资30000元时可选择再获得30000元奖励或将第一次所获奖励投标回款后将收益提现）;
+				</li>
+				<li>
+					8、活动期间如您第二次追加投资同等金额时<font color="red">（注：此投标金额需为客户充值金额）</font>，默认为再次获得奖励，如需将上次所获奖励的投资收益提现请在1个工作日内联系客服；活动结束后，完成任务需找客服登记;
+				</li>
+				<li>
+					9、本活动规则解释权归融资谷所有，融资谷可能会根据本活动的实际举办情况对活动规则进行变动或调整，相关变动或调整将公布在活动页面上，并于公布时即时生效。
+				</li>
+			</ul>
+		</div>
+		<script language="javascript">
+	function startmarquee(lh, speed, delay) {
+		var p = false;
+		var t;
+		var o = document.getElementById("marqueebox");
+		o.innerHTML += o.innerHTML;
+		o.style.marginTop = 0;
+		o.onmouseover = function() {
+			p = true;
+		}
+		o.onmouseout = function() {
+			p = false;
+		}
+		//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+		function start() {
+			t = setInterval(scrolling, speed);
+			if (!p)
+				o.style.marginTop = parseInt(o.style.marginTop) - 1 + "px";
+		}
+		//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+		function scrolling() {
+			if (parseInt(o.style.marginTop) % lh != 0) {
+				o.style.marginTop = parseInt(o.style.marginTop) - 1 + "px";
+				if (Math.abs(parseInt(o.style.marginTop)) >= o.scrollHeight / 2)
+					o.style.marginTop = 0;
+			} else {
+				clearInterval(t);
+				setTimeout(start, delay);
+			}
+		}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+		setTimeout(start, delay);
+	}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+	startmarquee(20, 20, 1500);
+</script>
+
+		<%--bottom--%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		</div>
+
+		<div style="display: none" id=testID>
+			<P>
+				<img src="images/img/weixin.jpg" width="250" height="250" />
+			</P>
+			打开微信，点击底部的″发现″，使用″扫一扫″即可关注融资谷官方微信.
+		</div>
+		<script type=text/javascript>
+	var environment = {
+		userVo : '',
+		role : '',
+		userId : '',
+		basePath : '',
+		userCash : ''
+	};
+</script>
+		<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$("#id2").click(
+						function() {
+							tipsWindown("关注融资谷官方微信", "id:testID", "250", "300",
+									"true", "", "true", "id");
+						});
+
+			});
+</script>
+		<%-- bottom end--%>
+	</body>
+</html>

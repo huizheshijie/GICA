@@ -1,0 +1,207 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+
+		<script type="text/javascript" src="js/jquery.js">
+	
+</script>
+		<script type="text/javascript" src="js/banner.js">
+	
+</script>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/cjwt.css" type="text/css"></link>
+	</head>
+
+	<body style="overflow-x: hidden;">
+		<!--header-->
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<!-- header end-->
+		<!--banner-->
+		<!-- banner end-->
+
+		<!--CPI跟踪器-->
+		<div class="main_kan_new" style="min-height: 0;">
+			<div id="wrapper">
+				<div class="title-sub">
+					<h2>
+						CPI跟踪器
+					</h2>
+					<b class="line"></b>
+				</div>
+				<form action="cpitools.do" method="post">
+					<div class="content_post">
+						<div class="bid-opt" style="border-right: none">
+
+							<ul class="items">
+								<li class="txt">
+									当前财富：
+								</li>
+								<li>
+									<input type="text" class="input" name="basicPrice"
+										id="basicPrice" value="" />
+									<label>
+										元
+									</label>
+
+								</li>
+								<li class="tsxx">
+									<span id="span" class="tip error" style="display: none;"><i
+										class="icons reg-error"></i>该数值须为不小于200元的整数</span>
+								</li>
+							</ul>
+							<ul class="items">
+								<li class="txt">
+									计算时长：
+								</li>
+								<li>
+									<select id="repayType" name="basicParam">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="50">
+											50
+										</option>
+									</select>
+									<label>
+										年
+									</label>
+									<span class="tip" style="display: none;">这部分金额不会加入自动投标</span>
+								</li>
+							</ul>
+							<div class="btn-submit">
+								<a href="javascript:void(0);" class="gbtn" id="calcBt">计算</a>
+								<a href="cpitools.do" class="gbtn gbtn-gray" id="resetBt">重置</a>
+							</div>
+
+							<div class="jsjg" style="display:none;" id="result">
+								<p>
+									计算结果 ：<input type="text" id="yearT" value=""
+										disabled="disabled" style="color: orange;width:15px;" />年后你的财富将缩水为
+									<input type="text" id="shrinkMoney" value=""
+										disabled="disabled" style="color: orange" />
+									元， 缩水
+									<input type="text" id="shrinkRate" value="" disabled="disabled"
+										style="color: orange" />
+								</p>
+								<span>根据当前CPI指数推算，数据仅供参考</span>
+							</div>
+						</div>
+
+
+
+						<div class="jsq_right">
+
+							<div class="jsqyb_con1">
+								<h2>
+									CPI跟踪器
+								</h2>
+								<p class="dqsy">
+									CPI跟踪器为您展示CPI指数趋势图。如果想财富不随着时间而贬值，请选择合适的投资理财方式。
+								</p>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class=".cpi_zdf">
+					<h2>
+						CPI同比涨跌幅
+					</h2>
+					<p class="dqsy">
+						（单位）%
+					</p>
+					<div class=".icons" style="margin: 0 auto">
+						<img src="images/img/CPI_zft.png" width="861" height="224" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+	var rate = 0.0;
+	var shrinkRate = ""; //直接截取的缩水率
+	var shrinkMoney = 0;//缩水后的金额
+	var money = 0;
+	var yearT = 0.0;
+	$("#calcBt").click(
+			function() {
+				var basicParam = $("#repayType").val();
+				var basicPrice = $("#basicPrice").val();
+				if (basicPrice <= 200) {
+					$("#span").show();
+					return false;
+				}else if (!/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/
+				.test(basicPrice)) {
+			$("#span").show();
+					return false;
+		} 
+				if (basicParam == 1) {
+					rate = 0.02535;
+					shrinkRate = '2.5%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = shrinkMoney;
+				}
+				if (basicParam == 2) {
+					rate = 0.05054;
+					shrinkRate = '5.0%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = (shrinkMoney + "").substring(0, (shrinkMoney + "")
+							.indexOf(".") + 2);
+				}
+				if (basicParam == 5) {
+					rate = 0.12044;
+					shrinkRate = '12.0%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = (shrinkMoney + "").substring(0, (shrinkMoney + "")
+							.indexOf(".") + 2);
+				}
+				if (basicParam == 10) {
+					rate = 0.22638;
+					shrinkRate = '22.6%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = (shrinkMoney + "").substring(0, (shrinkMoney + "")
+							.indexOf(".") + 2);
+				}
+				if (basicParam == 20) {
+					rate = 0.40152;
+					shrinkRate = '40.1%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = (shrinkMoney + "").substring(0, (shrinkMoney + "")
+							.indexOf(".") + 2);
+				}
+				if (basicParam == 50) {
+					rate = 0.722903;
+					shrinkRate = '72.2%';
+					shrinkMoney = basicPrice - (basicPrice * rate);
+					money = (shrinkMoney + "").substring(0, (shrinkMoney + "")
+							.indexOf(".") + 2);
+				}
+				yearT = basicParam;
+				$("#span").hide();
+				$("#shrinkRate").val(shrinkRate);
+				$("#shrinkMoney").val(money);
+				$("#yearT").val(yearT);
+				$("#result").show();
+
+			});
+</script>
+		<!--bottom-->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<!-- bottom end-->
+	</body>
+</html>

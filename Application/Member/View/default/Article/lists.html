@@ -1,0 +1,63 @@
+<extend name="Base/common"/>
+
+<block name="header">
+	<header class="jumbotron subhead" id="overview">
+		<div class="container">
+			<h2>工合基金</h2>
+			<p class="lead"></p>
+		</div>
+	</header>
+</block>
+
+<block name="body">
+      	<!-- 引用头部公共部分 -->
+		<div class="nymain">
+			<div class="lcnav">
+				<div class="tab">
+					<div class="tabmain">
+						<ul>
+							<li class="on" style="padding: 0 20px;">
+								公告详情
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="line">
+				</div>
+			</div>
+			<div class="lcmain">
+				<div class="lcmain_l" style="width: 675px">
+<div class="lctab" style="padding:0 10px;">
+             <div class="newlist"> 
+               <ul>
+                <s:if test="pageBean.page==null || pageBean.page.size==0">
+                      没有网站公告
+                </s:if>
+                <s:else>
+                  <s:iterator value="pageBean.page" var="bean" status="sta">
+                  <volist name="list" id="data">
+                    <li>
+                      <span>{$data.uid|get_username}发表于{$data.create_time|date='Y-m-d H:i:s',###}</span>
+                      <a href="frontNewsDetails.htm?id=${bean.id}"><a href="{:U('Article/detail?id='.$data['id'])}">{$data.title}</a></a>
+                    </li>
+                  </volist>
+                  </s:iterator>
+                </s:else>
+                              
+              </ul>
+            </div>
+           <div class="fenye">
+             <div class="fenyemain">
+                <shove:page curPage="${pageBean.pageNum}" showPageCount="8" pageSize="${pageBean.pageSize }" theme="jsNumber" totalCount="${pageBean.totalNum}">
+				</shove:page>
+             </div>
+           </div>
+        </div>
+				</div>
+				<div id="showDongtai" class="lcmain_r">
+					<%-- 网站动态显示位置 --%>
+				</div>
+			</div>
+		</div>
+
+</block>

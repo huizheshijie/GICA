@@ -1,0 +1,168 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	 <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<body style="overflow-x: hidden;">
+
+		<!--header-->
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<!-- header end-->
+
+		<!--banner-->
+		<div class="xsbz_banner">
+			<img src="images/img/aqbz_banner.jpg" width="1440" height="246" />
+		</div>
+		<!-- banner end-->
+
+		<div class="xsbz_menu_box">
+			<div class="xsbz_menu">
+				<h4>
+					新手帮助
+				</h4>
+				<div class="sxbzmenu_font">
+					<a href="newhelp.htm">理财帮助</a>
+					<a href="borrowhelp.htm">借款帮助</a>
+					<a href="safety.htm" class="on">安全保障</a>
+					<a href="usquestion.htm">常见问题</a>
+				</div>
+			</div>
+		</div>
+
+		<!--安全帮助-->
+		<div class="jkbz_box">
+			<div class="bxbz">
+				<div class="lcbz_title">
+					本息保障，安全无忧
+				</div>
+				<div class="list">
+					<p class="pic">
+						<img src="images/img/aq_pic1.jpg" width="85" height="85" />
+					</p>
+					<div class="font">
+						<h4>
+							100%本息保障
+						</h4>
+						<p>
+							融资谷与第三方担保公司合作的所有借款项目，在借款发生逾期时，将按照合同约定，由担保公司承担连带担保责任，对该借款标的中未还款的本金和利息先行代偿，从而保障您的资金安全；
+						</p>
+						<p>
+							同时，在借款发生逾期时，融资谷承担最终连带责任，将会同专门的律师团队及催收机构，促成借贷合同的完整执行。让您的财富在安全的投资环境中稳步升值。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="bxbz">
+				<div class="lcbz_title" style="font-size: 18px;">
+					六大风控体系，为您保障护航
+				</div>
+				<div class="ldtx">
+					<img src="images/img/aqbz_pic3.jpg" width="1000" height="196" />
+				</div>
+			</div>
+			<div class="bxbz">
+				<div class="lcbz_title">
+					账户安全及技术保障
+				</div>
+				<ul class="list3">
+					<li> 
+       <p class="pic"><img src="images/img/aq_pic7.jpg" width="85" height="85" /></p> 
+        <div class="font">
+          <h4>网站技术安全</h4>
+		  <p>融资谷作为国内领先的互联网金融平台，不仅为用户提供金融信息服务，也要保障用户的信息及资金安全。</p>
+          <p>融资谷拥有独立的网站服务器，专人维护、定期安全检查并升级，配备先进的软硬件防火墙设备，采用国际标准的SSL安全加密技术保障数据信息安全。</p>
+          <p>融资谷与国家重点支持的第三方支付系统平台建立了合作，投资人和借款人的资金交易，都通过第三方支付来实现，保障用户的资金安全。</p>
+        </div>
+      </li>
+      <li> 
+         <p class="pic"><img src="images/img/aq_pic8.jpg" width="85" height="85" /></p>
+        <div class="font">
+          <h4>隐私承诺</h4>
+          <p>融资谷采用严格的分级管理制度以及先进的网站技术，确保用户账户信息安全。同时我们承诺对用户信息严格保密。</p>
+        </div>
+      </li>
+				</ul>
+			</div>
+			<div class="bxbz">
+				<div class="lcbz_title">
+					自我安全保护
+				</div>
+				<h4 class="zwaqbh">
+					良好的投资环境及安全需要我们与您共同努力，希望您在投资过程中注意以下几点：
+				</h4>
+				<ul class="list1">
+					<li>
+						<p class="pic">
+							<img src="images/img/aq_pic4.jpg" width="59" height="59" />
+						</p>
+						<p class="font1">
+							认准融资谷官方网址：
+							<b style="color: #166cb2;">www.ubanks.cn</b>
+							<br />
+							在登录，充值，提现等操作时先确认是否是在融资谷官方网站上操作，建议您将融资谷官方网站添加到浏览器收藏夹。
+						</p>
+					</li>
+					<li>
+						<p class="pic">
+							<img src="images/img/aq_pic5.jpg" width="59" height="59" />
+						</p>
+						<p class="font1">
+							确保个人电脑运行安全
+							<br />
+							个人电脑需及时更新补丁，定期杀毒，以免被黑客利用。
+						</p>
+					</li>
+					<li>
+						<p class="pic">
+							<img src="images/img/aq_pic6.jpg" width="59" height="59" />
+						</p>
+						<p class="font1">
+							保护好您的融资谷账户
+							<br />
+							设置密码时，推荐字母数字组合，不要使用简单密码，同时保护好个人隐私，不要轻易将个人信息透露给他人。
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="bxbz">
+				<div class="lcbz_title">
+					政策法规
+				</div>
+				<ul class="list2">
+					<li class="font3">
+						<h4>
+							关于投资人及借款人双方民间借贷关系的合法性
+						</h4>
+						<p>
+							根据《合同法》第196条规定“借款合同是借款人向贷款人借款，到期返还借款并支付利息的合同”，《合同法》允许自然人等普通民事主体之间发生借贷关系，并允许出借方到期可以收回本金和符合法律规定的利息。
+						</p>
+					</li>
+					<li class="font3">
+						<h4>
+							关于融资谷平台提供居间金融服务的合法性
+						</h4>
+						<p>
+							根据《合同法》第23章关于“居间合同”的规定，特别是第424条规定的“居间合同是居间人向委托人报告订立合同的机会或者提供订立合同的媒介服务，委托人支付报酬的合同”，融资谷平台作为合法设立的中介服务机构，为民间借贷提供平台，使借贷双方形成借贷关系并收取相关报酬的居间服务，有着明确的法律基础。
+						</p>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<!--end安全帮助-->
+
+		<!--bottom-->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<!-- bottom end-->
+	</body>
+</html>

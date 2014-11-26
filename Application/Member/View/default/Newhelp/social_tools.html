@@ -1,0 +1,364 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+
+		<script type="text/javascript" src="js/jquery.js">
+	
+</script>
+		<script type="text/javascript" src="js/banner.js">
+	
+</script>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/cjwt.css" type="text/css"></link>
+	</head>
+
+	<body style="overflow-x: hidden;">
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<%--banner--%>
+		<%-- banner end--%>
+
+		<%--身价计算器--%>
+		<div class="main_kan_new" style="min-height: 0;">
+			<div id="wrapper">
+				<form action="socialtools.do" method="post">
+					<div class="title-sub">
+						<h2 id="htop">
+							收益计算器
+						</h2>
+						<b class="line"></b>
+					</div>
+					<div class="content_post">
+						<div class="worth-chart" id ="money1">
+							<div class="worth-div1 worth-0">
+								<h2>
+									当前身价(元)
+								</h2>
+								<strong style="color: orange">0</strong>
+							</div>
+						</div>
+						<div class="worth-chart" style="display: none;" id = "month1">
+							<div class="worth-div2 worth-0">
+								<h2>
+									当前身价(元)
+								</h2>
+								<strong style="color: orange">0</strong>
+							</div>
+						</div>
+						<div class="worth-chart" style="display: none;" id = "bili1">
+							<div class="worth-div3 worth-0">
+								<h2>
+									当前身价(元)
+								</h2>
+								<strong style="color: orange">0</strong>
+							</div>
+						</div>
+						<div class="worth-chart" style="display: none;" id = "time1">
+							<div class="worth-div4 worth-0">
+								<h2>
+									当前身价(元)
+								</h2>
+								<strong style="color: orange">0</strong>
+							</div>
+						</div>
+						<div class="worth-chart" style="display: none;" id="shouyi1">
+							<div class="worth-div5 worth-0">
+								<h2>
+									当前身价(元)
+								</h2>
+								<strong><input type="text" id="YearMoney" value="0"
+										disabled="disabled" style="color: orange; background: none;padding: 0 5px;
+    width:100%;text-align:center;font-family: arial;font-size: 34px;" /></strong>
+							</div>
+						</div>
+						
+						<div class="topics">
+							<div class="topics-items" id="money">
+								<h4>
+									1.您当前的存款数额：
+								</h4>
+								<div class="worth-input" style="heigth: 500px;">
+									<input type="text" class="input" id="borrowSum" value="" />
+									<label>
+										元
+									</label>
+									<div id="tishi12" class="tip error" style="display: none;">
+										<i class="reg-error"></i> 请输入大于0的任意数值！
+									</div>
+								</div>
+								<div class="worth-submint">
+									<a class="gbtn" id="NextTopic1" href="javascript:;">下一题</a>
+								</div>
+							</div>
+							<div class="topics-items" style="display: none;" id="month">
+								<h4>
+									2.您当前的月工资：
+								</h4>
+								<div class="worth-input">
+									<input type="text" class="input" id="wageSum" value="" />
+									<label>
+										元
+									</label>
+									<div id="tishi123" class="tip error" style="display: none;">
+										<i class="reg-error"></i> 请输入大于0的任意数值！
+									</div>
+								</div>
+								<div class="worth-submint">
+									<a class="gbtn" id="NextTopic2" href="javascript:;">下一题</a>
+								</div>
+							</div>
+							<div class="topics-items" style="display: none;" id="bili">
+								<h4>
+									3.您每月工资的存款比例：
+								</h4>
+								<div class="worth-input">
+									<select id="repayType" name="basicParam"  style="width:100px;">
+										<option value="0">
+											0
+										</option>
+										<option value="0.1">
+											10
+										</option>
+										<option value="0.2">
+											20
+										</option>
+										<option value="0.3">
+											30
+										</option>
+										<option value="0.4">
+											40
+										</option>
+										<option value="0.5">
+											50
+										</option>
+										<option value="0.6">
+											60
+										</option>
+										<option value="0.7">
+											70
+										</option>
+										<option value="0.8">
+											80
+										</option>
+										<option value="0.9">
+											90
+										</option>
+										<option value="1">
+											100
+										</option>
+									</select>
+									<label>
+										%
+									</label>
+									<div class="tip error"></div>
+								</div>
+								<div class="worth-submint">
+									<a class="gbtn" href="javascript:;" id="NextTopic3">下一题</a>
+								</div>
+							</div>
+							<div class="topics-items" style="display: none;" id="time">
+								<h4>
+									4.您希望进行身价预估的时间：
+								</h4>
+								<div class="worth-input" >
+									<select id="borrowTime" name="" style="width:100px;">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="30">
+											30
+										</option>
+									</select>
+									<label>
+										年后
+									</label>
+									<div class="tip error"></div>
+								</div>
+								<div class="worth-submint">
+									<a class="gbtn" data-rel="3" id="NextTopic4"
+										href="javascript:;">完成</a>
+								</div>
+							</div>
+							<div class="topics-items" style="display: none;" id="shouyi">
+								<ul>
+									<li style="line-height:30px;">
+										坚持在融资谷投资,
+											<input type="text" id="y" value=""
+										disabled="disabled" style="color: orange;background: none;padding: 0 5px;width:15px;" />
+										年后您的身价将为
+										<input type="text" id="YearMoneys" value="0"
+										disabled="disabled" style="color: orange;background: none;padding: 0 5px;width:150px;" />
+										元，增长<input type="text" id="bil" value=""
+										disabled="disabled" style="color: orange;background: none;padding: 0 5px;width:30px;"  />%
+									</li>
+									<li>
+										财富排名超过<input type="text" id="caog" value=""
+										disabled="disabled" style="color: orange;background: none;padding: 0 5px;width:15px;"  />%中国人
+									</li>
+								</ul>
+								<span style="display: none"></span>
+								<a class="gbtn" href="finance.htm" >立即开始投资</a>
+								<a class="gbtn gbtn-gray" id="resetCount" href="">重新计算</a>
+							</div>
+							<div class="jsqyb_con1" style="margin-top: 20px;">
+								<h2>
+									身价计算器简介
+								</h2>
+								<p>
+									身价计算器用于了解您当前的存款及收入状况，预测您通过融资谷进行合理投资后将达到的身价。
+								</p>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script>
+	var YearMoney = 0.0;//最终获取本金和收益
+	var YearMoneys = 0.0;//最终获取本金和收益
+	var money = 0.0;
+	var zeng = 0.0;
+	var n1 = 0;
+	var n2 = 0;
+	var bil = 0.0;
+	var caog = 0.0;
+	var benjin2 = 0;
+	$("#NextTopic4").click(
+			function() {
+				var borrowSum = $("#borrowSum").val();
+				var wageSum = $("#wageSum").val();
+				var borrowTime = $("#borrowTime").val();
+				var basicParam = $("#repayType").val();
+				n1 = borrowTime * 12.0;
+				n2 = borrowTime * 6.0;
+				benjin2 = wageSum * basicParam * 12 *  borrowTime;
+				//alert(benjin2);
+				YearMoney = borrowSum * Math.pow(1.015, n1) + benjin2 * Math.pow(1.015, n2);
+				money = (YearMoney + "").substring(0, (YearMoney + "")
+						.indexOf(".") + 3);
+						
+						
+				money = (YearMoney + "").substring(0, (YearMoney + "")
+						.indexOf(".") + 3);
+				bil = (YearMoney - borrowSum) / borrowSum *100
+				zeng = (bil + "").substring(0, (bil + "")
+						.indexOf(".") + 0);
+				if(money>=0 && money<=2000){
+					caog = "1";
+				}else if(money<=4000){
+					caog = "5";
+				}else if(money<=6000){
+					caog = "7";
+				}else if(money<=9000){
+					caog = "10";
+				}else if(money<=13000){
+					caog = "14";
+				}else if(money<=18000){
+					caog = "18";
+				}else if(money<=25000){
+					caog = "21";
+				}else if(money<=40000){
+					caog = "27";
+				}else if(money<=60000){
+					caog = "34";
+				}else if(money<=80000){
+					caog = "43";
+				}else if(money<=250000){
+					caog = "52";
+				}else if(money<=400000){
+					caog = "66";
+				}else if(money<=600000){
+					caog = "73";
+				}else if(money<=800000){
+					caog = "81";
+				}else if(money<=1000000){
+					caog = "92";
+				}else if(money<=1300000){
+					caog = "99";
+				}else if(money>1300000){
+					caog = "99";
+				}
+				$("#YearMoney").val(money);
+				$("#YearMoneys").val(money);
+				$("#y").val(borrowTime);
+				$("#bil").val(zeng);
+				$("#caog").val(caog);
+			});
+</script>
+<script>
+	$("#NextTopic1").click(function() {
+			var borrowSum = $("#borrowSum").val();
+			if (borrowSum <= 0) {
+					$("#tishi12").show();
+					return false;
+			}
+			else if (!/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/
+				.test(borrowSum)) {
+			$("#tishi12").show();
+					return false;
+		} 
+					$("#money").hide();
+					$("#month").show();
+					$("#money1").hide();
+					$("#month1").show();
+				$("#tishi12").hide();
+				
+
+	});
+	$("#NextTopic2").click(function() {
+		var wageSum = $("#wageSum").val();
+			if (wageSum <= 0) {
+					$("#tishi123").show();
+					return false;
+				}
+				else if(!/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/
+				.test(wageSum)){
+			$("#tishi123").show();
+					return false;
+				}
+					$("#month").hide();
+					$("#bili").show();
+					$("#month1").hide();
+					$("#bili1").show();
+				$("#tishi123").hide();
+
+	});
+	$("#NextTopic3").click(function() {
+		$("#bili").hide();
+		$("#time").show();
+		$("#bili1").hide();
+		$("#time1").show();
+
+	});
+	$("#NextTopic4").click(function() {
+		$("#time").hide();
+		$("#shouyi").show();
+		$("#time1").hide();
+		$("#shouyi1").show();
+
+	});
+</script>
+		<%--bottom--%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%-- bottom end--%>
+	</body>
+
+</html>

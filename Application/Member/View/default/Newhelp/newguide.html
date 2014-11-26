@@ -1,0 +1,155 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+
+		<script type="text/javascript" src="js/jquery.js">
+	
+</script>
+		<script type="text/javascript" src="js/banner.js">
+	
+</script>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+	</head>
+
+	<body style="overflow-x: hidden;">
+		<!--header-->
+		<jsp:include page="/include/top.jsp"></jsp:include>
+		<!-- header end-->
+		<!--banner-->
+		<div class="xsbz_banner">
+			<div class="xsrw_banner">
+				<img src="images/img/xsrw_banner.jpg" width="1440" height="650" />
+			</div>
+		</div>
+		<!-- banner end-->
+
+		<div class="xsrw_box">
+			<ul class="xsrw_scdj">
+
+				<li>
+					<h4>
+						完成新手任务1，可获红包
+						<b>5</b>元哦！
+					</h4>
+					<p>
+						注册融资谷账户，完成邮箱认证也有礼包啦，即日起，注册融资谷账户完成邮箱认证即可获得5元新手奖励。
+					</p>
+					<s:if test="#session.user ==null">
+						<div class="anniu">
+							<a href="login.htm">绑定邮箱</a>
+						</div>
+					</s:if>
+
+					<s:else>
+						<div class="anniu">
+							<a href="emailManagerInit.htm">绑定邮箱</a>
+						</div>
+					</s:else>
+				</li>
+
+				<s:else>
+				</s:else>
+
+				<li style="margin-top: 110px; _margin-top: 85px;">
+					<h4>
+						完成新手任务2，可获红包
+						<b>5</b>元哦！
+					</h4>
+					<p>
+						凡注册用户，绑定手机、银行卡，上传身份证通过实名认证后即可获得5元新手礼包
+					</p>
+					<div class="anniu">
+						<s:if test="#session.user ==null">
+							<a href="login.htm">上传身份证</a>
+						</s:if>
+						<s:else>
+							<a href="userPassData.htm">上传身份证</a>
+						</s:else>
+						<!-- <a href="#">绑定手机</a> -->
+						<a href="yhbound.htm">绑定银行卡</a>
+					</div>
+				</li>
+
+				<li style="margin-top: 115px; _margin-top: 95px;">
+					<h4>
+						完成新手任务3，可获
+						<b>10</b>元分享红包哦！
+					</h4>
+					<p>
+						活动期间，凡是融资谷注册用户，成功关注融资谷微信并分享，即可领取10元微礼包
+					</p>
+					<div class="anniu">
+						<a href="#">关注微信</a>
+						<a href="#">分享到朋友圈</a>
+					</div>
+					<div class="gzwx">
+						<p class="pic">
+							<img src="images/img/xsrw_wx.jpg" width="170" height="162" />
+						</p>
+						<p class="font">
+							关注融资谷微信公众号“rongzigu”回复“分享有礼”,将您收的内容分享至您的朋友圈截图发回融资谷微信
+						</p>
+					</div>
+				</li>
+
+				<li style="margin-top: 90px;">
+					<h4>
+						完成新手任务4，可获终极大礼包
+						<b>100</b>元红包哦！
+					</h4>
+					<p>
+						账户注册成功，三十天内投资超过1000元（含）即可获得100元奖励。
+					</p>
+					<s:if test="#session.user ==null">
+						<div class="anniu">
+							<a href="login.htm">充值/投标</a>
+						</div>
+					</s:if>
+					<s:else>
+						<div class="anniu">
+							<a href="queryFundrecordInit.htm">充值/投标</a>
+						</div>
+					</s:else>
+				</li>
+			</ul>
+
+			<div class="hdgc_box">
+				<div class="title"></div>
+				<ul>
+					<li>
+						1、活动对象：融资谷注册用户。
+					</li>
+					<li>
+						2、活动时间：2014年6月1日至2014年7月10日。
+					</li>
+					<li>
+						3、所有任务完成后，请您及时联系客服做任务登记，客服登记后所有奖励将在三个工作日内发放到您的平台账户中。
+					</li>
+					<li>
+						4、秒标不参与本次任务，奖励投标方可提现。
+					</li>
+					<li>
+						5、本活动每个平台账户、手机号、身份证号、微信号只可领取一次任务礼包。
+					</li>
+					<li>
+						6、本活动规则解释权归融资谷所有。融资谷将依法运营活动，但如活动遭受严重网络攻击或系统故障需要暂停举办的，则活动可能无法顺利进行，此种情况视为活动故障，融资谷无须为活动故障承担赔偿或进行补偿。
+					</li>
+					<li>
+						7、融资谷可能会根据本活动的实际举办情况对活动规则进行变动或调整，相关变动或调整将公布在活动页面上，并于公布时即时生效。
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<!--bottom-->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<!-- bottom end-->
+	</body>
+
+</html>

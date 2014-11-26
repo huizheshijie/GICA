@@ -1,0 +1,51 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/include/taglib.jsp"%>
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+<script type="text/javascript">
+	function mediaDetail(param) {
+		$.post("frontMediaReportDetails.htm", "id=" + param, function(data) {
+			$("#showcontent").html("");
+			$("#showcontent").html(
+					"__tag_8$39_" + data.title + "__tag_8$57_"
+							+ "__tag_9$31_</p>" + "__tag_10$29_" + data.content
+							+ "__tag_10$59_");
+		}
+</script>
+
+<!--中间右侧 开始-->
+
+<ul class="meiti">
+	<s:if test="pageBean.page==null || pageBean.page.size==0">
+		<tr align="center">
+			<td colspan="10">
+				暂无数据
+			</td>
+		</tr>
+	</s:if>
+	<s:else>
+		<s:iterator value="pageBean.page" var="bean">
+			<li style="height: 30px; overflow: hidden;margin:15px 0 0 25px;border-bottom:1px dashed #ccc;">
+				<span style="float:right;margin:0 25px 0 0;">
+						<s:date name="publishTime" format="yyyy-MM-dd" /> </span>
+				<a style="float:left;" id="meiti" title="${bean.title }"
+					href="frontMedialinkId.htm?id=${bean.id}" target="_blank">&nbsp; <shove:sub
+						value="title" size="10" suffix="..." /> </a>
+			</li>
+		</s:iterator>
+	</s:else>
+</ul>
+<div class="fenye">
+		<div class="fenyemain">
+			<shove:page curPage="${pageBean.pageNum}" showPageCount="8"
+				pageSize="${pageBean.pageSize }" theme="jsNumber"
+				totalCount="${pageBean.totalNum}">
+			</shove:page>
+		</div>
+	</div>
+
+
+<!--中间右侧 结束-->
+

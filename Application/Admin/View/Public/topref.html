@@ -1,0 +1,99 @@
+
+<link rel="shortcut icon" href="favicon.ico">
+<!--header-->
+<div class="topline_box">
+	<div class="top_line">
+		<div class="top_phone">
+			4000-911-806
+		</div>
+		<s:if test="#session.user ==null">
+			<div class="topline_right">
+				<ul>
+					<li>
+						<a href="sxxl.htm" class="xsrw">盛夏献礼</a>
+					</li>
+				<!--	<li>
+						<a href="newguide.htm" class="xsrw">新手任务</a>
+					</li>-->
+					<li id="gfq">
+						官方群
+						<div id="rzggf" class="list" style="display: none;">
+							<a>官方群:264159783</a>
+							<a>V&nbsp;I&nbsp;P群:303173892</a>
+						</div>
+					</li>
+
+					<li>
+						<a href="cellPhoneinit.htm" class="mfzc">免费注册</a>
+					</li>
+					<li>
+						<a href="login.htm" class="ljdl"> 立即登录</a>
+					</li>
+				</ul>
+			</div>
+
+		</s:if>
+		<s:else>
+			<div class="topline_right">
+				<ul>
+				
+					<li>
+						<a href="sxxl.htm" class="xsrw">盛夏献礼</a>
+					</li>
+					<!--
+					<li>
+						<a href="tenthousand.htm" class="xsrw">万元礼包</a>
+					</li>
+					-->
+					<!--<li>
+						<a href="newguide.htm" class="xsrw">新手任务</a>
+					</li>-->
+					<li id="gfq">
+						官方群
+						<div id="rzggf" class="list" style="display: none;">
+							<a>官方群:264159783</a>
+							<a>V&nbsp;I&nbsp;P群:303173892</a>
+						</div>
+					</li>
+					<li>
+						<span class="nh">您好！</span>
+						<span class="red">[${user.userName}]</span>
+					</li>
+					<li>
+						<a href="home.htm">&nbsp;|&nbsp;个人中心</a>
+					</li>
+					<li>
+						<a href="logout.htm">|&nbsp;退出</a>
+					</li>
+				</ul>
+			</div>
+		</s:else>
+	</div>
+
+	<div class="header">
+		<div class="logo">
+			<a href="http://www.ubanks.cn"><img src="images/img/logo.gif" /> </a>
+		</div>
+		<div class="nav">
+			<a href="index.htm">首页</a>
+			<a href="finance.htm">我要理财</a>
+			<a href="borrowapply.htm">我要融资</a>
+			<a href="home.htm">我的账户</a>
+			<!-- callcenter.htm?cid=1 -->
+			<a href="newhelp.htm">新手帮助</a>
+		</div>
+	</div>
+</div>
+<!-- header end-->
+
+<script>
+	//alert("dafdadfafasfasfa");
+	//$(function() {
+	//alert("123464677");
+
+	$("#gfq").hover(function() {
+		$("#rzggf").slideToggle();
+	});
+
+	//});
+</script>

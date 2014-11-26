@@ -1,0 +1,314 @@
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
+		<!-- 引用头部公共部分 -->
+		<div class="nymain">
+			<div class="ifbox1">
+				<h2>
+					确定投标
+					<img src="images/neiye2_06.jpg" width="4" height="7" />
+				</h2>
+				<div class="boxmain"
+					style="padding-top: 20px; padding-bottom: 20px;">
+					<div class="qrtb">
+						<div class="tbtop"></div>
+						<div class="tbmain">
+						  <volist name="list3" id="vb">
+							<div class="tbinfo">
+								<div class="lbox">
+									<div class="pic">
+										<shove:img src="${investDetailMap.personalHead}"
+											defaulImg="__STATIC__/rzg_images/default-img.jpg" width="80" height="79"></shove:img>
+										<br />
+										
+									</div>
+									<p class="name">
+										用户名：{$vb.borrow_uid|get_username}
+										<br />
+										籍
+										贯：{$vb.location}&nbsp;{$vblocation_now}
+										<br />
+										居住地：
+
+									</p>
+								</div>
+								<div class="rbox">
+									<ul>
+										<li>
+											借款标题：
+											<strong>{$vb.borrow_name}</strong>
+										</li>
+										<li>
+											借款金额：
+											<strong>￥{$vb.borrow_money}元</strong>
+										</li>
+										<li>
+											借款年利率：
+											<strong>{$vb.borrow_interest_rate}%</strong>
+										</li>
+										<li>
+											已经完成：
+											<strong>%</strong>
+										</li>
+										<li>
+											还需借款:
+											<strong>￥</strong>
+										</li>
+										<li>
+											借款期限:
+											<strong>{$vb.borrow_duration} <s:if
+													test="%{investDetailMap.isDayThe ==1}">个月</s:if> <s:else>天</s:else>
+											</strong>
+										</li>
+										<li>
+											还款方式:
+											<strong> <s:if
+													test="%{investDetailMap.isDayThe == 2}">
+													到期还本付息
+											</s:if> <s:elseif test="%{investDetailMap.paymentMode == 1}">
+													按月分期还款
+											</s:elseif> <s:elseif test="%{investDetailMap.paymentMode ==2}">
+											按月付息,到期还本
+											</s:elseif> <s:elseif test="%{investDetailMap.paymentMode ==3}">
+											秒还
+											</s:elseif> <s:elseif test="%{investDetailMap.paymentMode ==4}">
+ 											 一次性还款
+											</s:elseif> </strong>
+										</li>
+										<li>
+											交易类型:
+											<strong> <s:if
+													test="%{investDetailMap.tradeType == 1}">
+线上交易
+</s:if> <s:elseif test="%{investDetailMap.tradeType ==2}">
+线下交易
+</s:elseif> </strong>
+										</li>
+									</ul>
+								</div>
+							</div>
+							</volist>
+							<div class="tbcz">
+								<p class="money">
+									您的帐户总额：
+									<strong> 元 </strong>
+									<a href="rechargeInit.htm" class="czbtn"><img
+											src="__STATIC__/rzg_images/tubiao3.png" /> </a>
+									<br />
+									您的可用余额：
+									<strong> 元</strong>
+								</p>
+								<p class="tips">
+									请填写并确认下面投标金额
+									<a href="updatexgmm.htm" class="czbtn"><input type="button"
+											value="设置交易密码" /> </a>
+									<br />
+									<s:if test="#request.subscribes!=1">
+										<span class="f999">最低投标金额：<s:property
+												value="#request.minTenderedSum" default="0" />元&nbsp;最多投标金额：<s:if
+												test="%{investDetailMap.maxTenderedSum != -1}">{$vb.borrow_max}元</s:if>
+											<s:else>无限制</s:else> <br />当前年利率:%</span>
+									</s:if>
+									<s:else>
+										<span class="f999">最小认购金额：{$vb.borrow_min}元<s:property
+												value="#request.investMaps.smallestFlowUnit" default="0" />元&nbsp;
+											当前年利率:% <br />认购总份数：份,还有：份</span>
+									</s:else>
+								</p>
+								<div id="content" class="tbtab">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<s:if test="#request.subscribes!=1">
+											<tr>
+												<td>
+													投标金额：
+												</td>
+												<td>
+													<input type="text" id="amount" name="paramMap.amount"style="color: red" class="inp100" maxlength="20" value="" />
+													元
+													<a href="javascript:;" class="_blank" id="bigSum"> <img src="__STATIC__/rzg_images/bigSum.png" /> </a>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" style="margin-left: 20px;">
+													<input type="hidden" value="" id="factSum" />
+												</td>
+											</tr>
+										</s:if>
+										<tr>
+											<td>
+												投标密码：
+											</td>
+											<td>
+												<input type="password" id="investPWD"
+													name="paramMap.investPWD" class="inp100" maxlength="20" />
+											</td>
+										</tr>
+										<s:if test="#request.subscribes!=1">
+											<tr>
+												<td colspan="2" class="tishi">
+													注意：点击按钮表示您将确认投标金额并同意支付贷款
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" align="center"
+													style="padding-top: 15px; padding-bottom: 15px;">
+													<input id="btnsave" type="button" class="qdtbbtn" value="" />
+													<a href="{:U('Borrow/detail?id='.$vb['id'])}">点击确定</a>
+												</td>
+											</tr>
+										</s:if>
+									</table>
+									<s:if test="#request.subscribes==1">
+										<div
+											style="background-color: #FDFAE9; height: 75px; width: 320px; margin-top: 15px; border: solid 1px #F9DDD1;">
+											<table width="100%" border="0" cellpadding="0"
+												cellspacing="0">
+												<tbody>
+													<tr>
+														<td width="51%" height="48" align="right">
+															<div>
+																<input type="text" class="result_btn_detail_3" value="1"
+																	id="result" style="width: 100px;" />
+																份&nbsp;&nbsp;
+															</div>
+														</td>
+														<td width="49%">
+															<div style="width: 98px;">
+																<input type="image" src="images/gogo_rg.gif" value=""
+																	id="invest" class="bttn_2" />
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" align="center">
+															您的可投标金额为：
+															<font id="account_use" style="color: #FF0000">￥</font>元，最多可认购：
+															<font style="color: #FF0000" id="roam_use">份</font>
+															<input name="subscribes" type="hidden" id="subscribes"
+																value="${subscribes}" />
+															<input name="smallestFlowUnit" type="hidden"
+																id="smallestFlowUnit"
+																value="${investMaps.smallestFlowUnit}" />
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</s:if>
+								</div>
+							</div>
+						</div>
+						<div class="tbbot"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="investNum"
+			value="${investDetailMap.investNum}" />
+		<input type="hidden" id="usableSum" value="${userMap.usableSum}" />
+		<!-- 引用底部公共部分 -->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<s:hidden name="id" value="%{investDetailMap.id}"></s:hidden>
+		<s:hidden name="annualRate" value="%{investDetailMap.annualRate}"></s:hidden>
+		<s:hidden name="deadline" value="%{investDetailMap.deadline}"></s:hidden>
+		<script type="text/javascript" src="script/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+		<script type="text/javascript" src="script/nav-lc.js"></script>
+		<script>
+	$("#bigSum").click(function() {
+		var factSum = $("#factSum").val();
+		$("#amount").val(factSum);
+	});
+</script>
+
+		<script type="text/javascript">
+	var flag = true;
+	$(function() {
+		//样式选中
+		$("#licai_hover").attr('class', 'nav_first');
+		$("#licai_hover div").removeClass('none');
+		$('.tabmain').find('li').click(function() {
+			$('.tabmain').find('li').removeClass('on');
+			$(this).addClass('on');
+			$('.lcmain_l').children('div').hide();
+			$('.lcmain_l').children('div').eq($(this).index()).show();
+		});
+		$('#invest')
+				.click(function() {
+					var id = $("#id").val();
+					param['paramMap.id'] = id;
+					param["paramMap.code"] = $("#code").val();
+					param['paramMap.annualRate'] = $("#annualRate").val();
+					param["paramMap.deadline"] = $("#deadline").val();
+					param['paramMap.amount'] = 1;
+					param['paramMap.investPWD'] = $('#investPWD').val();
+					param['paramMap.result'] = $('#result').val();//认购份数
+						param['paramMap.smallestFlowUnit'] = $(
+								'#smallestFlowUnit').val();//每份认购金额
+						param['paramMap.subscribes'] = $('#subscribes').val();//认购模式是否开启
+						if (flag) {
+							flag = false;
+							$
+									.shovePost(
+											'financeInvest.htm',
+											param,
+											function(data) {
+												var callBack = data.msg;
+												if (callBack == undefined
+														|| callBack == '') {
+													$('#content').html(data);
+													flag = true;
+												} else {
+													if (callBack == 1) {
+														alert("操作成功!");
+														window.location.href = 'financeDetail.htm?id=' + id;
+														flag = false;
+														return false;
+													}
+													alert(callBack);
+													flag = true;
+												}
+											});
+						}
+					});
+		$('#btnsave')
+				.click(
+						function() {
+							var id = $("#id").val();
+							param['paramMap.id'] = id;
+							param["paramMap.code"] = $("#code").val();
+							param['paramMap.annualRate'] = $("#annualRate")
+									.val();
+							param["paramMap.deadline"] = $("#deadline").val();
+							param['paramMap.amount'] = $('#amount').val();
+							param['paramMap.investPWD'] = $('#investPWD').val();
+							if (flag) {
+								flag = false;
+								$
+										.shovePost(
+												'financeInvest.htm',
+												param,
+												function(data) {
+													var callBack = data.msg;
+													if (callBack == undefined
+															|| callBack == '') {
+														$('#content')
+																.html(data);
+														flag = true;
+													} else {
+														if (callBack == 1) {
+															alert("操作成功!");
+															window.location.href = 'financeDetail.htm?id=' + id;
+															flag = false;
+															return false;
+														}
+														alert(callBack);
+														flag = true;
+													}
+												});
+							}
+						});
+
+	});
+</script>
+</block>

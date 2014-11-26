@@ -1,0 +1,651 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox/Gray/jbox.css" />
+
+	</head>
+
+	<body>
+		<%-- 引用头部公共部分 --%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+
+		<div class="nymain">
+			<div class="wdzh">
+				<div class="l_nav">
+					<div class="box">
+						<%-- 引用我的帐号主页左边栏 --%>
+						<%@include file="/include/left.jsp"%>
+					</div>
+				</div>
+				<div class="r_main">
+					<div class="tabtil">
+						<ul>
+							<li>
+								邮箱设置
+							</li>
+							<%--	<li onclick="loadWorkInit('queryWorkInit.htm');">
+								工作认证信息
+							</li> 
+							<li onclick="jumpUrl('updatexgmm.htm');">
+								修改密码
+							</li>
+							<li id="li_bp" onclick="bindingPhoneLoad('boundcellphone.htm');">
+								更换手机
+							</li>
+							<li class="on" onclick="jumpUrl('emailManagerInit.htm');">
+								邮箱设置
+							</li>
+							<li onclick="jumpUrl('szform.htm');">
+								通知设置
+							</li>
+							<li id="li_tx" onclick=loadBankInfo('yhbound.htm');;
+>
+								银行卡设置
+							</li>--%>
+						</ul>
+					</div>
+					<%-- 邮箱 --%>
+					<div class="box">
+						<div class="boxmain2" style="padding-top: 10px;">
+							<div class="biaoge2" style="margin-top: 0px;" id="address">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0"
+									style="line-height: 42px;">
+									<tr>
+										<td align="right" style="padding-right: 10px;">
+											邮箱地址：
+										</td>
+										<td id="showId">
+											<s:if test="paramMap.flag==2">
+                                             ${paramMap.email }<a
+													style="color: red;">(该邮箱已绑定)</a>&nbsp;&nbsp;&nbsp;<a
+													href="javascript:;" id="updateMail"><img
+														src="images/sys/update_mail.png" /> </a>
+											</s:if>
+											<s:else>
+												<input type="text" name="paramMap.email" class="inp188"
+													id="mails" value="${paramMap.email }" />
+												<span style="color: red;">*<s:fielderror
+														fieldName="paramMap.email" /> </span>
+												<span><input type="button" class="chaxun"
+														value="发送邮件" id="saveEmail" /><a style="color: red;">(你还没绑定邮箱)</a>
+												</span>
+
+											</s:else>
+										</td>
+										<td id="dispId" style="display: none;">
+											<s:if test="paramMap.flag==2">
+                                             ${paramMap.email }<a
+													style="color: red;">(该邮箱已绑定)</a>&nbsp;&nbsp;&nbsp;<a
+													href="javascript:;" id="quxiao"><img
+														src="images/sys/quxiao_ok.png" /> </a>
+											</s:if>
+											<s:else>
+												<input type="text" name="paramMap.email" class="inp188"
+													id="mails" value="${paramMap.email }" />
+												<span style="color: red;">*<s:fielderror
+														fieldName="paramMap.email" /> </span>
+												<span><input type="button" class="chaxun"
+														value="发送邮件" id="saveEmail" /><a style="color: red;">(你还没绑定邮箱)</a>
+												</span>
+
+											</s:else>
+										</td>
+									</tr>
+									<tr>
+										<div id="ok" style="color: red; height: 20px;">
+											${paramMap.msg }
+										</div>
+									</tr>
+									<tr>
+										<td align="right" style="padding-right: 40px;">
+
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+					<%--修改邮箱的弹出层--%>
+					<div style="display: none;" id="showDiv" class="yxtcc">
+						<h3>
+							修改邮箱
+						</h3>
+						<form>
+						    <div id="upOk"></div>
+							<table>
+								<tr>
+									<td>
+										原邮箱地址:
+									</td>
+									<td>
+										<input type="text" value=" ${paramMap.email }"
+											name="paramMap.email" id="old_email" disabled="disabled" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										新邮箱地址:
+									</td>
+									<td>
+										<input type="text" value="" name="paramMap.new_email"
+											id="new_email" />
+										<div id="message"></div>
+									</td>
+								</tr>
+								<tr>
+									<td align="center">
+										<img id="querenok" src="images/sys/queren_ok .png" alt="" />
+									</td>
+									<td align="center">
+										<img id="querenno" src="images/sys/quxiao_ok.png" alt="" />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<script type="text/javascript" src="script/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+		<script type="text/javascript" src="script/nav-zh.js"></script>
+		<script type="text/javascript" src="script/jquery.zclip.min.js"></script>
+		<script>
+	$(function() {
+		$("#zh_hover").attr('class', 'nav_first');
+		$("#zh_hover div").removeClass('none');
+		$('#li_121').addClass('on');
+		$('#yq_address_btn').css('cursor', 'pointer');
+		$('#yq_address_btn').click(
+				function() {
+					if ($.browser.msie) {
+						var txt = '复制文本到剪贴板:\n\n';
+						txt = txt + $('#yq_address_input').html();
+						 window.clipboardData.setData('text', $(
+								'#yq_address_input').html());
+						alert(txt);
+					}
+				});
+		$("#attention").click(function() {
+			var param = {};
+			param["paramMap.id"] = $
+			{
+				user.id
+			}
+			param["paramMap.attention"] = "attention";
+			$.shovePost("userFrends.htm", param, function(data) {
+				$("#userfrends").html(data);
+			});
+		});
+
+		$('.tabtil').find('li').click(function() {
+			$('.tabtil').find('li').removeClass('on');
+			$(this).addClass('on');
+			$('.tabtil').nextAll('div').hide();
+			$('.tabtil').nextAll('div').eq($(this).index()).show();
+		});
+		init();
+	});
+	function init() {
+		if (!$.browser.msie) {
+			$('#yq_address_btn').zclip( {
+				path : 'script/ZeroClipboard.swf',
+				copy : function() {
+					return $('#yq_address_input').html();
+				}
+			});
+		}
+	}
+</script>
+		<script>
+	$(function() {
+
+		//提交邮箱添加
+		$("#saveEmail")
+				.click(
+						function() {
+
+							var param = {};
+							param["paramMap.email"] = $("#mails").val();
+							if (/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+									.test($("#mails").val())) {
+								$
+										.post(
+												"SendUserEmailSet.htm",
+												param,
+												function(data) {
+													if (data.mailAddress == '0') {
+														alert("邮箱不能为空");
+													} else if (data.mailAddress == '1') {
+														$("#ok").html("该邮箱不存在");
+													} else if (data.mailAddress == '4') {
+														$("#ok")
+																.html(
+																		"该邮箱已被绑定,请重新输入");
+													} else {
+														$("#ok")
+																.html(
+																		"邮件已经发送到你的邮箱,请登录到你的邮箱验证");
+													}
+												});
+							} else {
+								alert("邮箱输入有误");
+							}
+
+							/*
+							var param = {};
+							param["paramMap.email"] = $("#mails").val();
+							$.post("addEmails.htm",param,function(data){
+							     if(data.msg=="添加成功"){
+							      alert("添加成功");
+							      window.location.reload();
+							     }else{
+							       alert(data.msg);
+							     }
+							});
+							addEmails
+							 */
+
+						});
+
+	});
+</script>
+		<script>
+	$(function() {
+		var flag = '${paramMap.msg}';
+		if (flag == '邮箱绑定成功') {
+			alert(flag);
+			window.location.href = 'emailManagerInit.htm';
+		}
+	});
+</script>
+
+		<script>
+	function jumpUrl(obj) {
+		window.location.href = obj;
+	}
+</script>
+		<script>
+	$(function() {
+		dqzt(4);
+		$('#li_121').addClass('on');
+		var bb = '${person}';
+		/*			if (bb == "0") {
+						alert("请先完善个人信息");
+						window.location.href="owerInformationInit.htm";
+					}*/
+
+		$.post("bindingMobileInit.htm", null, function(data) {
+			if (data.map != "") {
+				$("#mobileChange").attr("style", "margin-top:0px;");
+				$("#mobile").html(data.map.mobilePhone);
+				$("#content").attr("value", data.map.reason);
+				$("#mobile").attr('disabled', 'disabled');
+				$("#code").attr('disabled', 'disabled');
+				$("#content").attr('disabled', 'disabled');
+				$("#clickCode_").attr('style', 'display: none');
+				$("#p_b").attr('style', 'display: none');
+			} else {
+				$("#mobileChange").attr("style", "margin-top:0px;");
+				$("#num").html("");
+				$("#mobile").html("请先填写个人基本资料");
+				$("#mobile").attr('disabled', 'disabled');
+				$("#code").attr('disabled', 'disabled');
+				$("#content").attr('disabled', 'disabled');
+				$("#clickCode_").attr('style', 'display: none');
+				$("#p_b").attr('style', 'display: none');
+				$("#mobileChange").html("");
+			}
+		});
+	});
+</script>
+
+		<script>
+	//手机号码绑定
+	var timers = 180;
+	var tipId;
+
+	$(function() {
+		$("#clickCode_").click(function() {
+			var phone = $("#mobile").val();
+			//验证手机号码是
+				if ($("#mobile").val() == "") {
+					$("#mobile_tip").attr("class", "formtips onError");
+					$("#mobile_tip").html("请填写手机号码！");
+				} else if ((!/^1[3-8]\d{9}$/.test($("#mobile").val()))) {
+					$("#mobile_tip").attr("class", "formtips onError");
+					$("#mobile_tip").html("请正确填写手机号码！");
+				} else {
+					$("#mobile_tip").attr("class", "formtips");
+					$("#mobile_tip").html("");
+					if ($("#clickCode_").html() == "重新发送验证码"
+							|| $("#clickCode_").html() == "发送手机验证码") {
+						$.post("phoneCheck.htm", "phone=" + phone, function(
+								datas) {
+							if (datas.ret != 1) {
+								alert(datas.msg);
+								return;
+							}
+							phone = datas.phone;
+							var test = {};
+							test["paramMap.phone"] = phone;
+							$.post("sendSMS.htm", test, function(data) {
+								if (data == "virtual") {
+									window.location.href = "noPermission.htm";
+									return;
+								}
+								if (data == 1) {
+									timers = 180;
+									tipId = window.setInterval(timer_, 1000);
+								} else {
+									alert("手机验证码发送失败");
+								}
+							});
+						});
+					}
+				}
+			});
+	});
+
+	//定时
+	function timer_() {
+
+		if (timers >= 0) {
+			$("#clickCode_").html("验证码获取：" + timers + "秒");
+			timers--;
+		} else {
+			window.clearInterval(tipId);
+			$("#clickCode_").html("重新发送验证码");
+			$.post("removeCode.htm", "", function(data) {
+			});
+
+		}
+	}
+
+	//加载该用户提现银行卡信息
+	function loadBankInfo(url) {
+		var bb = '${person}';//设置提现银行卡必须先填写个人资料
+		if (bb == "0") {
+			alert("请先完善个人信息");
+			window.location.href = "owerInformationInit.htm";
+		} else {
+			window.location.href = url;
+		}
+
+	}
+
+	//工作认证
+	function loadWorkInit(url) {
+		var bb = '${person}';//填写工作信息必须先填写个人资料
+		if (bb == "0") {
+			alert("请先完善个人信息");
+			window.location.href = "owerInformationInit.htm";
+		} else {
+			window.location.href = url;
+		}
+	}
+	function bindingPhoneLoad(url) {
+		/**		var bb = '${person}';//申请手机绑定必须先填写个人资料
+				var cc = '${pass}';
+				if (bb == "0") {
+					alert("请先完善个人信息");
+					window.location.href='owerInformationInit.htm';
+				} else if (cc != 3) {
+					alert("请等待个人信息审核通过");
+					return ;
+				} else {*/
+		window.location.href = url;
+		//		}
+	}
+</script>
+
+
+		<script>
+	//手机号码变更
+
+	var rtimers = 60;
+	var rtipId;
+
+	$(function() {
+		$("#reClickCode_").click(function() {
+			var phone = $("#mobile2").val();
+			//验证手机号码是
+				if ($("#mobile2").val() == "") {
+					$("#mobile2_tip").attr("class", "formtips onError");
+					$("#mobile2_tip").html("请填写手机号码！");
+				} else if ((!/^1[3,4,5,8]\d{9}$/.test($("#mobile2").val()))) {
+					$("#mobile2_tip").attr("class", "formtips onError");
+					$("#mobile2_tip").html("请正确填写手机号码！");
+				} else {
+					$("#mobile2_tip").attr("class", "formtips");
+					$("#mobile2_tip").html("");
+
+					if ($("#reClickCode_").html() == "重新发送验证码"
+							|| $("#reClickCode_").html() == "发送手机验证码") {
+						$.post("phoneCheck.htm", "phone=" + phone, function(
+								datas) {
+
+							if (datas.ret != 1) {
+								alert(datas.msg);
+								return;
+							}
+							phone = datas.phone;
+							var test = {};
+							test["paramMap.phone"] = phone;
+							$.post("sendSMS.htm", test, function(data) {
+								if (data == "virtual") {
+									window.location.href = "noPermission.htm";
+									return;
+								}
+								if (data == 1) {
+									rtimers = 60;
+									rtipId = window.setInterval(rtimer_, 1000);
+								} else {
+									alert("手机验证码发送失败");
+								}
+							});
+						});
+					}
+				}
+			});
+	});
+
+	//定时
+	function rtimer_() {
+
+		if (rtimers >= 0) {
+			$("#reClickCode_").html("验证码获取：" + rtimers + "秒");
+			rtimers--;
+		} else {
+			window.clearInterval(rtipId);
+			$("#reClickCode_").html("重新发送验证码");
+			$.post("removeCode.htm", "", function(data) {
+			});
+
+		}
+	}
+
+	//变更手机绑定信息
+	function addChangeBindingMobile() {
+		if ($("#mobile2").val() == "") {
+			$("#mobile2_tip").html("手机号码不能为空");
+			return;
+		} else if ($("#code2").val() == "") {
+			$("#mobile2_tip").html("验证码不能为空");
+			return;
+		} else if ($("#content2").val() == "") {
+			$("#mobile2_tip").html("变更原因不能为空");
+			return;
+		} else {
+			$("#mobile2_tip").html("");
+		}
+		param["paramMap.mobile"] = $("#mobile2").val();
+		param["paramMap.code"] = $("#code2").val();
+		param["paramMap.content"] = $("#content2").val();
+		$.shovePost("addChangeBindingMobile.htm", param, function(data) {
+
+			//手机验证码
+				if (data == 10) {
+					// $("#u_cellPhone").html("手机号码长度不对！")
+				alert("手机号码与获取验证码手机号不一致！");
+				return;
+			}
+			if (data == 12) {
+				// $("#u_cellPhone").html("手机号码长度不对！")
+				alert("请填写验证码");
+				return;
+			}
+			if (data == 11) {
+				// $("#u_cellPhone").html("手机号码长度不对！")
+				alert("请重新发送验证码");
+				return;
+			}
+
+			if (data == 13) {
+				// $("#u_cellPhone").html("手机号码长度不对！")
+				alert("请输入正确的验证码");
+				return;
+			}
+
+			if (data == 1) {
+				$("#mobile2_tip").html("手机号码无效");
+				$("#mobile2").attr("value", "");
+				return;
+			} else if (data == 2) {
+				$("#mobile2_tip").html("验证码错误");
+				$("#code2").attr("value", "");
+				return;
+			} else if (data == 3) {//该用户可以进行手机号码绑定，但是绑定的手机号码已经被别人绑定了
+				alert("您还没有进行手机绑定，请先申请手机绑定");
+				$("#mobile2").attr("value", "");
+				$("#code2").attr("value", "");
+				$("#content2").attr("value", "");
+				return;
+			} else if (data == 4) {
+				alert("您已经申请的手机信息还在审核，请等待后台审核");
+				$("#mobile2").attr("value", "");
+				$("#code2").attr("value", "");
+				$("#content2").attr("value", "");
+				return;
+			} else if (data == 5) {
+				alert("手机号码绑定失败，请重新绑定");
+				$("#mobile2").attr("value", "");
+				$("#code2").attr("value", "");
+				$("#content2").attr("value", "");
+				return;
+			} else if (data == 6) {
+				alert("您变更的手机号码已经被绑定了，请重新输入变更的手机号码");
+				$("#mobile2").attr("value", "");
+				$("#code2").attr("value", "");
+				$("#content2").attr("value", "");
+				return;
+			} else if (data == 7) {
+				alert("您变更的手机号码已经在申请审核，请重新输入变更的手机号码");
+				$("#mobile2").attr("value", "");
+				$("#code2").attr("value", "");
+				$("#content2").attr("value", "");
+				return;
+			} else if (data == 8) {
+				alert("您的手机变更不通过，请联系客服人员");
+				$("#mobile").attr("value", "");
+				$("#code").attr("value", "");
+				$("#content").attr("value", "");
+				return;
+			} else if (data == 9) {
+				alert("您的手机变更不通过，请联系客服人员");
+				$("#mobile").attr("value", "");
+				$("#code").attr("value", "");
+				$("#content").attr("value", "");
+				return;
+			}
+			alert("您要变更的手机号码为 " + $("#mobile2").val());
+			$("#mobile2").attr("value", "");
+			$("#code2").attr("value", "");
+			$("#content2").attr("value", "");
+
+			window.clearInterval(tipId);
+			$("#reClickCode_").html("发送手机验证码");
+		});
+	}
+</script>
+
+		<%-- 修改邮箱 --%>
+		<script>
+		$("#updateMail").click(function(){
+			$("#showId").hide();
+			$("#dispId").show();
+			$("#showDiv").show();
+			
+		});
+		 </script>
+		<script>
+		$("#quxiao").click(function(){
+			$("#showId").show();
+			$("#dispId").hide();
+			$("#showDiv").hide();
+			
+		});
+		 </script>
+		<script>
+		$("#querenok").click(function(){
+			var newEmail=$("#new_email").val();
+			if(newEmail==""){
+				$("#message").html("<font color='red'>新邮箱地址不能为空!</font>");
+				return false;
+			}
+			var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+			if(!reg.test(newEmail)){
+				$("#message").html("<font color='red'>新邮箱地址不合法!</font>");
+				return false;
+			}
+
+				var param = {};
+				param["paramMap.email"] = $("#old_email").val();
+				param["paramMap.new_email"] = $("#new_email").val();
+				$.post("updateUserMail.do",param,function(data){
+					if (data.mailAddress == '0') {
+						$("#upOk").html("邮箱不能为空");
+					} else if (data.mailAddress == '1') {
+						$("#upOk").html("该邮箱不存在");
+					} else if (data.mailAddress == '4') {
+						$("#upOk")
+								.html(
+										"该邮箱已被绑定,请重新输入");
+					} else {
+						$("#upOk")
+								.html(
+										"<font color='red'>邮箱修改成功,邮件已经发送到你的邮箱,请登录到你的邮箱验证!</font>");
+						$("#address").hide();
+						$("#showDiv").show();
+						$('#new_email').attr('readonly',true);
+					}
+									
+				});
+
+		});
+		 </script>
+		<script>
+		$("#querenno").click(function(){
+			$("#address").show();
+			$("#showId").show();
+			$("#dispId").hide();
+			$("#showDiv").hide();
+		});
+		 </script>
+	</body>
+</html>
+

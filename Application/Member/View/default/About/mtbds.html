@@ -1,0 +1,94 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+		<style type="text/css">
+ul,li {
+	margin: 0;
+	padding: 0
+}
+
+#scrollDiv {
+	height: 182px;
+	overflow: hidden
+}
+
+.load {
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+</style>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<div class="nymain" >
+			<div class="kfbox">
+				<div class="leftbox">
+					<h3>
+						关于我们
+					</h3>
+					<div class="boxmain">
+						<ul>
+							<li>
+								<a href="gywm.htm" >公司介绍</a>
+							</li>
+							
+							<li>
+								<a href="bghj.htm">办公环境</a>
+							</li>
+							
+							<%--
+							<li>
+								<a href="zfsm.htm">资费说明</a>
+							</li>
+							--%>
+							<li>
+								<a href="hzhb.htm" >合作伙伴</a>
+							</li>
+							<li>
+								<a href="zxns.htm">招贤纳士</a>
+							</li>
+							<li class="last">
+								<a href="lxwm.htm">联系我们</a>
+							</li>
+							<li class="last">
+								<a href="mtbd.htm"  style="color: #166cb2;">媒体报道</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="showcontent" class="rightbox">
+					<div class="mtbd_con">
+						<div class="mtbdcon_title">
+							<h4>${paramMap.titles}</h4>
+							<div class="fby">
+								<div class="mtbd_ly"> <span>${paramMap.publishTimes}</span>  <span>来源：${paramMap.sources}</span></div>
+								<div class="mt_logo"> <img src="${paramMap.imgPaths}" width="130" height="52" /> </div>
+							</div>
+						</div>
+						<div class="font_con">
+							<p>${paramMap.contents}</p>
+							<div class="ywlj"><strong>原文链接：</strong>
+          						<a href="${paramMap.urls}" target="_blank">${paramMap.urls}</a>
+          					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%-- 引用底部公共部分 --%>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<%--底部footer 结束--%>
+	</body>
+
+</html>

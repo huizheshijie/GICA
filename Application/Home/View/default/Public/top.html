@@ -1,0 +1,74 @@
+<!--header-->
+<div class="topline_box1">
+	<div class="top_line">
+		<div class="top_phone">
+			4888-888-888
+		</div>
+			<div class="topline_right">
+				<ul>
+					<li>
+						<a href="#" class="xsrw">盛夏献礼</a>
+					</li>
+					<!--<li>
+						<a href="newguide.htm" class="xsrw">新手任务</a>
+					</li>-->
+					<li id="gfq">
+						官方群
+						<div id="rzggf" class="list" style="display: none;">
+							<a>官A群:888888888</a>
+							<a>官B群:666666666</a>
+						</div>
+					</li>
+
+					<if condition="is_login()">
+					            <li><a href="{:U('Member/Index/index')}">{:get_username()}</a></li>
+                                <li><a href="{:U('Home/User/profile')}">修改密码</a></li>
+                                <li><a href="{:U('Home/User/logout')}">退出</a></li>
+					<else/>
+
+					<li>
+						<a href="{:U('Home/User/register')}" class="mfzc">免费注册</a>
+					</li>
+					<li>
+						<a href="{:U('Home/User/login')}" class="ljdl"> 立即登录</a>
+					</li>
+					</if>
+				</ul>
+			</div>
+	</div>
+</div>
+<div class="header">
+	<div class="logo">
+		<a href=""><img src="/Public/static/rzg_images/img/logo.gif"/>
+		</a>
+	</div>
+	<div class="nav">
+	    <think:nav name="nav">
+	    <eq name="nav.pid" value="0">
+            <a href="{$nav.url|get_nav_url}" target="<eq name='nav.target' value='1'>_blank<else/>_self</eq>">{$nav.title}</a>
+		</eq>
+		</think:nav>
+	</div>
+</div>
+
+<!-- header end-->
+
+<script>
+	//alert("dafdadfafasfasfa");
+	//$(function() {
+	//alert("123464677");
+
+	//  alert("1234567");
+	//  $("#gfq").mouseover(function(){
+	//  alert("123456789flajfalfj");
+	//	 $("#rzggf").show();
+	// });
+	//  $("#gfq").mouseout(function(){
+	//  alert("123456789flajfalfj");
+	// $("#rzggf").hide();
+	// });
+	$("#gfq").hover(function() {
+		$("#rzggf").slideToggle();
+	});
+	//});
+</script>

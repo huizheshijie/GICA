@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head> 
+	<jsp:include page="/include/head.jsp"></jsp:include>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+		<script src="script/jquery-1.7.1.min.js" type="text/javascript">
+</script>
+	</head>
+	<body>
+		<!-- 引用头部公共部分 -->
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+
+		<!-- banner -->
+		<div class="xsbz_banner">
+			<img src="images/img/wyrz_banner.jpg" width="1440" height="246" />
+		</div>
+		 <!-- banner end -->
+
+		<!-- 我要融资 -->
+		<div class="jkbz_box">
+			<div class="wyrz_box">
+				<div class="lcbz_title">
+					立即申请借款
+				</div>
+					<ul>
+						<li>
+							<span>申请金额</span>
+							<input value="${requestScope.applymap.applymoney}" type="text" class="srk"
+								disabled="true" />
+						</li>
+						<li>
+							<span>资金用途</span>
+							<input value="${requestScope.applymap.purpose}" type="text" class="srk"
+								disabled="true" />
+						</li>
+						<li>
+							<span>贷款期限</span>
+							<input value="${requestScope.applymap.deadline}" type="text" class="srk"
+								disabled="true" />
+						</li>
+						<li>
+							<span>姓名</span>
+							<input value="${requestScope.applymap.username}" type="text" class="srk"
+								disabled="true" />
+						</li>
+						<li>
+							<span>身份证号</span>
+							<input value="${requestScope.applymap.idcard}" type="text" class="srk"
+								disabled="true" />
+						</li>
+						<li>
+							<span>联系电话</span>
+							<input value="${requestScope.applymap.phone}" type="text" class="srk"
+								disabled="true" />
+						</li>
+					</ul>
+			</div>
+			<div class="jkbz_link_1">
+				<a href="#" style="color: gray">申请审核中</a>
+			</div>
+		</div>
+		<!-- end我要融资 -->
+		<!-- 引用底部公共部分 -->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+	</body>
+</html>

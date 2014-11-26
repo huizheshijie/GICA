@@ -1,0 +1,87 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head> 
+  <jsp:include page="/include/head.jsp"></jsp:include>
+  <link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+    <script src="script/jquery-1.7.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- 引用头部公共部分 -->
+<jsp:include page="/include/topref.jsp"></jsp:include>	
+
+<div class="kinds-list">
+    	
+	<div class="tz-step"><img src="images/wyjk_guide.jpg" /></div>
+    <div class="sqxyed"><div>如果您不急于贷款，可以通过这里先申请信用额度，这将方便您日后迅速获得额度内的贷款</div><a href="creditingInit.do"></a></div>
+    <ul class="kindsnr-list">
+		<li><div class="kindsnr-cnet">
+        <h3 class="kind1">担保借款</h3>
+        是指融资谷的合作伙伴为相应的借款提供连带保证，并负有连带保证责任的借款。
+（机构担保标需要通过机构担保认证） 
+
+        <div class="kindsnr-link"><a href="addBorrowInit.do?t=5">担保借款</a></div>
+        </div></li>
+        
+
+    
+       <li><div class="kindsnr-cnet">
+        <h3 class="kind4">净值借款</h3>
+        借款人可以发布的不超过其平台账号净值额度的借款金额，但借款人提现将受到限制。这是一种安全系数相对较高的借款标，因此利率方面可能比较低。净值标通常用于临时周转，使资金利用率最大化。
+        <div class="kindsnr-link4"><a href="addBorrowInit.do?t=1">净值借款</a></div>
+        </div></li>
+       
+      
+        <li><div class="kindsnr-cnet">
+        <h3 class="kind5">秒还借款</h3>
+       借款人标满瞬间送出利息，免手续费、自动审核、自动还款，不定期送出秒还标。
+        <div class="kindsnr-link5"><a href="addBorrowInit.do?t=2">秒还标</a></div>
+        </div></li>
+       
+      
+          <li><div class="kindsnr-cnet">
+        <h3 class="kind2">信用借款</h3>
+       信用借款标是一种将个人的信用运用于借款之中，免抵押、免担保的小额个人信用贷款标，SP2P网贷通过严格审核，对借款人给予信用评级，授予信用额度，允许其在平台发布贷款信息。主要面向对象一般为18-60周岁有稳定收入，具有较强偿还能力的公民。
+        <div class="kindsnr-link2"><a href="addBorrowInit.do?t=3">信用借款</a></div>
+        </div></li>
+        
+        <s:if test="#request.field==1">
+          <li><div class="kindsnr-cnet">
+        <h3 class="kind3">实地考察借款</h3>
+       小微企业现场考察审批借款；汽车、房产、货物等借款；逾期24小时内赔付。
+        <div class="kindsnr-link3"><a href="addBorrowInit.do?t=4">实地考察借款</a></div>
+        </div></li>
+         </s:if>
+        <s:if test="#request.institutions==1">
+    	<li><div class="kindsnr-cnet">
+        <h3 class="kind1">担保借款</h3>
+        是指融资谷的合作伙伴为相应的借款提供连带保证，并负有连带保证责任的借款。
+（机构担保标需要通过机构担保认证） 
+
+        <div class="kindsnr-link"><a href="addBorrowInit.do?t=5">担保借款</a></div>
+        </div></li>
+        </s:if>
+        <%--
+         <li><div class="kindsnr-cnet">
+        <h3 class="kind5">流转标</h3>
+       流转标投标即成功,到期网站垫付,零风险
+        <div class="kindsnr-link5"><a href="addBorrowInit.do?t=6">流转标</a></div>
+        </div></li>
+    --%>
+	</ul>
+    
+</div>
+<!-- 引用底部公共部分 -->     
+<jsp:include page="/include/footer.jsp"></jsp:include>
+<script>
+$(function(){
+    //样式选中
+dqzt(2);
+});		     
+</script>
+</body>
+</html>

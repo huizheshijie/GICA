@@ -1,0 +1,200 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<jsp:include page="/include/head.jsp"></jsp:include>
+
+		<script type="text/javascript" src="js/jquery.js">
+	
+</script>
+		<script type="text/javascript" src="js/banner.js">
+	
+</script>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/cjwt.css" type="text/css"></link>
+	</head>
+
+	<body style="overflow-x: hidden;">
+		<!--header-->
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<!-- header end-->
+		<!--banner-->
+		<!-- banner end-->
+
+		<!--收益计算器-->
+		<div class="main_kan_new" style="min-height: 0;">
+			<div id="wrapper">
+			<form action="socialtools.do" method="post">
+				<div class="title-sub">
+					<h2 id="htop">
+						收益计算器
+					</h2>
+					<b class="line"></b>
+				</div>
+				<div class="content_post">
+					<div class="bid-opt">
+						<ul class="items">
+							<li class="txt">
+								本金：
+							</li>
+							<li>
+								<input type="text" class="input" id="borrowSum" value="1"/>
+								<label>
+									元
+								</label>
+								<span class="tip error" style="display: none;"><i
+									class="icons reg-error"></i>该数值须为不小于200元的整数</span>
+							</li>
+						</ul>
+						<ul class="items">
+							<li class="txt">
+								每月薪资：
+							</li>
+							<li>
+								<input type="text" class="input" id="wageSum" value="2"/>
+								<label>
+									元
+								</label>
+								<span class="tip error" style="display: none;"><i
+									class="icons reg-error"></i>该数值须为不小于200元的整数</span>
+							</li>
+						</ul>
+						<ul class="items">
+							<li class="txt">
+								您每月工资的存款比例：
+							</li>
+							<li>
+									<select id="repayType" name="basicParam">
+										<option value="0">
+											0
+										</option>
+										<option value="0.1">
+											10
+										</option>
+										<option value="0.2">
+											20
+										</option>
+										<option value="0.3">
+											30
+										</option>
+										<option value="0.4">
+											40
+										</option>
+										<option value="0.5">
+											50
+										</option>
+										<option value="0.6">
+											60
+										</option>
+										<option value="0.7">
+											70
+										</option>
+										<option value="0.8">
+											80
+										</option>
+										<option value="0.9">
+											90
+										</option>
+										<option value="1">
+											100
+										</option>
+									</select>
+									<label>
+										%
+									</label>
+									<span class="tip" style="display: none;">这部分金额不会加入自动投标</span>
+								</li>
+						</ul>
+						<div class="clearfix" style="display: block">
+							<ul class="items">
+								<li class="txt">
+									投入年数：
+								</li>
+								<li>
+									<select id="borrowTime" name="">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="30">
+											30
+										</option>
+									</select>
+									<label>
+										年
+									</label>
+									<span class="tip" style="display: none;">这部分金额不会加入自动投标</span>
+								</li>
+							</ul>
+						</div>
+						<div class="btn-submit">
+							<a href="javascript:void(0);" class="gbtn" id="calcBt">计算</a>
+							<a href="" class="gbtn gbtn-gray">重置</a>
+							
+						</div>
+					</div>
+					<div class="jsq_right">
+						<div class="jsqyb_con1" id="calcResult">
+							<h2>
+								计算结果
+							</h2>
+							<p style="height: 80px;">
+								<input type="text" id="YearMoney" value="" disabled="disabled" />
+							</p>
+						</div>
+						<div class="jsqyb_con1" style="margin-top: 20px;">
+							<h2>
+								收益计算器简介
+							</h2>
+							<p>
+								收益计算器用于计算您在融资谷投资将会获得的收益，理财更加透明高效，固定日还款项目由于计息方式略有不同，具体收益请参见投资后的统计。
+							</p>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!--bottom-->
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+		<script type="text/javascript" src="script/jbox/jquery.jBox-2.3.min.js"></script>
+		<script type="text/javascript" src="script/jbox/jquery.jBox-zh-CN.js"></script>
+		<!-- bottom end-->
+	<script>
+	var YearMoney = 0.0;//最终获取本金和收益
+	var money = 0.0;
+	var n = 0;	
+	$("#calcBt").click(
+			function() {
+				var borrowSum = $("#borrowSum").val();
+				var wageSum = $("#wageSum").val();
+				var borrowTime = $("#borrowTime").val();
+				var basicParam = $("#repayType").val();
+				n = borrowTime * 12.0;
+				YearMoney = borrowSum * Math.pow(1.015,n) + 
+					wageSum * basicParam * 0.18 * borrowTime * 
+					(0.5 + 6 * borrowTime) + wageSum * basicParam * 12;
+				money = (YearMoney + "").substring(0, (YearMoney + "")
+							.indexOf(".") + 3);
+				$("#YearMoney").val(money);
+			});
+	</script>
+	</body>
+
+</html>

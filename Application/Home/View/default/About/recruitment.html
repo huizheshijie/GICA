@@ -1,0 +1,270 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>文字内容_网站公告_融资谷</title>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/inside.css" rel="stylesheet" type="text/css" />
+		<link id="skin" rel="stylesheet" href="css/jbox.css" />
+		<style type="text/css">
+ul,li {
+	margin: 0;
+	padding: 0
+}
+
+#scrollDiv {
+	height: 182px;
+	overflow: hidden
+}
+
+.load {
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+</style>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+		<div class="nymain" style="height: 500px;">
+			<div class="kfbox">
+				<div class="leftbox">
+					<h3>
+						诚聘英才
+					</h3>
+					<div class="boxmain">
+						<ul>
+							<li id="aboutower">
+								<a href="javascript:void(0);">公司介绍</a>
+							</li>
+							<li id="touchus">
+								<a href="javascript:void(0);">联系我们</a>
+							</li>
+							<li id="costdesc">
+								<a href="javascript:void(0);">资费说明</a>
+							</li>
+							<%-- 	<li id="mediaReport">
+								<a href="javascript:void(0);">媒体报道</a>
+							</li> --%>
+							<li id="invite">
+								<a href="javascript:void(0);">诚聘英才</a>							</li>
+							<li id="teamwork">
+								<a href="javascript:void(0);">合作伙伴</a>
+							</li>
+							<li class="last" id="links">
+								<a href="javascript:void(0);">友情链接</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="showcontent" class="rightbox">
+					<h3>
+						${paramMap.columName}
+					</h3>
+					<p class="zw">
+						${paramMap.content}
+					</p>
+					<%-- 内容显示位置 --%>
+				</div>
+			</div>
+		</div>
+		<%-- 引用底部公共部分 --%>
+
+		<jsp:include page="/include/footer.jsp"></jsp:include>
+
+		<%--底部footer 结束--%>
+		<script type="text/javascript" src="../js/jqueryV172.js"></script>
+		<script type="text/javascript" src="../jsscript/xl.js"></script>
+		<script type="text/javascript">
+function addCookie()
+{
+ if (document.all){
+       window.external.addFavorite('http://www.rzg888.com/','融资谷');
+    }
+    else if (window.sidebar) {
+       window.sidebar.addPanel('融资谷', 'http://www.rzg888.com/', "");
+    }else{
+       alert('请手动设为首页');
+    }
+}
+
+function setHomepage(){
+    if (document.all){
+        document.body.style.behavior='url(#default#homepage)';
+        document.body.setHomePage('http://www.rzg888.com/');
+    }else if (window.sidebar){
+        if(window.netscape){
+         try{  
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+         }  
+         catch (e)  
+         {  
+            alert( "该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true" );  
+         }
+    }else{
+        alert('请手动添加收藏');
+    }
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage','http://www.rzg888.com/');
+ }
+}
+$(function(){
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=109){
+			$(".nav-zdh").css("position","fixed")
+		}
+		else{
+		$(".nav-zdh").css("position","relative")
+		}
+	})
+})
+</script>
+		<script type="text/javascript" src="../js/jquery.shove-1.0.js"></script>
+		<script>
+		//alert("test");
+$(function(){
+	//样式选中
+		dqzt(1);
+		if ('${typeId}' == 10) {
+			$('#invite').addClass('on');
+		} else {
+			$('#aboutower').addClass('on');
+		}
+	//联系我们 
+	$("#touchus").click(function(){
+		$('#aboutower').removeClass('on');
+		$('#costdesc').removeClass('on');
+		$('#invite').removeClass('on');
+		$('#teamwork').removeClass('on');
+		$('#links').removeClass('on');
+		$('#mediaReport').removeClass('on');
+		 $('#touchus').addClass('on');
+	    $.post("queryMessageDetail.htm","typeId=7",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html("<h3>"+data.columName+"</h3>"+
+	                           "<p class='zw'>"+data.content+"</p>");
+	    });
+	});
+	
+	//关于我们
+	$("#aboutower").click(function(){
+		$('#costdesc').removeClass('on');
+		$('#invite').removeClass('on');
+		$('#teamwork').removeClass('on');
+		$('#links').removeClass('on');
+		$('#mediaReport').removeClass('on');
+		 $('#touchus').removeClass('on');
+		 $('#aboutower').addClass('on');
+	    $.post("queryMessageDetail.htm","typeId=4",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html("<h3>"+data.columName+"</h3>"+
+	                           "<p class='zw'>"+data.content+"</p>");
+	    });
+	});
+	
+		//资费说明
+	$("#costdesc").click(function(){
+		 $('#costdesc').addClass('on');
+			$('#invite').removeClass('on');
+			$('#teamwork').removeClass('on');
+			$('#links').removeClass('on');
+			$('#mediaReport').removeClass('on');
+			 $('#touchus').removeClass('on');
+			 $('#aboutower').removeClass('on');
+	    $.post("queryMessageDetail.htm","typeId=6",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html("<h3>"+data.columName+"</h3>"+
+	                           "<p class='zw'>"+data.content+"</p>");
+	    });
+	});
+	
+	
+		//诚聘英才
+	$("#invite").click(function(){
+		 $('#invite').addClass('on');
+		 $('#costdesc').removeClass('on');
+		 $('#teamwork').removeClass('on');
+		 $('#links').removeClass('on');
+		 $('#mediaReport').removeClass('on');
+		 $('#touchus').removeClass('on');
+		 $('#aboutower').removeClass('on');
+	    $.post("queryMessageDetail.htm","typeId=10",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html("<h3>"+data.columName+"</h3>"+
+	                           "<p class='zw'>"+data.content+"</p>");
+	    });
+	});
+
+			//合作伙伴
+	$("#teamwork").click(function(){
+		 $('#invite').removeClass('on');
+		 $('#costdesc').removeClass('on');
+		 $('#links').removeClass('on');
+		 $('#mediaReport').removeClass('on');
+		 $('#touchus').removeClass('on');
+		 $('#aboutower').removeClass('on');
+		 $('#teamwork').addClass('on');
+	    $.post("queryMessageDetail.htm","typeId=11",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html("<h3>"+data.columName+"</h3>"+
+	                           "<p class='zw'>"+data.content+"</p>");
+	    });
+	});
+	
+				//友情链接
+	$("#links").click(function(){
+		 $('#invite').removeClass('on');
+		 $('#costdesc').removeClass('on');
+		 $('#teamwork').removeClass('on');
+		 $('#mediaReport').removeClass('on');
+		 $('#touchus').removeClass('on');
+		 $('#aboutower').removeClass('on');
+		 $('#links').addClass('on');
+	    $.post("frontQueryMediaReportdList.htm","",function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html(data);
+	    });
+	});
+	
+					//媒体报道
+	$("#mediaReport").click(function(){
+		 $('#mediaReport').addClass('on');
+		 $('#invite').removeClass('on');
+		 $('#costdesc').removeClass('on');
+		 $('#teamwork').removeClass('on');
+		 $('#links').removeClass('on');
+		 $('#touchus').removeClass('on');
+		 $('#aboutower').removeClass('on');
+		  param["pageBean.pageNum"] = 1; 
+		  queryMtbd(param);
+	});
+	
+	
+	
+});
+
+function doMtbdJumpPage(i){
+		if(isNaN(i)){
+			alert("输入格式不正确!");
+			return;
+		}
+		$("#pageNum").val(i);
+		param["pageBean.pageNum"]=i;
+		//回调页面方法
+		queryMtbd(param);
+	}
+	function queryMtbd(parDate){
+		 $.post("queryMediaReportListPage.htm",parDate,function(data){
+	         $("#showcontent").html("");
+	         $("#showcontent").html(data);
+	    });
+	}
+</script>
+
+	</body>
+</html>

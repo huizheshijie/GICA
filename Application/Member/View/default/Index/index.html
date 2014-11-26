@@ -1,0 +1,469 @@
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
+		 <!-- 引用头部公共部分  --><volist name="list" id="vo">
+		<div class="nymain">
+			<div class="wdzh">
+				<div class="l_nav">
+
+					 <!-- 引用我的帐号主页左边栏  -->
+					<include file="Public/left"/>
+
+				</div>
+				<div class="r_main" style="border: none; margin: 0; width: 761px">
+					<div class="box box2" style="border-bottom: none;">
+						<h2 class="grisnd">
+							我的个人信息
+						</h2>
+						<div class="box-main">
+							<div style="overflow: hidden; ">
+								<div class="pic_info">
+									<div class="pic">
+											<img src="__STATIC__/rzg_images/default-img.jpg" width="128" height="128">
+									</div>
+									<p><form action="{:U('updateFile')}" enctype="multipart/form-data" method="post">
+										<a href="javascript:void(0);" id="test2">更换头像</a><!-- <input type="file"  name="file[]"><input  type="submit"  value="上传"> -->
+										</form>
+									</p>
+								</div>
+								<div class="xx_info">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<th align="right">
+												用户名：
+											</th>
+											<td>
+												<span id="u">{:get_username()}</span>
+												<s:if test="#request.homeMap.vipStatus ==2"></s:if>
+											</td>
+										</tr>
+										<tr>
+											<th align="right">
+												注册时间：
+											</th>
+											<td>
+												{$vo.reg_time|date='Y-m-d H:i:s',###}
+											</td>
+										</tr>
+										
+										<tr>
+											<th align="right">
+												会员积分：
+											</th>
+											<td>
+												<img src="__STATIC__/rzg_images/ico_r_1.gif"onclick=qvip();;;;;;;;;;;;style="cursor: pointer;" />
+											</td>
+										</tr>
+										
+<!-- 										<tr>
+											<th align="right">
+												个人统计：
+											</th>
+											<td>
+												<s:if test="#request.homeMap.borrowNum !=''">${homeMap.borrowNum}</s:if>
+												<s:else>0</s:else>
+												条借款记录，
+												<s:if test="#request.homeMap.investNum !=''">${homeMap.investNum}</s:if>
+												<s:else>0</s:else>
+												条投标记录
+											</td>
+										</tr> -->
+									</table>
+
+								</div>
+								<div class="hy_info">
+									<if condition="$vo.status eq 1">
+										<a href="renewalVIPInit.htm" class="vipbtn" target="_self">会员续费</a>
+									<elseif condition="$vo.status eq 0"/>
+										<a href="bevip.htm" class="vipbtn" target="_self">成为会员</a>
+									</if>
+										<p style="padding-left: 13px">
+											会员到期：&nbsp;&nbsp;
+											<span>{$vo.time_limit|date='Y-m-d H:i:s',###}</span>
+										</p>
+										<p style="padding-left: 0px">
+											最后登陆时间：&nbsp;&nbsp;
+											<span style="color:#000">{$vo.last_login_time|date='Y-m-d H:i:s',###}</span>
+										</p>
+										<p style="padding-left: 0px">
+											最后登录IP：&nbsp;&nbsp;
+											<span style="color:#000">{:get_client_ip()}</span>
+										</p>
+										<div style="padding-left: 0px;overflow:hidden;width:500px;">
+											<p style="float:left;">所属的客服：</p>
+											<span style="float:left;color:#B70000;padding:0 0 0 18px;">{$vo.customer_name}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+											<span style="float:left;padding:0 5px;">QQ</span>
+											 <!-- WPA Button Begin  -->
+											<div style="float:left;margin-top:3px;">
+											<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNjA2MV8xNTkyMzRfNDAwMDkxMTgwNl8"></script>
+											</div>
+											 <!-- WPA Button End  -->
+										</div>
+										<p></p>
+								</div>
+								 <!-- 认证管理  -->
+								<div class="gr_rzgl">
+									<table>
+										<tr>
+											<th align="right">
+												认证管理：
+											</th>
+											 <!-- 邮箱认证 -->
+											<td>
+													<a href="emailManagerInit.htm"><img
+															src="__STATIC__/rzg_images/img/h_yx_pic.jpg" title="邮箱未认证" />
+													</a>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+											 <!-- 手机认证 -->
+											<td>
+													<a href="owerInformationInit.htm"><img
+															src="__STATIC__/rzg_images/img/h_sj_pic.jpg" title="手机未认证" />
+													</a>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+											 <!-- 身份证认证  -->
+											<td>
+												<a href="owerInformationInit.htm">
+													<img src="__STATIC__/rzg_images/img/h_sfz_pic.jpg" title="身份证未认证" />
+												</a>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+
+											<!-- 银行卡认证 -->
+											<td>
+												<a href="yhbound.htm">
+													<img src="__STATIC__/rzg_images/img/h_yhk_pic.jpg" title="银行卡未认证" />
+												</a>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+											 <!-- VIP认证 -->
+											<td>
+												<a href="bevip.htm">
+													<img src="__STATIC__/rzg_images/img/l_vip_pic.jpg" title="VIP已认证" />
+												</a>
+											</td>
+											<td>
+												&nbsp;&nbsp;
+											</td>
+										</tr>
+									</table>
+
+								</div>
+								<br />
+
+
+							</div>
+							<br/>
+							<div class="tips" style="width: 90%; margin: 0 auto">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<th>
+											<img src="__STATIC__/rzg_images/022713_28.jpg" width="12" height="12" />
+											温馨提示：
+										</th>
+										<td>
+											未读站内信
+											<a href="mailNoticeInit.htm" target="_self">（<s:if
+													test="#request.homeMap.unReadCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>封
+										</td>
+										<td>
+											等待审核借款
+											<a href="homeBorrowAuditList.htm" target="_self">（<s:if
+													test="#request.homeMap.waitBorrowCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>个
+										</td>
+										<td>
+											本月待还款
+											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
+													test="#request.homeMap.repayCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>个
+										</td>
+										<td>
+											本月待收款
+											<a href="homeBorrowRecycleList.htm" target="_self">（<s:if
+													test="#request.homeMap.forpayCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>个
+										</td>
+									</tr>
+									<tr>
+										<td>
+											逾期待还款
+											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
+													test="#request.homeMap.lateRepayCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>个
+										</td>
+										<td>
+											上传资料
+											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
+													test="#request.homeMap.lateRepayCount !=''">{$vo.money_collect}</s:if>
+												<s:else>0</s:else>）</a>个
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td>
+											&nbsp;
+										</td>
+
+									    <td>
+											&nbsp;
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+					</div>
+					<div class="box" style="border-bottom: none;">
+						<div class="box-main" style="padding-left: 70px;">
+							<div class="mid">
+								<ul>
+									<li>
+										<a href="rechargeInit.htm" target="_self"><img
+												src="__STATIC__/rzg_images/022713_32.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="rechargeInit.htm" target="_self">我要充值</a>
+									</li>
+									<li>
+										<a href="withdrawLoad.htm" target="_self"><img
+												src="__STATIC__/rzg_images/ti_34.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="withdrawLoad.htm" target="_self">我要提现</a>
+									</li>
+									<li>
+										<a href="finance.htm" target="_self"><img
+												src="__STATIC__/rzg_images/022713_36.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="finance.htm" target="_self">我要理财</a>
+									</li>
+									
+									<li>
+										<a href="queryMyPayingBorrowList.htm"><img
+												src="__STATIC__/rzg_images/022713_38.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="queryMyPayingBorrowList.htm">我要还款</a>
+									</li>
+									<li>
+										<a href="homeBorrowRecycleList.htm" target="_self"><img
+												src="__STATIC__/rzg_images/022713_40.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="homeBorrowRecycleList.htm" target="_self">待收款</a>
+									</li>
+									<li>
+										<a href="queryFundrecordInit.htm"><img
+												src="__STATIC__/rzg_images/022713_42.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="queryFundrecordInit.htm">资金流水</a>
+									</li>
+									<li>
+										<a href="borrowapply.htm" target="_self"><img
+												src="__STATIC__/rzg_images/022713_44.jpg" width="32" height="35" /> </a>
+										<br />
+										<a href="borrowapply.htm" target="_self">我要借款</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="box">
+						<h2 class="otherh2">
+							账户详情：
+						</h2>
+						<div class="box-main">
+							<table border="0" cellpadding="0" cellspacing="0" class="zhtab">
+								<tr>
+									<th colspan="3" align="left">
+										账户总汇：
+									</th>
+								</tr>
+								<tr>
+									<td>
+										账户总额：￥
+										<s:if test="#request.accmountStatisMap.accountSum !=''">{$vo.account_money}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										可用余额：￥
+										<s:if test="#request.accmountStatisMap.usableAmount !=''">{$vo.account_money}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										冻结金额：￥
+										<s:if test="#request.accmountStatisMap.freezeAmount !=''">{$vo.money_freeze}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										总收益：￥
+										<s:if test="#request.accmountStatisMap.earnSum !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										利息收益：￥
+										<s:if test="#request.accmountStatisMap.rateEarnAmount !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										其他收益：￥
+										<s:if test="#request.accmountStatisMap.otherEarnAmount !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="3" align="left">
+										投资总汇：
+									</th>
+								</tr>
+								<tr>
+									<td>
+										已收总额：￥
+										<s:if test="#request.accmountStatisMap.hasPaySum !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										已收本金：￥
+										<s:if test="#request.accmountStatisMap.hasPayPrincipal !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										已收利息：￥
+										<s:if test="#request.accmountStatisMap.hasPayInterest !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										待收总额：￥
+										<s:if test="#request.accmountStatisMap.forPaySum !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										待收本金：￥
+										<s:if test="#request.accmountStatisMap.forPayPrincipal !=''">{$vo.back_money}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										待收利息：￥
+										<s:if test="#request.accmountStatisMap.forPayInterest !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="3" align="left">
+										借款总汇：
+									</th>
+								</tr>
+								<tr>
+									<td>
+										已还总额：￥
+										<s:if test="#request.accmountStatisMap.hasRePaySum !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										已还本金：￥
+										<s:if test="#request.accmountStatisMap.hasRePayPrincipal !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										已还利息：￥
+										<s:if test="#request.accmountStatisMap.hasRePayInterest !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										待还总额：￥
+										<s:if test="#request.accmountStatisMap.forRePaySum !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										待还本金：￥
+										<s:if test="#request.accmountStatisMap.forRePayPrincipal !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+									<td>
+										待还利息：￥
+										<s:if test="#request.accmountStatisMap.forRePayInterest !=''">{$vo.money_collect}</s:if>
+										<s:else>0</s:else>
+									</td>
+								</tr>
+								
+								
+								<tr>
+									<th colspan="3" align="left">
+										最近还款：
+									</th>
+								</tr>
+								<tr>
+									<td>
+										最近还款日：
+										<s:if test="#request.repayMap.minRepayDate == ''">无</s:if>
+									</td>
+									<td>
+										最近还款金额：
+										<s:if test="#request.repayMap.totalSum != ''">
+											<fmt:formatNumber value="${repayMap.totalSum}" type="number"
+												pattern="￥0.00" />
+										</s:if>
+										<s:else>0.00</s:else>
+									</td>
+									<td>
+										&nbsp;
+									</td>
+
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</volist>
+		 <!-- 引用底部公共部分  -->
+		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+		<script type="text/javascript"
+			src="script/jbox/jquery.jBox-2.3.min.js"></script>
+		<script type="text/javascript" src="script/jbox/jquery.jBox-zh-CN.js"></script>
+
+ <!--<script type="text/javascript">
+ function validate(){
+   document.getElementByIdx_x('myform').submit();
+ }
+ window.load=validate();
+ </script>-->
+<script>
+
+$('#test1').on('click', function(){
+    layer.prompt({title: '随便上传个东东，并确认',type: 2}, function(file){   
+    	  alert(file);
+});
+});
+
+</script>
+<script>
+	$('#test2').on('click', function(){
+    $.layer({
+        type: 1,
+        title: [
+            '图片上传', 
+            'background:#2B2E37; height:40px; color:#fff; border:none;' //自定义标题样式
+        ],  //不显示默认标题栏
+        offset : ['250px', ''],
+        shade: [1], //不显示遮罩
+        area: ['300pxpx', '200px'],
+        page: {html: '<form action="__URL__/upload" enctype="multipart/form-data" method="post"><input type="file"  name="photo"><input  type="submit"  value="上传"></from>'}
+    });
+});
+</script>
+</block>

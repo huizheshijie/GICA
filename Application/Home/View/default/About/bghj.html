@@ -1,0 +1,466 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/include/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>公司展示_关于我们_融资谷</title>
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/base.css" rel="stylesheet"
+			type="text/css" />
+		<link href="css/inside.css" rel="stylesheet"
+			type="text/css" />
+		<link id="skin" rel="stylesheet"
+			href="css/jbox.css" />
+		<link id="skin" rel="stylesheet" href="css/bghj.css" />
+
+		<script type="text/javascript" src="js/gszs1.js"></script>
+		<script type="text/javascript" src="js/gszs.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$("#example1-1").imgbox();
+
+			$("#example1-2").imgbox({
+			    'zoomOpacity'	: true,
+				'alignment'		: 'center'
+			});
+
+			$("#example1-3").imgbox({
+				'speedIn'		: 0,
+				'speedOut'		: 0
+			});
+
+			$("#example2-1, #example2-2").imgbox({
+				'speedIn'		: 0,
+				'speedOut'		: 0,
+				'alignment'		: 'center',
+				'overlayShow'	: true,
+				'allowMultiple'	: false
+			});
+		});
+	</script>
+	<style type="text/css">
+ul,li {
+	margin: 0;
+	padding: 0
+}
+
+#scrollDiv {
+	height: 182px;
+	overflow: hidden
+}
+
+.load {
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+</style>
+	</head>
+	<body>
+		<%--header--%>
+		<jsp:include page="/include/topref.jsp"></jsp:include>
+		<%-- header end--%>
+
+
+		<div class="nymain">
+			<div class="kfbox">
+				<div class="leftbox">
+					<h3>
+						关于我们
+					</h3>
+					<div class="boxmain">
+						<ul>
+							<li>
+								<a href="gywm.htm" >公司介绍</a>
+							</li>
+							<li>
+								<a href="bghj.htm" style="color: #166cb2;">办公环境</a>
+							</li>
+							<%--
+							<li>
+								<a href="zfsm.htm">资费说明</a>
+							</li>
+							--%>
+							<li>
+								<a href="hzhb.htm" >合作伙伴</a>
+							</li>
+							<li>
+								<a href="zxns.htm">招贤纳士</a>
+							</li>
+							<li class="last">
+								<a href="lxwm.htm">联系我们</a>
+							</li>
+							<li class="last">
+								<a href="mtbd.htm">媒体报道</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div id="showcontent" class="rightbox" style="height:450px;">
+
+					<%-- 代码 开始 --%>
+					<div id="content">
+						<h4>
+							办公环境
+						</h4>
+						<div id="images">
+         <a id="example2-1" title="公司展示" href="images/gszs_pic01.jpg"><img src="images/gszs_pic1.jpg" /> </a>
+         <a id="example2-1" title="公司展示" href="images/gszs_pic02.jpg"><img style="margin:0 23px;" src="images/gszs_pic2.jpg" /> </a>
+         <a id="example2-1" title="公司展示" href="images/gszs_pic03.jpg"><img src="images/gszs_pic3.jpg" /> </a>
+         <a id="example2-1" title="公司展示" href="images/gszs_pic04.jpg"><img src="images/gszs_pic4.jpg" /> </a>
+         <a id="example2-1" title="公司展示" href="images/gszs_pic05.jpg"><img style="margin:0 23px;" src="images/gszs_pic5.jpg" /> </a>
+		 <a id="example2-1" title="公司展示" href="images/gszs_pic06.jpg"><img src="images/gszs_pic6.jpg" /> </a>
+		</div>
+
+					</div>
+					<%-- 代码 结束 --%>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<%--底部快捷导航 开始--%>
+		<div class="bottom_box bottom_box1">
+	<div class="bottom">
+		<div class="bottom_con1">
+			<div class="bottom_left">
+				<div class="db_menu">
+					<a href="gywm.htm">关于我们</a>
+					<a href="getMessageBytypeId.htm?typeId=5">法律法规</a>
+					<a href="newhelp.htm">新手指引</a>
+					<a href="zxns.htm">诚聘英才</a>
+					<a href="lxwm.htm">联系我们</a>
+				<a href="forumquestionall.htm">问答</a>
+				<a href="linkship.htm">友情链接</a>
+				<a href="wzdt.htm">网站地图</a>
+				</div>
+				<div class="db_gzwm">
+					<p class="gzwm">
+						关注我们
+					</p>
+					<a class="xlwb" href="http://weibo.com/ubanks">新浪微博</a>
+					<a class="gfwx" href="#" id="id2">关注微信</a>
+					<a class="scbz" href="javascript:void(0);" onclick="AddFavorite('融资谷',location.href)">收藏本站</a>
+				</div>
+			</div>
+			<div class="bottom_right">
+				<p>
+					客服热线\工作时间 9:30-17:30
+				</p>
+				<div class="kfdh">
+					4000-911-806
+				</div>
+				<div class="kfxx">
+					<p class="kfyx">
+						客服邮箱&nbsp;&nbsp;
+						<a target="_blank" href="mailto:kefu@ubanks.cn">kefu@ubanks.cn</a>
+					</p>
+					<p class="zxkf">
+						<a href="javascript:;" title="在线客服" class="pg-footer-icon online">在线客服</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bottom_con2">
+			版权所有© 2014 深圳前海融资谷电子商务有限公司 |
+			<a href="http://www.miitbeian.gov.cn">备案号：粤ICP备14026790号</a>
+			&nbsp;&nbsp;&nbsp;
+			<script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0d153ad81f03058ce80c0c3c697b77b5' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+&nbsp;&nbsp;&nbsp;
+			<script type="text/javascript" src="http://tajs.qq.com/stats?sId=34570481" charset="UTF-8"></script>
+&nbsp;&nbsp;&nbsp;
+			<a href="http://webscan.360.cn/index/checkwebsite/url/www.ubanks.cn"><img border="0" style="width:80px;height:30px;" src="http://img.webscan.360.cn/status/pai/hash/8fd610857e7a8668e59488f645830bca"/></a>
+		</div>
+	</div>
+</div>
+
+		<%--底部footer 结束--%>
+		<script type="text/javascript">	 
+	//收藏本站
+function AddFavorite(title, url) {
+	    try {
+	        window.external.addFavorite(url, title);
+	    }
+	    catch (e) {
+	        try {
+	            window.sidebar.addPanel(title, url, "");
+	        }
+	        catch (e) {
+	            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+	        }
+	    }
+}
+</script>
+
+
+<div style="display: none" id=testID>
+	<P>
+		<img src="images/img/weixin.jpg" width="250" height="250" />
+	</P>
+	打开微信，点击底部的″发现″，使用″扫一扫″即可关注融资谷官方微信.
+</div>
+<script type=text/javascript>
+	var environment = {
+		userVo : '',
+		role : '',
+		userId : '',
+		basePath : '',
+		userCash : ''
+	};
+</script>
+<script type="text/javascript">
+				$("#id2").click(
+						function() {
+							tipsWindown("关注融资谷官方微信", "id:testID", "250", "300",
+									"true", "", "true", "id");
+						});
+
+
+// 关注微信
+var showWindown = true;
+var templateSrc = "http://leotheme.cn/wp-content/themes/Dreamy";
+function tipsWindown(title, content, width, height, drag, time, showbg, cssName) {
+	$("#windown-box").remove();
+	var width = width >= 950 ? this.width = 950 : this.width = width;
+	var height = height >= 527 ? this.height = 527 : this.height = height;
+	if (showWindown == true) {
+		var simpleWindown_html = new String;
+		simpleWindown_html = "<div id=\"windownbg\" style=\"height:"
+				+ $(document).height()
+				+ "px;;filter:alpha(opacity=0);opacity:0;z-index: 999901\"><iframe style=\"width:100%;height:100%;border:none;filter:alpha(opacity=0);opacity:0;\"></iframe></div>";
+		simpleWindown_html += "<div id=\"windown-box\">";
+		simpleWindown_html += "<div id=\"windown-title\"><h2></h2><span id=\"windown-close\">鍏抽棴</span></div>";
+		simpleWindown_html += "<div id=\"windown-content-border\"><div id=\"windown-content\"></div></div>";
+		simpleWindown_html += "</div>";
+		$("body").append(simpleWindown_html);
+		show = false;
+	}
+	contentType = content.substring(0, content.indexOf(":"));
+	content = content.substring(content.indexOf(":") + 1, content.length);
+	switch (contentType) {
+	case "text":
+		$("#windown-content").html(content);
+		break;
+	case "id":
+		$("#windown-content").html($("#" + content + "").html());
+		break;
+	case "img":
+		$("#windown-content")
+				.ajaxStart(
+						function() {
+							$(this)
+									.html(
+											"<img src='../js/"
+													+ templateSrc
+													+ "/images/loading.gif' class='loading' />");
+						});
+		$.ajax( {
+			error : function() {
+				$("#windown-content").html("<p class='windown-error'></p>");
+			},
+			success : function(html) {
+				$("#windown-content").html(
+						"<img src='../js/" + content + "' alt=''/>");
+			}
+		});
+		break;
+	case "url":
+		var content_array = content.split("?");
+		$("#windown-content")
+				.ajaxStart(
+						function() {
+							$(this)
+									.html(
+											"<img src='../js/"
+													+ templateSrc
+													+ "/images/loading.gif' class='loading' />");
+						});
+		$.ajax( {
+			type : content_array[0],
+			url : content_array[1],
+			data : content_array[2],
+			error : function() {
+				$("#windown-content").html("<p class='windown-error'></p>");
+			},
+			success : function(html) {
+				$("#windown-content").html(html);
+			}
+		});
+		break;
+	case "iframe":
+		$("#windown-content")
+				.ajaxStart(
+						function() {
+							$(this)
+									.html(
+											"<img src='../js/"
+													+ templateSrc
+													+ "/images/loading.gif' class='loading' />");
+						});
+		$
+				.ajax( {
+					error : function() {
+						$("#windown-content").html(
+								"<p class='windown-error'></p>");
+					},
+					success : function(html) {
+						$("#windown-content")
+								.html(
+										"<iframe src='../js//"
+												+ content
+												+ " width=\"100%\" height=\""
+												+ parseInt(height)
+												+ "px"
+												+ "\" scrolling=\"auto\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\"></iframe>");
+					}
+				});
+	}
+	$("#windown-title h2").html(title);
+	if (showbg == "true") {
+		$("#windownbg").show();
+	} else {
+		$("#windownbg").remove();
+	}
+	;
+	$("#windownbg").animate( {
+		opacity : "0.5"
+	}, "normal");
+	$("#windown-box").show();
+	if (height >= 527) {
+		$("#windown-title").css( {
+			width : (parseInt(width) + 22) + "px"
+		});
+		$("#windown-content").css( {
+			width : (parseInt(width) + 17) + "px",
+			height : height + "px"
+		});
+	} else {
+
+		$("#windown-title").css( {
+			width : (parseInt(width) + 10) + "px"
+		});
+		$("#windown-content").css( {
+			width : width + "px",
+			height : height + "px"
+		});
+	}
+
+	var cw, ch, est = document.documentElement.scrollTop;
+	if (self.innerHeight) {
+		cw = self.innerWidth;
+		ch = self.innerHeight;
+	} else if (document.documentElement
+			&& document.documentElement.clientHeight) {
+		cw = document.documentElement.clientWidth;
+		ch = document.documentElement.clientHeight;
+	} else if (document.body) {
+		cw = document.body.clientWidth;
+		ch = document.body.clientHeight;
+	}
+	var isIE6 = false;
+	if (isIE6) {
+		$("#windown-box").css( {
+			left : "50%",
+			top : (parseInt((ch) / 2) + est) + "px",
+			marginTop : -((parseInt(height) + 53) / 2) + "px",
+			marginLeft : -((parseInt(width) + 32) / 2) + "px",
+			zIndex : "999999"
+		});
+	} else {
+		$("#windown-box").css( {
+			left : "50%",
+			top : "50%",
+			marginTop : -((parseInt(height) + 53) / 2) + "px",
+			marginLeft : -((parseInt(width) + 32) / 2) + "px",
+			zIndex : "999999"
+		});
+	}
+	;
+	var Drag_ID = document.getElementById("windown-box"), DragHead = document
+			.getElementById("windown-title");
+
+	var moveX = 0, moveY = 0, moveTop, moveLeft = 0, moveable = false;
+	if (isIE6) {
+		moveTop = est;
+	} else {
+		moveTop = 0;
+	}
+	var sw = Drag_ID.scrollWidth, sh = Drag_ID.scrollHeight;
+	DragHead.onmouseover = function(e) {
+		if (drag == "true") {
+			DragHead.style.cursor = "move";
+		} else {
+			DragHead.style.cursor = "default";
+		}
+	};
+	DragHead.onmousedown = function(e) {
+		$("#windown-box").css( {
+			opacity : "0.5"
+		}, "normal");
+		if (drag == "true") {
+			moveable = true;
+		} else {
+			moveable = false;
+		}
+		e = window.event ? window.event : e;
+		var ol = Drag_ID.offsetLeft, ot = Drag_ID.offsetTop - moveTop;
+		moveX = e.clientX - ol;
+		moveY = e.clientY - ot;
+		document.onmousemove = function(e) {
+			if (moveable) {
+
+				e = window.event ? window.event : e;
+				var x = e.clientX - moveX;
+				var y = e.clientY - moveY;
+				if (x > 0 && (x + sw < cw) && y > 0 && (y + sh < ch)) {
+					Drag_ID.style.left = x + "px";
+					Drag_ID.style.top = parseInt(y + moveTop) + "px";
+					Drag_ID.style.margin = "auto";
+				}
+			}
+		}
+		document.onmouseup = function() {
+			moveable = false;
+			$("#windown-box").css( {
+				opacity : "1"
+			}, "normal");
+		};
+		Drag_ID.onselectstart = function(e) {
+			return false;
+		}
+		$("#windown-content").attr("class", "windown-" + cssName);
+		var closeWindown = function() {
+			$("#windownbg").remove();
+			$("#windown-box").fadeOut("slow", function() {
+				$(this).remove();
+			});
+		}
+		if (time == "" || typeof (time) == "undefined") {
+			$("#windown-close").click(function() {
+				$("#windownbg").remove();
+				$("#windown-box").fadeOut("slow", function() {
+					$(this).remove();
+				});
+			});
+		} else {
+			setTimeout(closeWindown, time);
+		}
+	}
+}
+</script>
+<%-- WPA Button Begin --%>
+<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNjA2MV8xNTgyNTlfNDAwMDkxMTgwNl8"></script>
+<%-- WPA Button End --%>
+
+		<%--底部footer 结束--%>
+		
+	</body>
+</html>
