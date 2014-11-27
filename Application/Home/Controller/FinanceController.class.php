@@ -39,6 +39,19 @@ class FinanceController extends HomeController {
     /* 页码检测 */
     $p = intval($p);
     $p = empty($p) ? 1 : $p;
+        is_login() || $this->error('您还没有登录，请先登录！', U('Home/User/login'));
+        $uid        =   is_login();//获取当前用户UID
+
+        $listMember = M('member');
+        $condition['gica_member.uid'] =$uid;
+        $list =$listMember->join('RIGHT JOIN gica_ucenter_member ON gica_member.uid = gica_ucenter_member.id' )->join('RIGHT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
+
+        // $list2 =$listMember->join('LEFT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
+
+
+        
+        $this->assign('list', $list);
+        $this->assign('list2', $list2);
 
     //$borrowinfo = M("z_borrow_info bi")->field('bi.*,ac.type_name,ac.type_nid')->join('z_article_category ac on ac.id= bi.danbao')->where('bi.id='.$id)->find();
     // if(!is_array($borrowinfo) || ($borrowinfo['borrow_status']==0 && $this->uid!=$borrowinfo['borrow_uid']) ) $this->error("数据有误");
@@ -48,6 +61,45 @@ class FinanceController extends HomeController {
     $this->assign('list3',$list);
     var_dump($list);
       $this->display();
+
+    }
+
+    public function add($id= 0){
+    $uid  = is_login();//获取当前用户UID
+
+        $listMember = M('member');
+        $condition['gica_member.uid'] =$uid;
+        $list =$listMember->join('RIGHT JOIN gica_ucenter_member ON gica_member.uid = gica_ucenter_member.id' )->join('RIGHT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
+
+        
+        $this->assign('list', $list);
+        $this->assign('list2', $list2);
+
+    //$borrowinfo = M("z_borrow_info bi")->field('bi.*,ac.type_name,ac.type_nid')->join('z_article_category ac on ac.id= bi.danbao')->where('bi.id='.$id)->find();
+    // if(!is_array($borrowinfo) || ($borrowinfo['borrow_status']==0 && $this->uid!=$borrowinfo['borrow_uid']) ) $this->error("数据有误");
+    $map = array('id' => $id);
+    $listBorrow  = M('z_borrow_info');
+    $list3 = $listBorrow->where($map)->select();
+
+
+//从表单中获取来的数据 
+
+$capital=$_POST["capital"];
+//创建一个表对象，将传来的数据插入到数据库中
+$m=M("z_borrow_investor");
+$m->investor_capital=$capital;
+$m->investor_uid=$uid;
+if($capital <= 0){// 上传错误提示错误信息
+            
+            $this->error('投资金额不能小于零元');
+        }
+        else{
+        	$count=$m->add();
+         $this->success('投资成功！',U('Borrow/detail?id='.$list['id']));
+     }
+    $this->assign('list3',$list3);
+    var_dump($list3);
+
 
     }
 
