@@ -1,18 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/include/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>常见问题_融资谷</title>
-		<link href="css/css.css" rel="stylesheet" type="text/css" />
-		<link href="css/base.css" rel="stylesheet" type="text/css" />
-		<link href="css/cjwt.css" rel="stylesheet" type="text/css" />
-		<script src="js/cjwt.js" type="text/javascript"></script>
-	</head>
-
-	<body>
-
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
 		<%--header--%>
 		<jsp:include page="/include/topref.jsp"></jsp:include>
 		<%-- header end--%>
@@ -184,5 +172,4 @@ value="提交你的回答">
 		<%--bottom--%>
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<%-- bottom end--%>
-	</body>
-</html>
+</block>

@@ -1,23 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/include/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<jsp:include page="/include/head.jsp"></jsp:include>
-
-		<script type="text/javascript" src="js/jquery.js">
-	
-</script>
-		<script type="text/javascript" src="js/banner.js">
-	
-</script>
-		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
-		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
-		<link rel="stylesheet" href="css/cjwt.css" type="text/css"></link>
-	</head>
-
-	<body style="overflow-x: hidden;">
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
 		<!--header-->
 		<jsp:include page="/include/topref.jsp"></jsp:include>
 		<!-- header end-->
@@ -195,6 +178,4 @@
 				$("#YearMoney").val(money);
 			});
 	</script>
-	</body>
-
-</html>
+</block>

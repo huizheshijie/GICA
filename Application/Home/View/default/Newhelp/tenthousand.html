@@ -1,32 +1,6 @@
-	<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>大家都是万元户_融资谷</title>
-		<link href="css/base.css" rel="stylesheet" />
-		<link href="css/style.css" rel="stylesheet" />
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/scroll.js">
-	
-</script>
-		<script type="text/javascript">
-	$(document).ready(function() {
-		$('.list_lh li:even').addClass('lieven');
-	})
-	$(function() {
-		$("div.list_lh").myScroll( {
-			speed : 40, //数值越大，速度越慢
-			rowHeight : 68
-		//li的高度
-				});
-	});
-</script>
-
-	</head>
-	<body style="overflow-x: hidden;">
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
 
 		<%--header--%>
 		<jsp:include page="/include/top.jsp"></jsp:include>
@@ -279,5 +253,4 @@
 			});
 </script>
 		<%-- bottom end--%>
-	</body>
-</html>
+</block>

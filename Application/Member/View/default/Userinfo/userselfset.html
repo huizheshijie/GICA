@@ -21,34 +21,27 @@
 					</div>
 					<!-- 个人详细信息位置 开始 -->
 					<div class="box" id="baseinfo">
+					<form action="{:U('add?id='.$vb['id'])}" method="post">
 						<div class="boxmain2">
 							<p class="tips">
 								<span class="fred">*</span> 为必填项，所有资料均会严格保密。
 								<span style="color: #DB7017">*</span> &nbsp;成为借款人必填项。
 							</p>
 							<div class="biaoge2">
-								<form id="BaseDataform">
+								<form form action="{:U('add')}" method="post">
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<td align="right">
 												<span style="color: red; float: none;" class="formtips">*</span>真实姓名：
 											</td>
 											<td>
-												<s:if
-													test="#request.map.auditStatus==1||#request.map.auditStatus==2">
-													<input type="text" class="inp188" name="paramMap.realName"
-														id="realName" value="" />
+													<input type="text" class="inp188" name="real_name" id="realName" value="" />
 													<span style="color: red; float: none;" id="u_realName"
 														class="formtips"></span>
-												</s:if>
-												<s:elseif test="#request.map.auditStatus==3">
 													<span style="color: red; float: none;" id="u_realName"
 														class="formtips"></span>
-												</s:elseif>
-												<s:else>
 													<span style="color: red; float: none;" id="u_realName"
 														class="formtips"></span>
-												</s:else>
 											</td>
 										</tr>
 										<tr>
@@ -56,20 +49,104 @@
 												<span style="color: red; float: none;" class="formtips">*</span>身份证号：
 											</td>
 											<td>
-												<s:if test='#request.map.auditStatus==3'>
 													<a id='idNo1'></a>
-												</s:if>
-												<s:elseif
-													test='#request.map.auditStatus==1||#request.map.auditStatus==2'>
 													<span style="color: red; float: none;" id="u_idNo"
 														class="formtips"></span>
-												</s:elseif>
-												<s:else>
-													<input type="text" class="inp188" name="paramMap.idNo"
+
+													<input type="text" class="inp188" name="idcard"
 														id="idNo" value="" />
 													<span style="color: red; float: none;" id="u_idNo"
 														class="formtips"></span>
-												</s:else>
+											</td>
+										</tr>
+																				<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>性别：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="sex"
+														id="sex" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+											</td>
+										</tr>
+																				<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>职业：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="zy"
+														id="idNo" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+											</td>
+										</tr>
+																				<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>手机号：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="cell_phone"
+														id="idNo" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+											</td>
+										</tr>
+																				<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>教育状况：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="education"
+														id="idNo" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>收入状况：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="income"
+														id="idNo" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<span style="color: red; float: none;" class="formtips">*</span>地址：
+											</td>
+											<td>
+													<a id='idNo1'></a>
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
+
+													<input type="text" class="inp188" name="address"
+														id="idNo" value="" />
+													<span style="color: red; float: none;" id="u_idNo"
+														class="formtips"></span>
 											</td>
 										</tr>
 <!-- 										<tr>
@@ -154,16 +231,14 @@
 													value="${map.auditStatus}" />
 											</td>
 											<td style="padding-top: 20px;">
-												<input type="button" value="保存并继续" class="bcbtn" id="jc_btn" />
+												<input  type="submit" class="bcbtn" value="保存">
 											</td>
 										</tr>
 									</table>
 								</form>
-
 							</div>
-
-
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

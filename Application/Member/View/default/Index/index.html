@@ -73,9 +73,9 @@
 								</div>
 								<div class="hy_info">
 									<if condition="$vo.status eq 1">
-										<a href="renewalVIPInit.htm" class="vipbtn" target="_self">会员续费</a>
+										<a href="{:U('Userinfo/userrenewalvip')}" class="vipbtn" target="_self">会员续费</a>
 									<elseif condition="$vo.status eq 0"/>
-										<a href="bevip.htm" class="vipbtn" target="_self">成为会员</a>
+										<a href="{:U('Userinfo/bevip')}" class="vipbtn" target="_self">成为会员</a>
 									</if>
 										<p style="padding-left: 13px">
 											会员到期：&nbsp;&nbsp;
@@ -110,7 +110,7 @@
 											</th>
 											 <!-- 邮箱认证 -->
 											<td>
-													<a href="emailManagerInit.htm"><img
+													<a href="{:U('Userinfo/usermailbanding')}"><img
 															src="__STATIC__/rzg_images/img/h_yx_pic.jpg" title="邮箱未认证" />
 													</a>
 											</td>
@@ -119,7 +119,7 @@
 											</td>
 											 <!-- 手机认证 -->
 											<td>
-													<a href="owerInformationInit.htm"><img
+													<a href="{:U('Userinfo/userchangephone')}"><img
 															src="__STATIC__/rzg_images/img/h_sj_pic.jpg" title="手机未认证" />
 													</a>
 											</td>
@@ -229,22 +229,22 @@
 							<div class="mid">
 								<ul>
 									<li>
-										<a href="#" target="_self"><img
+										<a href="{:U('Userinfo/userchagerwithdraw')}" target="_self"><img
 												src="__STATIC__/rzg_images/022713_32.jpg" width="32" height="35" /> </a>
 										<br />
-										<a href="#" target="_self">我要充值</a>
+										<a href="{:U('Userinfo/userchagerwithdraw')}" target="_self">我要充值</a>
 									</li>
 									<li>
-										<a href="#" target="_self"><img
+										<a href="{:U('Userinfo/userchagerwithdraw')}" target="_self"><img
 												src="__STATIC__/rzg_images/ti_34.jpg" width="32" height="35" /> </a>
 										<br />
-										<a href="#" target="_self">我要提现</a>
+										<a href="{:U('Userinfo/userchagerwithdraw')}" target="_self">我要提现</a>
 									</li>
 									<li>
-										<a href="#" target="_self"><img
+										<a href="{:U('Home/Finance/index')}" target="_self"><img
 												src="__STATIC__/rzg_images/022713_36.jpg" width="32" height="35" /> </a>
 										<br />
-										<a href="#" target="_self">我要理财</a>
+										<a href="{:U('Home/Finance/index')}" target="_self">我要理财</a>
 									</li>
 									
 									<li>
@@ -266,10 +266,10 @@
 										<a href="#">资金流水</a>
 									</li>
 									<li>
-										<a href="#" target="_self"><img
+										<a href="{:U('Home/Borrow/index')}" target="_self"><img
 												src="__STATIC__/rzg_images/022713_44.jpg" width="32" height="35" /> </a>
 										<br />
-										<a href="#" target="_self">我要借款</a>
+										<a href="{:U('Home/Borrow/index')}" target="_self">我要借款</a>
 									</li>
 								</ul>
 							</div>

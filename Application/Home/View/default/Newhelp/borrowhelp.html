@@ -1,28 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/include/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html> 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<jsp:include page="/include/head.jsp"></jsp:include>
-
-		<script type="text/javascript" src="js/jquery.js">
-	
-</script>
-		<script type="text/javascript" src="js/banner.js">
-	
-</script>
-		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
-		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
-	</head>
-
-	<body style="overflow-x: hidden;">
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
 		<!--header-->
 		<jsp:include page="/include/top.jsp"></jsp:include>
 		<!-- header end-->
 		<!--banner-->
 		<div class="xsbz_banner">
-			<img src="images/img/xsbz_banner.jpg" width="1440" height="246" />
+			<img src="__STATIC__/rzg_images/img/xsbz_banner.jpg" width="1440" height="246" />
 		</div>
 		<!-- banner end-->
 
@@ -44,22 +28,22 @@
 		<div class="jkbz_box">
 			<div class="jkbz_ptyl">
 				<div class="left">
-					<img src="images/img/ptyl_title.jpg" />
+					<img src="__STATIC__/rzg_images/img/ptyl_title.jpg" />
 					<p>
 						融资谷以创新的网贷模式，将个人与个人，个人与机构等实现有效的点对点的网络连接，通过建立多方合作机制，帮助有借贷需求的人减轻融资负担，帮助有投资需求的人增加财富增长效率，以健全的风险控制体系，创造一个安全、高效、诚信、互惠互助的网络借贷平台。
 					</p>
 				</div>
 				<div class="right">
-					<img src="images/img/ptyl.jpg" />
+					<img src="__STATIC__/rzg_images/img/ptyl.jpg" />
 				</div>
 			</div>
 			<div class="jkbz_jkcp">
 				<div class="left">
-					<img src="images/img/jkcp.jpg" />
+					<img src="__STATIC__/rzg_images/img/jkcp.jpg" />
 				</div>
 				<div class="right">
 					<div class="title">
-						<img src="images/img/jkcp_title.jpg" />
+						<img src="__STATIC__/rzg_images/img/jkcp_title.jpg" />
 					</div>
 					<div class="dbb">
 						<h4>
@@ -81,10 +65,10 @@
 			</div>
 			<div class="jkbz_rhjk">
 				<div class="top">
-					<img src="images/img/rhjk_title.jpg" />
+					<img src="__STATIC__/rzg_images/img/rhjk_title.jpg" />
 				</div>
 				<div class="bottom">
-					<img src="images/img/rhjk.jpg" />
+					<img src="__STATIC__/rzg_images/img/rhjk.jpg" />
 				</div>
 			</div>
 			<div class="jkbz_link">
@@ -96,6 +80,4 @@
 		<!--bottom-->
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<!-- bottom end-->
-	</body>
-
-</html>
+</block>

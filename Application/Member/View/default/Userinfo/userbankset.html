@@ -20,23 +20,21 @@
 						   <li onclick="loadWorkInit('queryWorkInit.htm');">
 								工作认证信息
 							</li>  
-							<li onclick="jumpUrl('updatexgmm.htm');">--%>
+							<li onclick="{:U('Userinfo/userbankset')}">
 							<li>
 								银行卡设置
 							</li>
-							<li id="li_bp" onclick="bindingPhoneLoad('boundcellphone.htm');">
-								更换手机
+							<li id="li_bp">
+								<a href="{:U('Userinfo/userfindpassbyphone')}">更换手机</a>
 							</li>
-							<li onclick="jumpUrl('emailManagerInit.htm');">
-								邮箱设置
+							<li>
+								<a href="{:U('Userinfo/usermailbanding')}">邮箱设置</a>
 							</li>
 							<li onclick="jumpUrl('szform.htm');">
 								通知设置
 							</li>
-							<li id="li_tx" class="on" onclick=
-	loadBankInfo('yhbound.htm');;
->
-								银行卡设置
+							<li id="li_tx" class="on">
+								<a href="{:U('Userinfo/userbankset')}">银行卡设置</a>
 							</li>
 						</ul>
 					</div>

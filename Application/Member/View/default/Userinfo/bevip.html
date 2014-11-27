@@ -2,7 +2,6 @@
 <extend name="Base/common"/>
 <block name="body">
 <!-- 引用头部公共部分 -->
-<jsp:include page="/include/top.jsp"></jsp:include>	
 <div class="nymain">
   <div class="wdzh">
     <div class="l_nav">
@@ -64,7 +63,7 @@
 												<span style="color: red; float: none;" id="u_kefu"
 														class="formtips"></span></td>
   </tr>
- <%--   <tr>
+<!--  <tr>
     <td align="right">	<span style="color: red; float: none;" 
 														class="formtips">*</span>备 注：</td>
     <td>
@@ -72,12 +71,12 @@
 												<span style="color: red; float: none;" id="u_content"
 														class="formtips"></span>
     </td>
-  </tr> --%>
+  </tr> -->
   <tr>
     <td align="right">	<span style="color: red; float: none;" 
 														class="formtips">*</span>验 证 码：</td>
     <td>		<input type="text" class="inp100x" name="paramMap.code" id="code"/>
-												<%--  <img src="admin/imageCode.do?pageId=vip" width="52" height="20" id="codeN"/>--%>
+												<img src="admin/imageCode.do?pageId=vip" width="52" height="20" id="codeN"/>
 												 <img src="admin/imageCode.do?pageId=vip" title="点击更换验证码" style="cursor: pointer;"
 									id="codeNum" width="46" height="18" onclick="javascript:switchCode()" />
 												

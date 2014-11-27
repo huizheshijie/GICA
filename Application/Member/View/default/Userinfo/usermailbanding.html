@@ -1,44 +1,43 @@
 <block name="body">
 <extend name="Base/common"/>
 <block name="body">
-		<%-- 引用头部公共部分 --%>
+		<!-- 引用头部公共部分 -->
 		<div class="nymain">
 			<div class="wdzh">
 				<div class="l_nav">
 					<div class="box">
-						<%-- 引用我的帐号主页左边栏 --%>
-						<%@include file="/include/left.jsp"%>
+						<!-- 引用我的帐号主页左边栏 -->
+						<include file="Public/left"/>
 					</div>
 				</div>
 				<div class="r_main">
 					<div class="tabtil">
 						<ul>
-							<%-- <li onclick="jumpUrl('owerInformationInit.htm');">
+							<li onclick="jumpUrl('owerInformationInit.htm');">
 								个人详细信息
 							</li>
 								<li onclick="loadWorkInit('queryWorkInit.htm');">
 								工作认证信息
-							</li>  --%>
+							</li>
 							<li onclick="jumpUrl('updatexgmm.htm');">
 								修改密码
 							</li>
-							<li id="li_bp" onclick="bindingPhoneLoad('boundcellphone.htm');">
-								更换手机
+							<li id="li_bp">
+								<a href="{:U('Userinfo/userfindpassbyphone')}">更换手机</a>
 							</li>
-							<li onclick="jumpUrl('emailManagerInit.htm');">
-								邮箱设置
+							<li >
+								<a href="{:U('Userinfo/usermailbanding')}">邮箱设置</a>
 							</li>
 							<li class="on" onclick="jumpUrl('szform.htm');">
 								通知设置
 							</li>
-							<li id="li_tx" onclick=loadBankInfo('yhbound.htm');;
->
-								银行卡设置
+							<li id="li_tx">
+								<a href="{:U('Userinfo/userbankset')}">银行卡设置</a>
 							</li>
 						</ul>
 					</div>
 
-					<%-- 邮箱 --%>
+					<!-- 邮箱 -->
 					<div class="box">
 						<div class="boxmain2" style="padding-top: 10px;">
 							<div class="biaoge2" style="margin-top: 0px;">
@@ -86,15 +85,11 @@
 					</div>
 
 
-
-					<%-- - --%>
-
-
 				</div>
 			</div>
 		</div>
 
-		<%-- 引用底部公共部分 --%>
+		<!-- 引用底部公共部分 -->
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<script type="text/javascript" src="script/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>

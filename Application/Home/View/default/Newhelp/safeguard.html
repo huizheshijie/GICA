@@ -1,19 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<jsp:include page="/include/head.jsp"></jsp:include>
-		<link href="css/base.css" rel="stylesheet" />
-		<link href="css/style.css" rel="stylesheet" />
-	</head>
-	<body style="overflow-x: hidden;">
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
 
 		<!--header-->
 		<jsp:include page="/include/topref.jsp"></jsp:include>
@@ -164,5 +151,4 @@
 		<!--bottom-->
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<!-- bottom end-->
-	</body>
-</html>
+</block>
