@@ -1,14 +1,12 @@
 <block name="body">
 <extend name="Base/common"/>
 <block name="body">
-		 <!-- 引用头部公共部分  --><volist name="list" id="vo">
-		<div class="nymain">
+		 <!-- 引用头部公共部分  -->
+		<div class="nymain"><volist name="list" id="vo">
 			<div class="wdzh">
 				<div class="l_nav">
-
 					 <!-- 引用我的帐号主页左边栏  -->
 					<include file="Public/left"/>
-
 				</div>
 				<div class="r_main" style="border: none; margin: 0; width: 761px">
 					<div class="box box2" style="border-bottom: none;">
@@ -21,9 +19,8 @@
 									<div class="pic">
 											<img src="__STATIC__/rzg_images/default-img.jpg" width="128" height="128">
 									</div>
-									<p><form action="{:U('updateFile')}" enctype="multipart/form-data" method="post">
+									<p>
 										<a href="javascript:void(0);" id="test2">更换头像</a><!-- <input type="file"  name="file[]"><input  type="submit"  value="上传"> -->
-										</form>
 									</p>
 								</div>
 								<div class="xx_info">
@@ -34,7 +31,6 @@
 											</th>
 											<td>
 												<span id="u">{:get_username()}</span>
-												<s:if test="#request.homeMap.vipStatus ==2"></s:if>
 											</td>
 										</tr>
 										<tr>
@@ -55,7 +51,7 @@
 											</td>
 										</tr>
 										
-<!-- 										<tr>
+<!-- 									<tr>
 											<th align="right">
 												个人统计：
 											</th>
@@ -172,51 +168,32 @@
 										</th>
 										<td>
 											未读站内信
-											<a href="mailNoticeInit.htm" target="_self">（<s:if
-													test="#request.homeMap.unReadCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>封
-										</td>
-										<td>
-											等待审核借款
-											<a href="homeBorrowAuditList.htm" target="_self">（<s:if
-													test="#request.homeMap.waitBorrowCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>个
+											<a href="mailNoticeInit.htm" target="_self">（{$vo.money_collect}）</a>封
 										</td>
 										<td>
 											本月待还款
-											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
-													test="#request.homeMap.repayCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>个
+											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
 										</td>
 										<td>
 											本月待收款
-											<a href="homeBorrowRecycleList.htm" target="_self">（<s:if
-													test="#request.homeMap.forpayCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>个
+											<a href="homeBorrowRecycleList.htm" target="_self">（{$vo.money_collect}）</a>个
 										</td>
 									</tr>
 									<tr>
 										<td>
+											&nbsp;
+										</td>
+										<td>
 											逾期待还款
-											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
-													test="#request.homeMap.lateRepayCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>个
+											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
+										</td>
+										<td>
+											等待审核借款
+											<a href="homeBorrowAuditList.htm" target="_self">（{$vo.money_collect}）</a>个
 										</td>
 										<td>
 											上传资料
-											<a href="queryMyPayingBorrowList.htm" target="_self">（<s:if
-													test="#request.homeMap.lateRepayCount !=''">{$vo.money_collect}</s:if>
-												<s:else>0</s:else>）</a>个
-										</td>
-										<td>
-											&nbsp;
-										</td>
-										<td>
-											&nbsp;
-										</td>
-
-									    <td>
-											&nbsp;
+											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
 										</td>
 									</tr>
 								</table>
@@ -428,12 +405,12 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</volist>
+		</div>
+		
 		 <!-- 引用底部公共部分  -->
 		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
-		<script type="text/javascript"
-			src="script/jbox/jquery.jBox-2.3.min.js"></script>
+		<script type="text/javascript"src="script/jbox/jquery.jBox-2.3.min.js"></script>
 		<script type="text/javascript" src="script/jbox/jquery.jBox-zh-CN.js"></script>
 
  <!--<script type="text/javascript">
@@ -443,16 +420,17 @@
  window.load=validate();
  </script>-->
 <script>
-
-$('#test1').on('click', function(){
+$('.test1').on('click', function(){
     layer.prompt({title: '随便上传个东东，并确认',type: 2}, function(file){   
     	  alert(file);
 });
 });
-
 </script>
 <script>
 	$('#test2').on('click', function(){
+		// layer.msg('正在施工，无法更换');
+
+
     $.layer({
         type: 1,
         title: [
@@ -461,9 +439,10 @@ $('#test1').on('click', function(){
         ],  //不显示默认标题栏
         offset : ['250px', ''],
         shade: [1], //不显示遮罩
-        area: ['300pxpx', '200px'],
-        page: {html: '<form action="__URL__/upload" enctype="multipart/form-data" method="post"><input type="file"  name="photo"><input  type="submit"  value="上传"></from>'}
+        area: ['260px', '100px'],
+        page: {html: '<form action="__URL__/upload" enctype="multipart/form-data" method="post"><input type="file"  name="photo"><input  type="submit"  value="上传"></from>'},
     });
-});
+ });
+
 </script>
 </block>

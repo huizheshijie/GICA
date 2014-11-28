@@ -4,24 +4,21 @@
 		<div class="bottom_con1">
 			<div class="bottom_left">
 				<div class="db_menu">
-					<a href="gywm.htm">关于我们</a>
-					<a href="getMessageBytypeId.htm?typeId=5">法律法规</a>
-					<a href="newhelp.htm">新手指引</a>
-					<a href="zxns.htm">诚聘英才</a>
-					<a href="lxwm.htm">联系我们</a>
-					<a href="forumquestionall.htm">问答</a>
-					<a href="wzdt.htm">网站地图</a>
+					<a href="{:U('Member/index/test')}" class="tipshang">关于我们</a>
+					<a href="javascript:void(0);" class="tipshang">法律法规</a>
+					<a href="javascript:void(0);" class="tipshang">新手指引</a>
+					<a href="javascript:void(0);" class="tipshang">诚聘英才</a>
+					<a href="javascript:void(0);" class="tipshang">联系我们</a>
+					<a href="javascript:void(0);" class="tipshang">问答</a>
+					<a href="javascript:void(0);" class="tipshang">网站地图</a>
 				</div>
 				<div class="db_gzwm">
 					<p class="gzwm">
 						关注我们
 					</p>
-					<a class="xlwb" href="#">新浪微博</a>
-					<a class="gfwx" href="#" id="id2">关注微信</a>
-					<a class="scbz" href="javascript:void(0);"
-						onclick=
-	AddFavorite('融资谷', location.href);
->收藏本站</a>
+					<a class="xlwb tipshang" href="javascript:void(0);">新浪微博</a>
+					<a class="gfwx" href="javascript:void(0);" id="id2">关注微信</a>
+					<a class="scbz" href="javascript:void(0);"onclick=AddFavorite('工合财富', location.href);>收藏本站</a>
 				</div>
 			</div>
 			<div class="bottom_right">
@@ -29,7 +26,7 @@
 					客服热线\工作时间 9:30-17.30
 				</p>
 				<div class="kfdh">
-					4000-911-806
+					4000-888-888
 				</div>
 				
 			</div>
@@ -55,6 +52,31 @@
 		<div class="bottom_con2">
 		Copyright © 2014 工合财富（www.ghjj.cn）版权所有 广东省工合股权基金有限公司 | 
 			<a href="http://www.miitbeian.gov.cn">备案号：粤ICP备88888888号</a> &nbsp;
+	<script type="text/javascript">
+ 	$('.shigong').on('click', function(){
+     layer.msg('前方页面正在施工ing...', 2, 0);
+     area: ['310px', '130px']
+     });
+
+ 	$('.tipshang').on('click', function(){
+    layer.tips('此处正在施工ing...', this, {
+        style: ['background-color:#0FA6D8; color:#fff', '#0FA6D8'],
+        maxWidth:150
+    });
+    });
+	$('.tipxia').on('click', function(){
+     	layer.tips('非常感谢大家对工合财富的支持，正因为你们，才让稳步的我们有了大大的关注。活动策划中，2015加油！', this, {
+        guide: 2,
+        maxWidth:150,
+        time: 4
+    });
+ 	 
+    });
+
+ 	</script>
+
+
+
 			<script type="text/javascript">
 	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
 			: " http://");
@@ -95,8 +117,8 @@
 </div>
 
 <!--底部footer 结束-->
-<script type="text/javascript" src="script/jqueryV172.js"></script>
-<script type="text/javascript" src="script/xl.js"></script>
+<!-- <script type="text/javascript" src="script/jqueryV172.js"></script> -->
+<!-- <script type="text/javascript" src="script/xl.js"></script> -->
 <script type='text/javascript'>
 	(function() {
 		document.getElementById('___szfw_logo___').oncontextmenu = function() {
@@ -118,12 +140,12 @@
 		}
 	}
 </script>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/banner.js"></script>
+<!-- <script type="text/javascript" src="__STATIC__/rzg_js/jquery.js"></script> -->
+ <script type="text/javascript" src="__STATIC__/rzg_js/banner.js"></script>
 
 <div style="display: none" id=testID>
 	<P>
-		<img src="images/img/weixin.jpg" width="250" height="250" />
+		<img src="__STATIC__/rzg_images/img/weixin.jpg" width="250" height="250" />
 	</P>
 	打开微信，点击底部的″发现″，使用″扫一扫″即可关注融资谷官方微信.
 </div>
@@ -214,7 +236,7 @@
 						success : function(html) {
 							$("#windown-content")
 									.html(
-											"<iframe src='../js//"
+											"<iframe src='__STATIC__/rzg_js//"
 													+ content
 													+ " width=\"100%\" height=\""
 													+ parseInt(height)
@@ -355,7 +377,7 @@
 			}
 		}
 	}
-</script>
+</script>-->
 <!-- WPA Button Begin -->
 <!-- <script charset="utf-8" type="text/javascript"
  	src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNjA2MV8xNTgyNTlfNDAwMDkxMTgwNl8"></script>-->

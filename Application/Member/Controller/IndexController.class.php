@@ -27,7 +27,7 @@ class IndexController extends MemberController {
         
         $this->assign('list', $list);
         $this->assign('list2', $list2);
-        var_dump($list);
+        // var_dump($list);
         $this->display();
     }
     //文件信息写入数据库
@@ -262,4 +262,8 @@ class IndexController extends MemberController {
         // $this->assign('data',$data);
         //$this->display();
     }
+    public function test(){
+    $data = I('post.all_school');
+    $this->ajaxReturn($data);
+}
 }

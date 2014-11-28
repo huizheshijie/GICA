@@ -1,0 +1,30 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Document</title>
+     <!-- 引入jquery -->
+     <script>
+ $("#submit").click(function(){
+$.ajax({
+type: "post",
+url: "{:U('Member/index/test')}",
+data: "all_school=" + all_school,
+beforeSend: function() {
+},
+error: function(request) {
+},
+success: function(data) {
+}
+});
+    );
+     </script>
+ </head>
+ <body>
+     <form action="">
+         <input type="text" name="title" id="title" />
+         <span id="submit">提交</span>
+     </form>
+     <div id="result"></div>
+ </body>
+ </html>
