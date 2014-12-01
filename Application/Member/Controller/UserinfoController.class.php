@@ -24,10 +24,32 @@ class UserinfoController extends MemberController {
         
     $this->display();
     }
-        public function userbankset(){
+    public function userbankset(){
+            $uid        =   is_login();
+            $m = M('z_member_banks');
+            $m_id['uid'] =$uid;
+            $m = $m->where($m_id)->select();
+            $this->assign('list', $m);
     	
         
     $this->display();
+    }
+    public function userbankset_save(){
+        //从表单中获取来的数据 
+        $uid=is_login(); 
+        $m=M("z_member_banks");
+        $data['bank_num']=$_POST['bankCard'];
+        $data['bank_name']=$_POST["bankName"];
+        $data['bank_address']=$_POST["subBankName"];
+        $condition['uid'] =$uid;
+        //保存当前数据对象
+        if ($m = $m->where($condition)->save($data)) { //保存成功
+            //成功提示
+            $this->success(L('保存成功'));
+        } else {
+            //失败提示
+            $this->error(L('保存失败'));
+        }
     }
         public function userbasicdata(){
     	
@@ -90,6 +112,12 @@ class UserinfoController extends MemberController {
     $this->display();
     }
         public function usermailbanding(){
+            $uid        =   is_login();
+            $m = M('ucenter_member');
+            $m_id['id'] =$uid;
+            $m = $m->where($m_id)->select();
+            $this->assign('list', $m);
+            
     	
         
     $this->display();
@@ -132,34 +160,8 @@ class UserinfoController extends MemberController {
     $this->display();
     }
     public function add(){
-                    //从表单中获取来的数据 
-        $uid=is_login();
-// $real_name=$_POST["real_name"];
-// $idcard=$_POST["idcard"];
-// $sex=$_POST["sex"];
-// $zy=$_POST["zy"];
-// $cell_phone=$_POST["cell_phone"];
-// $education=$_POST["education"];
-// $income=$_POST["income"];
-// $address=$_POST["address"];
-// //创建一个表对象，将传来的数据插入到数据库中
-
-// $m->uid=$uid;
-// $m->real_name=$real_name;
-// $m->idcard=$idcard;
-// $m->sex=$sex;
-// $m->zy=$zy;
-// $m->cell_phone=$cell_phone;
-// $m->education=$education;
-// $m->income=$income;
-// $m->address=$address;
-// $count=$m->add();
-// $this->success('保持成功');
-        // if(is_login()){
-
-        // } else {
-
-        // }    
+        //从表单中获取来的数据 
+        $uid=is_login(); 
         $m=M("z_member_info");
         $data['real_name']=$_POST["real_name"];
         $data['idcard']=$_POST["idcard"];

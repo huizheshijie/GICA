@@ -14,15 +14,15 @@
 				<div class="r_main">
 					<div class="tabtil">
 						<ul>
-							<li onclick="jumpUrl('owerInformationInit.htm');">
+							<li class="shigong">
 								个人详细信息
 							</li>
-						   <li onclick="loadWorkInit('queryWorkInit.htm');">
+						   <li class="shigong">
 								工作认证信息
 							</li>  
 							<li onclick="{:U('Userinfo/userbankset')}">
-							<li>
-								银行卡设置
+							<li class="shigong">
+								修改密码
 							</li>
 							<li id="li_bp">
 								<a href="{:U('Userinfo/userfindpassbyphone')}">更换手机</a>
@@ -30,7 +30,7 @@
 							<li>
 								<a href="{:U('Userinfo/usermailbanding')}">邮箱设置</a>
 							</li>
-							<li onclick="jumpUrl('szform.htm');">
+							<li class="shigong">
 								通知设置
 							</li>
 							<li id="li_tx" class="on">
@@ -41,7 +41,8 @@
 
 					<div class="box">
 						<div class="boxmain2" style="padding-top: 10px;">
-							<div class="biaoge2" style="margin-top: 0px;">
+							<div class="biaoge2" style="margin-top: 0px;"><volist name="list" id="vo">
+							<form action="{:U('userbankset_save')}" method="post">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<th colspan="2" align="left" style="padding-top: 0px;">
@@ -57,11 +58,11 @@
 										<td width="83%">
 											<span class="txt" id="cardUserName1"> <s:if
 													test="%{#request.realName==''}">
-													<s:property value="#request.realName" default="---"></s:property>
+													<s:property value="#request.realName" default="---">{:get_username()}</s:property>
 												</s:if>
 												<s:else>
 													<shove:sub value="#request.realName" size="2" suffix="***" />*
-    </s:else> </span>
+													</s:else> </span>
 											<br />
 										</td>
 									</tr>
@@ -71,7 +72,7 @@
 											<br />
 										</td>
 										<td>
-											<input type="text" class="inp188" id="bankName1" />
+											<input type="text" class="inp188" name="bankName" value="{$vo.bank_name}" />
 											<span class="txt">输入您的开户银行名称</span>
 											<br />
 										</td>
@@ -82,7 +83,7 @@
 											<br />
 										</td>
 										<td>
-											<input type="text" class="inp188" id="subBankName1" />
+											<input type="text" class="inp188" name="subBankName" value="{$vo.bank_address}"/>
 											<span class="txt">输入您的开户支行</span>
 											<br />
 										</td>
@@ -93,7 +94,7 @@
 											<br />
 										</td>
 										<td>
-											<input type="text" class="inp188" id="bankCard1" />
+											<input type="text" class="inp188" name="bankCard" value="{$vo.bank_num}"/>
 											<span class="txt">输入您的卡号</span>
 											<br />
 										</td>
@@ -104,7 +105,7 @@
 											<br />
 										</td>
 										<td style="padding-top: 10px;">
-											<input class="bcbtn" id="addbank" value="提交" />
+											<input  type="submit" class="bcbtn" value="保存">
 											<!-- <a href="javascript:void(0);" class="bcbtn" onclick="addBankInfo()">提交</a> -->
 											<br />
 										</td>
@@ -116,6 +117,7 @@
 										</td>
 									</tr>
 								</table>
+								</from></volist>
 
 							</div>
 							<div class="biaoge2">

@@ -13,22 +13,22 @@
 				<div class="r_main">
 					<div class="tabtil">
 						<ul>
-							<li onclick="jumpUrl('owerInformationInit.htm');">
+							<li class="shigong">
 								个人详细信息
 							</li>
 								<li onclick="loadWorkInit('queryWorkInit.htm');">
 								工作认证信息
 							</li>
-							<li onclick="jumpUrl('updatexgmm.htm');">
+							<li class="shigong">
 								修改密码
 							</li>
-							<li id="li_bp">
+							<li>
 								<a href="{:U('Userinfo/userfindpassbyphone')}">更换手机</a>
 							</li>
-							<li >
+							<li class="on" >
 								<a href="{:U('Userinfo/usermailbanding')}">邮箱设置</a>
 							</li>
-							<li class="on" onclick="jumpUrl('szform.htm');">
+							<li  class="shigong">
 								通知设置
 							</li>
 							<li id="li_tx">
@@ -53,17 +53,19 @@
 											邮箱地址：
 										</td>
 										<td>
-											<s:if test="paramMap.flag==2">
+										<volist name="list" id="vo">
+<!-- 											<s:if test="paramMap.flag==2">
      ${paramMap.email }<a style="color: red;">(该邮箱已绑定)</a>
 											</s:if>
-											<s:else>
+											<s:else> -->
 
 												<input type="text" name="paramMap.email" class="inp188"
-													id="mails" value="${paramMap.email }" />
+													id="mails" value="{$vo.email}" />
+										</volist>
 												<span style="color: red;">*<s:fielderror
 														fieldName="paramMap.email" /> </span>
-												<span><input type="button" class="chaxun"
-														value="发送邮件" id="saveEmail" /><a style="color: red;">(你还没绑定邮箱)</a>
+												<span><input type="button" class="chaxun shigong"
+														value="发送邮件" id="saveEmail" /><a style="color: red;">(您还没在邮箱里激活认证哦！赶紧认证吧。)</a>
 												</span>
 
 											</s:else>
@@ -71,7 +73,7 @@
 									</tr>
 									<tr>
 										<div id="ok" style="color: red; height: 20px;">
-											${paramMap.msg }
+											<!-- ${paramMap.msg } -->
 										</div>
 									</tr>
 									<tr>

@@ -11,7 +11,7 @@ class IndexController extends MemberController {
   //       $listMember  = M('member');
   //       $condition['uid'] =$uid;
   //       $list = $listMember->where($condition)->select();
-		// $this->assign('list', $list);
+        // $this->assign('list', $list);
   //       $this->display();
 
         is_login() || $this->error('您还没有登录，请先登录！', U('Home/User/login'));
@@ -23,26 +23,31 @@ class IndexController extends MemberController {
 
         // $list2 =$listMember->join('LEFT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
 
-
+        $m = M('ucenter_member');//用户头像
+        $condition1['gica_ucenter_member.id'] =$uid;
+        $m=$m->where($condition1)->select();
         
         $this->assign('list', $list);
         $this->assign('list2', $list2);
-        // var_dump($list);
+        $this->assign('list3', $m);
+        // var_dump($m);
         $this->display();
     }
     //文件信息写入数据库
     private function AddFile($fileinfo,$depict){
           $i=0;
        // var_dump($fileinfo);
+        $uid=is_login(); 
         $dateline=date("Y-m-d H:m:s");
-        $file=M('z_member_data_info');
+        $file=M('ucenter_member');
+        $condition['id'] =$uid;
         foreach($fileinfo as $vo)
         {
-            $data['data_url']=$vo['savename'];
-            $data['data_name']=$depict[$i];
-            $data['add_time']=$vo['savepath'];
-            $data['deal_time']=$dateline;
-            if($file->data($data)->add()){
+            $data['logo_url']=$vo['savepath'].$vo['savename'];
+            // $data['data_name']=$depict[$i];
+            // $data['add_time']=$vo['savepath'];
+            // $data['deal_time']=$dateline;
+            if($file->where($condition)->data($data)->save()){
                 //
                 $i++;
             }else{
@@ -54,7 +59,6 @@ class IndexController extends MemberController {
     }
      //上传
     public function upload(){
-
         $config=array(
             'maxSize'=>100*1024*1024*1024,
             'mimes'=>array(),
@@ -119,7 +123,7 @@ class IndexController extends MemberController {
    //文件信息查看
     public function view()
     {
-        $file=M('z_member_data_info');
+        $file=M('ucenter_member');
 
         $count=$file->count();
 
@@ -143,7 +147,7 @@ class IndexController extends MemberController {
     //文件信息管理
     public function manage()
     {
-        $file=M('z_member_data_info');
+        $file=M('ucenter_member');
 
         $count=$file->count();
 
@@ -166,7 +170,7 @@ class IndexController extends MemberController {
     //文件下载
     function download(){
         $id=$_GET['id'];
-        $file=M('z_member_data_info');
+        $file=M('ucenter_member');
         $data=$file->find($id);
         $filepath=$data['filepath'];
         $file_name=$data['filename'];
@@ -203,7 +207,7 @@ class IndexController extends MemberController {
     {
         $id=is_login();
 
-        $model=M("z_member_data_info");
+        $model=M("ucenter_member");
 
         $data=$model->find($id);
 
@@ -237,7 +241,7 @@ class IndexController extends MemberController {
     {
         $id=$_GET['id'];
 
-        $model=M("z_member_data_info");
+        $model=M("ucenter_member");
 
 
 

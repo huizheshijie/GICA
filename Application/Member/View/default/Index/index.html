@@ -16,11 +16,18 @@
 						<div class="box-main">
 							<div style="overflow: hidden; ">
 								<div class="pic_info">
-									<div class="pic">
+									<div class="pic"><volist name="list3" id="vo">
+									<if condition="$vo.logo_url eq ''">
 											<img src="__STATIC__/rzg_images/default-img.jpg" width="128" height="128">
+											<elseif condition="$vo.logo_url  neq ''"/>
+											<img src="Uploads/{$vo.logo_url}" width="128" height="128">
+											</if>
+											</volist>
+											
 									</div>
 									<p>
-										<a href="javascript:void(0);" id="test2">更换头像</a><!-- <input type="file"  name="file[]"><input  type="submit"  value="上传"> -->
+										<a href="javascript:void(0);" id="test2" class="shigong1">更换头像</a>
+										<!-- <a href="javascript:void(0);" id="test1">更换头像</a> --><!-- <input type="file"  name="file[]"><input  type="submit"  value="上传"> -->
 									</p>
 								</div>
 								<div class="xx_info">
@@ -98,7 +105,7 @@
 										<p></p>
 								</div>
 								 <!-- 认证管理  -->
-								<div class="gr_rzgl">
+								<div class="gr_rzgl"><volist name="list3" id="vs">
 									<table>
 										<tr>
 											<th align="right">
@@ -106,46 +113,72 @@
 											</th>
 											 <!-- 邮箱认证 -->
 											<td>
+											    <if condition="$vs.email_status eq 0">
 													<a href="{:U('Userinfo/usermailbanding')}"><img
 															src="__STATIC__/rzg_images/img/h_yx_pic.jpg" title="邮箱未认证" />
 													</a>
+												<elseif condition="$vs.email_status eq 1"/>
+												     <a href="{:U('Userinfo/usermailbanding')}"><img
+															src="__STATIC__/rzg_images/img/l_yx_pic.jpg" title="邮箱已认证" />
+													</a>
+												</if>
 											</td>
 											<td>
 												&nbsp;&nbsp;
 											</td>
 											 <!-- 手机认证 -->
-											<td>
+											<td><if condition="$vs.phone_status eq 0">
 													<a href="{:U('Userinfo/userchangephone')}"><img
 															src="__STATIC__/rzg_images/img/h_sj_pic.jpg" title="手机未认证" />
 													</a>
+												<elseif condition="$vs.phone_status eq 1"/>
+												     <a href="{:U('Userinfo/userchangephone')}"><img
+															src="__STATIC__/rzg_images/img/l_sj_pic.jpg" title="手机已认证" />
+													</a>
+												</if>
 											</td>
 											<td>
 												&nbsp;&nbsp;
 											</td>
 											 <!-- 身份证认证  -->
-											<td>
-												<a href="owerInformationInit.htm">
+											<td><if condition="$vs.id_status eq 0">
+												<a href="{:U('Userinfo/userselfset')}">
 													<img src="__STATIC__/rzg_images/img/h_sfz_pic.jpg" title="身份证未认证" />
 												</a>
+												<elseif condition="$vs.id_status eq 1"/>
+												     <a href="{:U('Userinfo/userselfset')}">
+													<img src="__STATIC__/rzg_images/img/l_sfz_pic.jpg" title="身份证已认证" />
+												    </a>
+												</if>
 											</td>
 											<td>
 												&nbsp;&nbsp;
 											</td>
 
 											<!-- 银行卡认证 -->
-											<td>
-												<a href="yhbound.htm">
+											<td><if condition="$vs.credit_status eq 0">
+												<a href="{:U('Userinfo/userbankset')}">
 													<img src="__STATIC__/rzg_images/img/h_yhk_pic.jpg" title="银行卡未认证" />
 												</a>
+												<elseif condition="$vs.credit_status eq 1"/>
+												     <a href="{:U('Userinfo/userbankset')}">
+													<img src="__STATIC__/rzg_images/img/l_yhk_pic.jpg" title="银行卡已认证" />
+												    </a>
+												</if>
 											</td>
 											<td>
 												&nbsp;&nbsp;
 											</td>
 											 <!-- VIP认证 -->
-											<td>
-												<a href="bevip.htm">
-													<img src="__STATIC__/rzg_images/img/l_vip_pic.jpg" title="VIP已认证" />
+											<td><if condition="$vs.video_status eq 0">
+												<a href="{:U('Userinfo/userrenewalvip')}">
+													<img src="__STATIC__/rzg_images/img/h_vip_pic.jpg" title="VIP未认证" />
 												</a>
+												<elseif condition="$vs.video_status eq 1"/>
+												     <a href="{:U('Userinfo/userrenewalvip')}">
+													<img src="__STATIC__/rzg_images/img/l_vip_pic.jpg" title="VIP已认证" />
+												    </a>
+												</if>
 											</td>
 											<td>
 												&nbsp;&nbsp;
@@ -153,6 +186,7 @@
 										</tr>
 									</table>
 
+								</volist>
 								</div>
 								<br />
 
@@ -420,9 +454,21 @@
  window.load=validate();
  </script>-->
 <script>
-$('.test1').on('click', function(){
+$('#test1').on('click', function(){
     layer.prompt({title: '随便上传个东东，并确认',type: 2}, function(file){   
-    	  alert(file);
+    	$.ajax({
+type: "post",
+url: "{:U('Member/index/test')}",
+data: "all_school=" + all_school,
+beforeSend: function() {
+	alert(file);
+},
+error: function(request) {
+},
+success: function(data) {
+}
+});
+    	  
 });
 });
 </script>
@@ -440,7 +486,7 @@ $('.test1').on('click', function(){
         offset : ['250px', ''],
         shade: [1], //不显示遮罩
         area: ['260px', '100px'],
-        page: {html: '<form action="__URL__/upload" enctype="multipart/form-data" method="post"><input type="file"  name="photo"><input  type="submit"  value="上传"></from>'},
+        page: {html: '<form action="__URL__/upload" enctype="multipart/form-data" method="post"><input type="file"  name="filename" value=""><input  type="submit"  value="上传"></from>'},
     });
  });
 

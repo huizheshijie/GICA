@@ -15,8 +15,7 @@
 								
 								<tr>
 									<td colspan="2" align="center">
-										<span style="color: #000">如手机填写有误或无法收取到短信验证码，请点击：</span><a
-											href="findpassbyphone.htm" style="color: red;"> 重新填写手机号 </a>
+										<span style="color: #000">如手机填写有误或无法收取到短信验证码，请点击：</span><a href="javascript:void(0);" style="color: red;"  class="shigong"> 重新填写手机号 </a>
 									</td>
 								</tr>
 								<tr>
@@ -24,11 +23,9 @@
 										手机号：
 										<span class="fred">*</span>
 									</th>
-									<%--											value="${sign}"--%>
 									<td>
-										${cellphone}
-										<input type="hidden"
-											value="<%=session.getAttribute("cellphone")%>" id="cellphone" />
+<!-- 										${cellphone}
+										<input type="hidden" value="<%=session.getAttribute("cellphone")%>" id="cellphone" /> -->
 									</td>
 								</tr>
 								<tr>
