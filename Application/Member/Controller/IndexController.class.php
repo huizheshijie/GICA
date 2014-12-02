@@ -30,7 +30,7 @@ class IndexController extends MemberController {
         $this->assign('list', $list);
         $this->assign('list2', $list2);
         $this->assign('list3', $m);
-        // var_dump($m);
+        var_dump($list );
         $this->display();
     }
     //文件信息写入数据库

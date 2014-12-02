@@ -3,7 +3,7 @@
 <block name="body">
 <!-- 引用头部公共部分 -->
 <jsp:include page="/include/topref.jsp"></jsp:include>	
-<form role="form" method="post" action="{:U('upload')}" enctype="multipart/form-data">
+<form action="{:U('circulation_save')}" method="post">
 <div class="nymain">
 <div class="bigbox" style="border:none">
   <div class="sqdk" style="background:none;">
@@ -29,8 +29,8 @@
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">借款总金额：<span class="fred">*</span></td>
+    <td><input name="borrow_money" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
@@ -44,20 +44,20 @@
 </div></div>
      -->
        <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">年利率：<span class="fred">*</span></td>
+    <td><input name="borrow_interest_rate" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">借款用途：<span class="fred">*</span></td>
+    <td><input name="borrow_use" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">借款期限：<span class="fred">*</span></td>
+    <td><input name="collect_day" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
@@ -68,59 +68,42 @@
       有助增加借款成功几率。严禁使用他人照片） </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">最低投标金额：<span class="fred">*</span></td>
+    <td><input name="borrow_min" type="text" class="inp280" maxlength="12" value=""/>
+    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
+    </td>
+  </tr>
+    <tr>
+    <td align="right">最多投标金额：<span class="fred">*</span></td>
+    <td><input name="borrow_max" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">有效时间：<span class="fred">*</span></td>
+    <td><input name="collect_time" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">还款方式：<span class="fred">*</span></td>
+    <td><input name="repayment_type" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">投标奖励：<span class="fred">*</span></td>
+    <td><input name="reward_vouch_rate" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
   <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
+    <td align="right">借款说明：<span class="fred">*</span></td>
+    <td><input name="borrow_info" type="text" class="inp280" maxlength="12" value=""/>
     <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
     </td>
   </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
+  
 <!--    <tr>
     <td align="right">筹标期限：<span class="fred">*</span></td>
     <td>
@@ -128,80 +111,11 @@
     	<span class="fred"><s:fielderror fieldName="paramMap['raiseTerm']"></s:fielderror></span>
     </td>
   </tr> -->
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-     <td>&nbsp;</td>
-     <td><span class="fred"><s:fielderror fieldName="paramMap['businessDetail']"></s:fielderror></span></td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
-  <tr>
-    <td align="right">借款标题：<span class="fred">*</span></td>
-    <td><input name="borrow_name" type="text" class="inp280" maxlength="12" value=""/>
-    <span class="fred"><s:fielderror fieldName="paramMap['title']"></s:fielderror></span>
-    </td>
-  </tr>
     <tr>
     <td align="right">&nbsp;</td>
 
-    <td style="padding-top:20px;"><a id="bcbtn" style="cursor:pointer;" class="bcbtn">提交发布</a>
+    <td style="padding-top:20px;"><input  type="submit" class="bcbtn" value="保存发布"></td>
+
   </tr>
     </table>
     </div>

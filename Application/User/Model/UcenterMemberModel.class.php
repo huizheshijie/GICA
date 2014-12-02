@@ -110,7 +110,6 @@ class UcenterMemberModel extends Model{
 			return $this->getError(); //错误详情见自动验证注释
 		}
 	}
-
 	/**
 	 * 用户登录认证
 	 * @param  string  $username 用户名

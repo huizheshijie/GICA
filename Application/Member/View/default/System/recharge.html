@@ -1,83 +1,27 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/include/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html> 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>融资谷网贷</title>
-		<jsp:include page="/include/head.jsp"></jsp:include>
-		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
-		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
-		<link href="css/inside.css" rel="stylesheet" type="text/css" />
-		<link id="skin" rel="stylesheet" href="css/jbox/Gray/jbox.css" />
-		<style>
-body {
-	font-size: 12px;
-	color: #333
-}
-
-table {
-	line-height: 33px;
-	width: 720px;
-}
-
-table tr {
-	
-}
-
-table tr td {
-	line-height: 33px;
-}
-
-table tr td input {
-	height: 33px;
-	cursor: pointer;
-	margin: 1px;
-	float: left
-}
-
-table tr td label {
-	line-height: 33px;
-	height: 33px
-}
-
-.border_ {
-	border: #eeeeee 1px double;
-	width: 720px;
-	overflow: hidden;
-	margin-left: 0px;
-	margin-right: 0px;
-}
-
-.border_ table tr td .border_ table tr td strong {
-	font-size: 14px;
-}
-</style>
-	</head>
-
-	<body>
-		<%-- 引用头部公共部分 --%>
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
+		<!-- 引用头部公共部分 -->
 		<jsp:include page="/include/topref.jsp"></jsp:include>
 		<div class="nymain">
 			<div class="wdzh">
 				<div class="l_nav">
 					<div class="box">
-						<%-- 引用我的帐号主页左边栏 --%>
-						<%@include file="/include/left.jsp"%>
+						<!-- 引用我的帐号主页左边栏 -->
+						<include file="Public/left"/>
 					</div>
 				</div>
 				<div class="r_main">
 					<div class="tabtil">
 						<ul>
-							<li onclick="jumpUrl('queryFundrecordInit.htm');">
+							<li class=" tipshang">
 								资金记录
 							</li>
-							<li class="on" onclick="jumpUrl('rechargeInit.htm');">
-								充值
+							<li class="on" >
+								<a href="{:U('System/recharge')}">充值</a>
 							</li>
-							<li onclick=jumpUrl('withdrawLoad.htm');;
->
-								提现
+							<li >
+								<a href="{:U('System/withdrawdeposit')}">提现</a>
 							</li>
 						</ul>
 					</div>
@@ -98,7 +42,7 @@ table tr td label {
 											真实姓名：
 										</td>
 										<td width="89%">
-											<strong>${realName }</strong>
+											<!-- <strong>${realName }</strong> -->
 										</td>
 									</tr>
 									<tr>
@@ -106,7 +50,7 @@ table tr td label {
 											账号：
 										</td>
 										<td>
-											<strong>${email }</strong>
+											<!-- <strong>${email }</strong> -->
 										</td>
 									</tr>
 									<tr>
@@ -134,9 +78,9 @@ table tr td label {
 													style="float: none;" />&nbsp;&nbsp;
    <img src="images/ipay.png" width="121px" height="33px" />
 											</s:if>
-											<%--<input type="radio" name="pay" id="xxpay" value="3"
+<!-- 											<input type="radio" name="pay" id="xxpay" value="3"
 												style="float: none;" />
-											&nbsp;线下充值--%>
+											&nbsp;线下充值 -->
 										</td>
 									</tr>
 									<tr>
@@ -253,10 +197,9 @@ table tr td label {
 															<img src="images/banks/bank_20.png" width="128"
 																height="33" />
 														</td>
-														<%-- 
-        <td><input type="radio"   name="bankType"   value="TCCB" />
-            <img src="images/banks/bank_30.png" width="128" height="33" /></td>
-          --%>
+														
+<!--         <td><input type="radio"   name="bankType"   value="TCCB" />
+            <img src="images/banks/bank_30.png" width="128" height="33" /></td> -->
 														<td></td>
 
 
@@ -280,14 +223,14 @@ table tr td label {
 														<td></td>
 														<td></td>
 													</tr>
-													<%-- 
-        <tr>
+													
+<!--         <tr>
           <td colspan="2">&nbsp;</td>
           <td><input name="下一步" type="submit" value="下一步" style="border:0px; color:#FFF; font-weight:bold; margin:10px; width:100px; background:#1064AC"/></td>
           <td></td>
           <td></td>
-        </tr>
-         --%>
+        </tr> -->
+         
 												</table>
 											</div>
 											<div class="border_" id="div_ipay" style="display: none;">
@@ -344,14 +287,13 @@ table tr td label {
 														<td></td>
 														<td></td>
 													</tr>
-													<%-- 
-        <tr>
+													 
+<!--         <tr>
           <td colspan="2">&nbsp;</td>
           <td><input name="下一步" type="submit" value="下一步" style="border:0px; color:#FFF; font-weight:bold; margin:10px; width:100px; background:#1064AC"/></td>
           <td></td>
           <td></td>
-        </tr>
-         --%>
+        </tr> -->
 												</table>
 											</div>
 										</td>
@@ -439,11 +381,9 @@ table tr td label {
 
 							</div>
 							<div class="btn" id="btn_submit">
-								<input type="button" class="bcbtn" value="保存并继续"
+								<input type="button" class="bcbtn shigong" value="保存并继续"
 									id="addrecharge" />
-								<%--
-        <a href="javascript:void(0);" class="bcbtn" onclick="addRechargeInfo();">保存并继续</a>
-        --%>
+        <!-- <a href="javascript:void(0);" class="bcbtn" onclick="addRechargeInfo();">保存并继续</a> -->
 							</div>
 							<p id="p_about" class="tips2" style="border: none;">
 							</p>
@@ -458,7 +398,7 @@ table tr td label {
 				</div>
 			</div>
 		</div>
-		<%-- 引用底部公共部分 --%>
+		<!-- 引用底部公共部分 -->
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<script type="text/javascript" src="/script/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
@@ -619,5 +559,4 @@ table tr td label {
 		window.location.href = obj;
 	}
 </script>
-	</body>
-</html>
+</block>

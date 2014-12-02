@@ -93,7 +93,7 @@
 								<p class="money">
 									您的帐户总额：
 									<strong> {$vo.account_money}元 </strong>
-									<a href="rechargeInit.htm" class="czbtn"><img
+									<a href="r{:U('Member/System/recharge')}" class="czbtn"><img
 											src="__STATIC__/rzg_images/tubiao3.png" /> </a>
 									<br />
 									您的可用余额：
@@ -101,8 +101,8 @@
 								</p>
 								<p class="tips">
 									请填写并确认下面投标金额
-									<a href="updatexgmm.htm" class="czbtn"><input type="button"
-											value="设置交易密码" /> </a>
+									<!-- <a href="updatexgmm.htm" class="czbtn"><input type="button"
+											value="设置交易密码" /> </a> -->
 									<br />
 									<s:if test="#request.subscribes!=1">
 										<span class="f999">最低投标金额：<s:property
@@ -155,7 +155,7 @@
 											<tr>
 												<td colspan="2" align="center"
 													style="padding-top: 15px; padding-bottom: 15px;">
-													<input  type="submit" class="qdtbbtn" value="点击确定">
+													<input  type="submit" class="qdtbbtn" value="">
 													<a href="{:U('Borrow/detail?id='.$vb['id'])}"></a>
 												</td>
 											</tr>

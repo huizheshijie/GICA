@@ -17,7 +17,9 @@ class IndexController extends HomeController {
         $map1 = array('category_id' => 40);
         $lists    = D('Document')->where($map)->lists(null);
         $lists1    = D('Document')->where($map1)->lists(null);
-        $lists2    = D('z_borrow_investor')->order('id desc')->select();
+        
+
+        $lists2    = D('z_borrow_investor')->field('investor_uid,sum(investor_capital)investor_capital')->order('investor_capital desc')->group('investor_uid')->select();
 
         
         //$this->assign('page',D('Document')->page);//分页
@@ -32,25 +34,19 @@ class IndexController extends HomeController {
 		// var_dump($listBorrow);
 		// $this->assign("listBorrow",$listBorrow);
 
-		   // $searchMap['z_borrow_status']=array("in",'2,4,6,7');
-        //       $listBorrow = M('z_borrow_info')->where($searchMap);
-        //       $this->assign("listBorrow",$listBorrow);
-        //       var_dump($listBorrow); 
         import('ORG.Util.Page');// 导入分页类
         $listBorrow  = M('z_borrow_info');
-        $count      = $listBorrow ->count();
+        $count      = $listBorrow ->where('borrow_status not in (1,5,3)')->count();
         $Page = new  \Think\Page($count, 8);
         $show       = $Page->show();
         $orderby['id']='desc';
-        $list = $listBorrow->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $listBorrow->where('borrow_status not in (1,5,3)')->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('category',$category);//栏目
         $this->assign('lists',$lists);//列表
         $this->assign('lists1',$lists1);
         $this->assign('lists2',$lists2);
         $this->assign('list2',$list);
         $this->assign('page',$show);
-        // $this->assign('page',$listBorrow->page);//分页
-         // var_dump($lists2);
         $this->display();
     }
 

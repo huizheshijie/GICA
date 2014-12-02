@@ -58,12 +58,12 @@
 							<ul>
 								<li style="background: none; line-height: 20px">
                     <article:prev name="prev" info="info">
-                        <a href="{:U('?id='.$prev['id'])}">上一篇</a>
+                        <a href="{:U('?id='.$prev['id'])}">上一篇： </a><a href="{:U('?id='.$prev['id'])}">{$prev['title']|msubstr=0,18}</a>
                     </article:prev>
 								</li>
 								<li style="background: none; line-height: 20px">
                     <article:next name="next" info="info">
-                        <a href="{:U('?id='.$next['id'])}">下一篇</a>
+                        <a href="{:U('?id='.$next['id'])}">下一篇：</a><a href="{:U('?id='.$next['id'])}">{$next['title']|msubstr=0,18}</a>
                     </article:next>
 								</li>
 							</ul>

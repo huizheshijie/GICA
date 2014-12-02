@@ -12,12 +12,12 @@ class FinanceController extends HomeController {
 	//系统首页
     public function index(){
         import('ORG.Util.Page');// 导入分页类
-    	$listBorrow  = M('z_borrow_info');
-        $count      = $listBorrow ->count();
+        $listBorrow  = M('z_borrow_info');
+        $count      = $listBorrow ->where('borrow_status not in (1,5,3)')->count();
         $Page = new  \Think\Page($count, 8);
         $show       = $Page->show();
         $orderby['id']='desc';
-        $list = $listBorrow->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $listBorrow->where('borrow_status not in (1,5,3)')->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list2',$list);
         $this->assign('page',$show);
       $this->display();
@@ -47,8 +47,6 @@ class FinanceController extends HomeController {
         $list =$listMember->join('RIGHT JOIN gica_ucenter_member ON gica_member.uid = gica_ucenter_member.id' )->join('RIGHT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
 
         // $list2 =$listMember->join('LEFT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
-
-
         
         $this->assign('list', $list);
         $this->assign('list2', $list2);
@@ -61,17 +59,16 @@ class FinanceController extends HomeController {
     $this->assign('list3',$list);
     var_dump($list);
       $this->display();
-
     }
-
     public function add($id= 0){
     $uid  = is_login();//获取当前用户UID
-
+    
+    $bid = $id;//投标id赋值
         $listMember = M('member');
         $condition['gica_member.uid'] =$uid;
         $list =$listMember->join('RIGHT JOIN gica_ucenter_member ON gica_member.uid = gica_ucenter_member.id' )->join('RIGHT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
 
-        
+        var_dump($list['']);
         $this->assign('list', $list);
         $this->assign('list2', $list2);
 
@@ -81,7 +78,6 @@ class FinanceController extends HomeController {
     $listBorrow  = M('z_borrow_info');
     $list3 = $listBorrow->where($map)->select();
 
-
 //从表单中获取来的数据 
 
 $capital=$_POST["capital"];
@@ -89,18 +85,24 @@ $capital=$_POST["capital"];
 $m=M("z_borrow_investor");
 $m->investor_capital=$capital;
 $m->investor_uid=$uid;
+// 判断余额不足
+// if($list['account_money'] >= $capital ){
 if($capital <= 0){// 上传错误提示错误信息
-            
+
             $this->error('投资金额不能小于零元');
         }
         else{
         	$count=$m->add();
-         $this->success('投资成功！',U('Borrow/detail?id='.$list['id']));
+            $this->success('投资成功！',U('Borrow/detail?id='.$bid));
      }
     $this->assign('list3',$list3);
     var_dump($list3);
 
 
     }
+
+// else{
+//     $this->error('抱歉，您余额不足。请充值。');
+// }
 
 }

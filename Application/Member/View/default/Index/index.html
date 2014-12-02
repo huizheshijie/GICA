@@ -202,15 +202,23 @@
 										</th>
 										<td>
 											未读站内信
-											<a href="mailNoticeInit.htm" target="_self">（{$vo.money_collect}）</a>封
+											<a href="javascript:void(0);" target="_self">（0）</a>封
 										</td>
 										<td>
 											本月待还款
-											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
+											<if condition="$vs.money_collect neq ''">
+											<a href="javascript:void(0);" target="_self">（{$vo.money_collect}）</a>个
+											<elseif condition="$vs.money_collect eq ''"/>
+											<a href="javascript:void(0);" target="_self">（无）</a>
+											</if>
 										</td>
 										<td>
 											本月待收款
-											<a href="homeBorrowRecycleList.htm" target="_self">（{$vo.money_collect}）</a>个
+											<if condition="$vs.money_collect neq ''">
+											<a href="javascript:void(0);" target="_self">（{$vo.money_collect}）</a>个
+											<elseif condition="$vs.money_collect eq ''"/>
+											<a href="javascript:void(0);" target="_self">（无）</a>
+											</if>
 										</td>
 									</tr>
 									<tr>
@@ -219,15 +227,27 @@
 										</td>
 										<td>
 											逾期待还款
-											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
+											<if condition="$vs.money_collect neq ''">
+											<a href="javascript:void(0);" target="_self">（{$vo.money_collect}）</a>个
+											<elseif condition="$vs.money_collect eq ''"/>
+											<a href="javascript:void(0);" target="_self">（无）</a>
+											</if>
 										</td>
 										<td>
 											等待审核借款
-											<a href="homeBorrowAuditList.htm" target="_self">（{$vo.money_collect}）</a>个
+											<if condition="$vs.money_collect neq ''">
+											<a href="javascript:void(0);" target="_self">（{$vo.money_collect}）</a>个
+											<elseif condition="$vs.money_collect eq ''"/>
+											<a href="javascript:void(0);" target="_self">（无）</a>
+											</if>
 										</td>
 										<td>
 											上传资料
-											<a href="queryMyPayingBorrowList.htm" target="_self">（{$vo.money_collect}）</a>个
+											<if condition="$vs.money_collect neq ''">
+											<a href="javascript:void(0);" target="_self">（{$vo.money_collect}）</a>个
+											<elseif condition="$vs.money_collect eq ''"/>
+											<a href="javascript:void(0);" target="_self">（无）</a>
+											</if>
 										</td>
 									</tr>
 								</table>
@@ -286,6 +306,8 @@
 							</div>
 						</div>
 					</div>
+					</volist>
+					<volist name="list" id="vo">
 					<div class="box">
 						<h2 class="otherh2">
 							账户详情：
@@ -300,35 +322,53 @@
 								<tr>
 									<td>
 										账户总额：￥
-										<s:if test="#request.accmountStatisMap.accountSum !=''">{$vo.account_money}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.account_money}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										可用余额：￥
-										<s:if test="#request.accmountStatisMap.usableAmount !=''">{$vo.account_money}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.account_money}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										冻结金额：￥
-										<s:if test="#request.accmountStatisMap.freezeAmount !=''">{$vo.money_freeze}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_freeze}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										总收益：￥
-										<s:if test="#request.accmountStatisMap.earnSum !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										利息收益：￥
-										<s:if test="#request.accmountStatisMap.rateEarnAmount !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										其他收益：￥
-										<s:if test="#request.accmountStatisMap.otherEarnAmount !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								<tr>
@@ -339,35 +379,53 @@
 								<tr>
 									<td>
 										已收总额：￥
-										<s:if test="#request.accmountStatisMap.hasPaySum !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										已收本金：￥
-										<s:if test="#request.accmountStatisMap.hasPayPrincipal !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										已收利息：￥
-										<s:if test="#request.accmountStatisMap.hasPayInterest !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										待收总额：￥
-										<s:if test="#request.accmountStatisMap.forPaySum !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										待收本金：￥
-										<s:if test="#request.accmountStatisMap.forPayPrincipal !=''">{$vo.back_money}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.back_money}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										待收利息：￥
-										<s:if test="#request.accmountStatisMap.forPayInterest !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								<tr>
@@ -378,35 +436,53 @@
 								<tr>
 									<td>
 										已还总额：￥
-										<s:if test="#request.accmountStatisMap.hasRePaySum !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										已还本金：￥
-										<s:if test="#request.accmountStatisMap.hasRePayPrincipal !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										已还利息：￥
-										<s:if test="#request.accmountStatisMap.hasRePayInterest !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										待还总额：￥
-										<s:if test="#request.accmountStatisMap.forRePaySum !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										待还本金：￥
-										<s:if test="#request.accmountStatisMap.forRePayPrincipal !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 									<td>
 										待还利息：￥
-										<s:if test="#request.accmountStatisMap.forRePayInterest !=''">{$vo.money_collect}</s:if>
-										<s:else>0</s:else>
+										<if condition="$vo.account_money neq ''">
+										{$vo.money_collect}
+										<elseif condition="$vo.account_money eq 1"/>
+										0
+										</if>
 									</td>
 								</tr>
 								

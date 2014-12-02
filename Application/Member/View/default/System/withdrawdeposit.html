@@ -1,40 +1,27 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/include/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>融资谷网贷</title>
-		<jsp:include page="/include/head.jsp"></jsp:include>
-		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
-		<link rel="stylesheet" href="css/base.css" type="text/css"></link>
-		<link href="css/inside.css" rel="stylesheet" type="text/css" />
-		<link id="skin" rel="stylesheet" href="css/jbox/Gray/jbox.css" />
-
-	</head>
-
-	<body>
-		<%-- 引用头部公共部分 --%>
+<block name="body">
+<extend name="Base/common"/>
+<block name="body">
+		<!-- 引用头部公共部分 -->
 		<jsp:include page="/include/topref.jsp"></jsp:include>
 		<div class="nymain">
 			<div class="wdzh">
 				<div class="l_nav">
 					<div class="box">
-						<%-- 引用我的帐号主页左边栏 --%>
-						<%@include file="/include/left.jsp"%>
+						<!-- 引用我的帐号主页左边栏 -->
+						<include file="Public/left"/>
 					</div>
 				</div>
 				<div class="r_main">
 					<div class="tabtil">
 						<ul>
-							<li onclick="jumpUrl('queryFundrecordInit.htm');">
+							<li class=" tipshang">
 								资金记录
 							</li>
-							<li onclick="jumpUrl('rechargeInit.htm');">
-								充值
+							<li >
+								<a href="{:U('System/recharge')}">充值</a>
 							</li>
-							<li class="on" onclick="jumpUrl('withdrawLoad.htm');">
-								提现
+							<li class="on" >
+								<a href="{:U('System/withdrawdeposit')}">提现</a>
 							</li>
 						</ul>
 					</div>
@@ -121,7 +108,7 @@
 									<s:if test="#request.banks!=null && #request.banks.size>0">
 										<s:iterator value="#request.banks" var="bean" status="sta">
 
-											<%-- 并且银行卡的状态为绑定状态 --%>
+											<!-- 并且银行卡的状态为绑定状态 -->
 											<s:if test="#bean.cardStatus==1">
 												<tr>
 													<td>
@@ -129,7 +116,7 @@
 													</td>
 													<td>
 														<input type="radio" name="wbank" value="${ bean.id}" />
-														${bean.bankName}&nbsp;&nbsp;${bean.branchBankName}
+														<!-- ${bean.bankName}&nbsp;&nbsp;${bean.branchBankName} -->
 													</td>
 												</tr>
 											</s:if>
@@ -139,7 +126,7 @@
 										<tr>
 											<td colspan="9" align="left">
 												<a href="yhbound.htm">暂未设置提现银行，请先进行设置</a>
-												<%--   暂未设置提现银行，请先进行设置 --%>
+												<!-- 暂未设置提现银行，请先进行设置 -->
 											</td>
 										</tr>
 									</s:else>
@@ -165,7 +152,7 @@
 												class="formtips"></span>
 										</td>
 									</tr>
-									<%-- 	<tr>
+		<!-- 							<tr>
 										<td>
 											验证码：&nbsp;&nbsp;
 											<strong>*</strong>
@@ -178,16 +165,14 @@
 												class="formtips"> <s:if test="#request.ISDEMO==1">* 不发送短信</s:if>
 											</span>
 										</td>
-									</tr> --%>
+									</tr> -->
 									<tr>
 										<td>
 											&nbsp;
 										</td>
 										<td style="padding-top: 20px;">
-											<input id="btn_submit" class="bcbtn" value="确认提交" />
-											<%--
-    <a  href="javascript:void(0);" id="btn_submit" class="bcbtn" onclick="addWithdraw();" >确认提交</a>
-    --%>
+											<input id="btn_submit" class="bcbtn shigong" value="确认提交" />
+    <!-- <a  href="javascript:void(0);" id="btn_submit" class="bcbtn" onclick="addWithdraw();" >确认提交</a> -->
 										</td>
 									</tr>
 									<tr>
@@ -212,7 +197,7 @@
 				</div>
 			</div>
 		</div>
-		<%-- 引用底部公共部分 --%>
+		<!-- 引用底部公共部分 -->
 		<jsp:include page="/include/footer.jsp"></jsp:include>
 		<script type="text/javascript" src="/script/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
@@ -394,6 +379,4 @@ var flag = false;
 		});
 	});
 </script>
-
-	</body>
-</html>
+</block>

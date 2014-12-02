@@ -17,9 +17,36 @@ class BorrowController extends HomeController {
       $this->display();
     }
     public function circulation(){
+
       $this->display();
     }
-        /**
+    public function circulation_save(){
+        //从表单中获取来的数据 
+        $uid=is_login(); 
+        $m=M("z_borrow_info");
+        $data['borrow_name']=$_POST['borrow_name'];
+        $data['borrow_money']=$_POST["borrow_money"];
+        $data['borrow_interest_rate']=$_POST["borrow_interest_rate"];
+        $data['borrow_use']=$_POST["borrow_use"];
+        $data['collect_day']=$_POST["collect_day"];
+        $data['borrow_min']=$_POST["borrow_min"];
+        $data['borrow_max']=$_POST["borrow_max"];
+        $data['collect_time']=$_POST["collect_time"];
+        $data['repayment_type']=$_POST["repayment_type"];
+        $data['reward_vouch_rate']=$_POST["reward_vouch_rate"];
+        $data['borrow_info']=$_POST["borrow_info"];
+        $data['borrow_uid']=$uid;
+        $condition['uid'] =$uid;
+        //保存当前数据对象
+        if ($m = $m->where($condition)->add($data)) { //保存成功
+            //成功提示
+            $this->success(L('发布审核已提交'));
+        } else {
+            //失败提示
+            $this->error(L('发布失败'));
+        }
+    }
+     /**
      * 新增页面初始化
      */
     public function circulation_add(){
