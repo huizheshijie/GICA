@@ -65,10 +65,10 @@ class FinanceController extends HomeController {
     
     $bid = $id;//投标id赋值
         $listMember = M('member');
-        $condition['gica_member.uid'] =$uid;
+        $condition['gica_member.uid'] =$uid ;
         $list =$listMember->join('RIGHT JOIN gica_ucenter_member ON gica_member.uid = gica_ucenter_member.id' )->join('RIGHT JOIN gica_z_member_money ON gica_member.uid = gica_z_member_money.uid' )->where($condition)->select();
 
-        var_dump($list['']);
+        var_dump($list);
         $this->assign('list', $list);
         $this->assign('list2', $list2);
 
@@ -86,23 +86,35 @@ $m=M("z_borrow_investor");
 $m->investor_capital=$capital;
 $m->investor_uid=$uid;
 // 判断余额不足
-// if($list['account_money'] >= $capital ){
+if($list[0]['account_money'] >= $capital ){
 if($capital <= 0){// 上传错误提示错误信息
 
-            $this->error('投资金额不能小于零元');
+            $this->error('投资金额不能小于1元');
         }
         else{
         	$count=$m->add();
-            $this->success('投资成功！',U('Borrow/detail?id='.$bid));
+            // $this->success('投资成功！',U('Borrow/detail?id='.$bid));
+
+            $uid=is_login(); 
+            $condition1['uid'] =$uid;
+            $money=M("z_member_money");
+            $money=$money->field('account_money')->where($condition1)->select();//余额查询
+            $m1=M("z_member_money");
+            $money=intval ($money[0]['account_money'])-intval ($capital);//余额减掉金额
+            $data1['account_money']=$money;
+
+             if ($m1 = $m1->where($condition1)->save($data1)) { //保存成功
+            //成功提示
+            $this->success(L('投资成功。->>>>这不是真实金额'));
+            } else {
+            //失败提示
+            $this->error(L('投资失败，如发现金额已经投出，请及时联系我们处理。'));
+            }
      }
     $this->assign('list3',$list3);
-    var_dump($list3);
-
-
     }
-
-// else{
-//     $this->error('抱歉，您余额不足。请充值。');
-// }
-
+else{
+    $this->error('抱歉，您余额不足。请充值。');
+}
+}
 }
